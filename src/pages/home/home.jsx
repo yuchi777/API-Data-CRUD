@@ -1,13 +1,14 @@
 import "./home.scss";
+import Sidebar from "../../components/sidebar/Sidebar";
 
 
-const home = () => {
+const Home = () => {
   return (
-    <div className="home">
-      <h1 className="title">Home page component here</h1>
-      <h1 className="title">Sysmo system</h1>
+    <div className="home"> 
+      <Sidebar/>
+      <div className="homeContainer">container</div>
     </div>
   )
 }
 
-export default home
+export default Home
