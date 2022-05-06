@@ -4,6 +4,7 @@ import List from "./pages/list/List";
 import Single from "./pages/single/Single";
 import New from "./pages/new/New";
 import { userInputs,productInputs } from "./formSource";
+import '../node_modules/bulma/bulma.sass';
 import "./style/dark.scss";
 
 import { useContext } from "react";
