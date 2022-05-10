@@ -1,13 +1,11 @@
 import "./navbar.scss";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
-import LanguageOutlinedIcon from "@mui/icons-material/LanguageOutlined";
 import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
-import FullscreenExitOutlinedIcon from "@mui/icons-material/FullscreenExitOutlined";
-import NotificationsNoneOutlinedIcon from "@mui/icons-material/NotificationsNoneOutlined";
-import ChatBubbleOutlineOutlinedIcon from "@mui/icons-material/ChatBubbleOutlineOutlined";
 import ListOutlinedIcon from "@mui/icons-material/ListOutlined";
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { DarkModeContext } from "../../context/darkModeContext";
 import { useContext } from "react";
+import SettingsIcon from '@mui/icons-material/Settings';
 
 const Navbar = () => {
 
@@ -22,9 +20,11 @@ const Navbar = () => {
             <SearchOutlinedIcon className="icon"/>
         </div>
         <div className="items">
-          <div className="item">
-            <LanguageOutlinedIcon className="icon"/>
-            English
+        <div className="item">
+            <ListOutlinedIcon className="icon" onClick={()=>{
+              console.log('toggle here')
+
+            }}/>
           </div>
           <div className="item">
             <DarkModeOutlinedIcon className="icon" onClick={()=>{
@@ -32,21 +32,13 @@ const Navbar = () => {
             }}/>
           </div>
           <div className="item">
-            <FullscreenExitOutlinedIcon className="icon"/>
+            <SettingsIcon className="icon" />
           </div>
           <div className="item">
-            <NotificationsNoneOutlinedIcon className="icon"/>
-            <div className="counter">1</div>
+          <AccountCircleIcon className="icon" />
           </div>
           <div className="item">
-            <ChatBubbleOutlineOutlinedIcon className="icon"/>
-            <div className="counter">2</div>
-          </div>
-          <div className="item">
-            <ListOutlinedIcon className="icon"/>
-          </div>
-          <div className="item">
-            <img src="https://fakeimg.pl/30x30/" alt="img" className="avatar"/>
+            <img src="https://fakeimg.pl/30x30/" alt="Userimg" className="avatar"/>
           </div>
         </div>
 

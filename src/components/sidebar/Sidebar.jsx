@@ -1,86 +1,76 @@
 import "./sidebar.scss";
+import logo from "../../img/logo.png";
 import DashboardIcon from '@mui/icons-material/Dashboard';
+import FindInPageIcon from '@mui/icons-material/FindInPage';
+import DescriptionIcon from '@mui/icons-material/Description';
 import PersonIcon from '@mui/icons-material/Person';
 import CategoryIcon from '@mui/icons-material/Category';
-import CreditCardIcon from '@mui/icons-material/CreditCard';
-import LocalShippingIcon from '@mui/icons-material/LocalShipping';
-import EqualizerIcon from '@mui/icons-material/Equalizer';
-import NotificationsIcon from '@mui/icons-material/Notifications';
-import HealthAndSafetyIcon from '@mui/icons-material/HealthAndSafety';
-import PsychologyIcon from '@mui/icons-material/Psychology';
 import SettingsIcon from '@mui/icons-material/Settings';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 import { Link } from "react-router-dom";
-import { DarkModeContext } from "../../context/darkModeContext";
-import { useContext } from "react";
+
 
 const Sidebar = () => {
-    const { dispatch } = useContext(DarkModeContext);
     return (
         <div className='sidebar'>
             <div className="top">
                 <Link to="/" style={{textDecoration:"none"}}>
-                <span className="logo">
-                    Sysmo Demo
-                </span>
+                <img src={logo} alt="logoImg" className="logoImg"/>
                 </Link>
+                <span className="logo">
+                    Sysmo System
+                </span>
             </div>
-            <hr />
             <div className="center">
                 <ul>
-                    <p className="title">Main</p>
-                    <li>
-                        <DashboardIcon className="icon"/>
-                        <span>Dashboard</span>
-                    </li>
                     <p className="title">Lists</p>
-                    <Link to="/users" style={{textDecoration:"none"}}>
+                    <Link to="/users">
                     <li>
                         <PersonIcon className="icon"/>
                         <span>User</span>
                     </li>
                     </Link>
-                    <Link to="/products" style={{textDecoration:"none"}}>
+                    <Link to="/products">
                     <li>
                         <CategoryIcon className="icon" />
                         <span>Products</span>
                     </li>
                     </Link>
+                    <p className="title">Main</p>
                     <li>
-                        <CreditCardIcon className="icon" />
-                        <span>Orders</span>
+                        <DashboardIcon className="icon" />
+                        <span>Dashboard</span>
                     </li>
                     <li>
-                        <LocalShippingIcon className="icon" />
-                        <span>Delivery</span>
-                    </li>
-                    <p className="title">Useful</p>
-                    <li>
-                        <EqualizerIcon className="icon" />
-                        <span>Stats</span>
+                        <FindInPageIcon className="icon" />
+                        <span>LogSearchReport</span>
                     </li>
                     <li>
-                        <NotificationsIcon className="icon" />
-                        <span>Notifications</span>
+                        <FindInPageIcon className="icon" />
+                        <span>CheckReport</span>
                     </li>
-                    <p className="title">Service</p>
+                    <p className="title">Report</p>
                     <li>
-                        <HealthAndSafetyIcon className="icon" />
-                        <span>System Health</span>
+                        <DescriptionIcon className="icon" />
+                        <span>DayReport</span>
                     </li>
                     <li>
-                        <PsychologyIcon className="icon" />
-                        <span>Logs</span>
+                        <DescriptionIcon className="icon" />
+                        <span>WeekReport</span>
                     </li>
+                    <li>
+                        <DescriptionIcon className="icon" />
+                        <span>MonthReport</span>
+                    </li>
+                    <p className="title">Set</p>
                     <li>
                         <SettingsIcon className="icon" />
-                        <span>Settings</span>
+                        <span>Admin Setting</span>
                     </li>
-                    <p className="title">User</p>
                     <li>
                         <AccountCircleIcon className="icon" />
-                        <span>Profile</span>
+                        <span>Group Setting</span>
                     </li>
                     <li>
                         <ExitToAppIcon className="icon" />
@@ -88,16 +78,7 @@ const Sidebar = () => {
                     </li>
                 </ul>
             </div>
-            <div className="bottom">
-                <div className="colorOption" onClick={()=>{
-                    dispatch({type:"LIGHT"})
-                }}>
-                </div>
-                <div className="colorOption" onClick={()=>{
-                    dispatch({type:"DARK"})
-                }}>
-                </div>
-            </div>
+            
         </div>
     )
 }
