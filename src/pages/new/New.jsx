@@ -39,8 +39,6 @@ const New = ({inputs,title}) => {
               </div>
               
               ))}
-
-              <button>Send</button>
             </form>
           </div>
         </div>

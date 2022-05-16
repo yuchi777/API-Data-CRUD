@@ -1,6 +1,8 @@
 import * as React from 'react';
 import "./materialTable.scss";
 import { DataGrid } from '@mui/x-data-grid';
+// import Stack from '@mui/material/Stack';
+import Button from '@mui/material/Button';
 
 
 const columns = [
@@ -14,7 +16,14 @@ const columns = [
   { field: 'swap', headerName: 'swap', width: 20 },
   { field: 'lasttime', headerName: '最後時間', width: 100 },
   { field: 'alertmsg', headerName: '告警訊息', width: 130 },
-  { field: 'info', headerName: '資訊', width: 130 }
+  { field: 'info', headerName: '資訊', width: 230, renderCell:(params)=>{
+    return (
+      <div className='tableButton'>
+          <Button size="small" variant="contained">儀錶板</Button>
+          <Button size="small" variant="contained">近期日誌</Button>
+      </div>
+    )
+  } }
 ];
 
 const rows   = [
@@ -41,7 +50,6 @@ export default function MaterialTable() {
         columns={columns}
         pageSize={5}
         rowsPerPageOptions={[5]}
-        checkboxSelection
         />
       </div>
     

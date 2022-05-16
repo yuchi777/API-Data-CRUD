@@ -3,12 +3,16 @@ import Login from "./pages/login/Login";
 import List from "./pages/list/List";
 import Single from "./pages/single/Single";
 import New from "./pages/new/New";
-import { userInputs,productInputs } from "./formSource";
+import LogSearchReport from "./pages/logSearchReport/LogSearchReport";
+import CheckReport from "./pages/checkReport/CheckReport"
+import DayReport from "./pages/dayReport/DayReport"
+import WeekReport from "./pages/weekReport/WeekReport"
+import MonthReport from "./pages/monthReport/MonthReport"
 import '../node_modules/bulma/bulma.sass';
 import "./style/dark.scss";
 
-import { useContext } from "react";
-import { DarkModeContext } from "./context/darkModeContext";
+import { userInputs,productInputs } from "./formSource";
+
 
 import {
   BrowserRouter,
@@ -18,10 +22,10 @@ import {
 
 function App() {
 
-  const { darkMode } = useContext(DarkModeContext);
+  
 
   return (
-    <div className={darkMode ? "app dark" : "app"}>
+    <div>
       <BrowserRouter>
         <Routes>
           <Route path="/">
@@ -39,6 +43,21 @@ function App() {
               <Route path=":productId" element={<Single/>}/>
               <Route path="new" element={<New inputs={productInputs} title="Add New Product"/>}/>
             </Route>
+          </Route>
+          <Route path="/logSearchReport">
+              <Route index element={<LogSearchReport/>}/>
+          </Route>
+          <Route path="/checkReport">
+              <Route index element={<CheckReport/>}/>
+          </Route>
+          <Route path="/dayReport">
+              <Route index element={<DayReport/>}/>
+          </Route>
+          <Route path="/weekReport">
+              <Route index element={<WeekReport/>}/>
+          </Route>
+          <Route path="/monthReport">
+              <Route index element={<MonthReport/>}/>
           </Route>
         </Routes>
       </BrowserRouter>
