@@ -1,0 +1,8 @@
+.customer {
+  display: flex;
+}
+
+.customer .customerContainer {
+  flex: 6;
+}
+/*# sourceMappingURL=customer.css.map */

@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,OAAO,CAAA;EACH,OAAO,EAAE,IAAI;CAIhB;;AALD,AAEI,OAFG,CAEH,gBAAgB,CAAA;EACZ,IAAI,EAAC,CAAC;CACT",
+    "sources": [
+        "../talent/talent.scss"
+    ],
+    "names": [],
+    "file": "talent.css"
+}

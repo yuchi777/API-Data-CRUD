@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,MAAM,CAAA;EACF,OAAO,EAAE,IAAI;CAIhB;;AALD,AAEI,MAFE,CAEF,eAAe,CAAA;EACX,IAAI,EAAC,CAAC;CACT",
+    "sources": [
+        "../sales/sales.scss"
+    ],
+    "names": [],
+    "file": "sales.css"
+}

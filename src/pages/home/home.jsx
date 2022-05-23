@@ -1,32 +1,17 @@
 import "./home.scss";
 import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
-import Widget from "../../components/widget/Widget";
-import Chart from "../../components/chart/Chart";
-// import Table from "../../components/table/Table";
-import MaterialTable from "../../components/materialTable/MaterialTable.jsx";
 
 const Home = () => {
   return (
-    <div className="home"> 
+    <div className="home">
       <Sidebar/>
-      <div className="homeContainer"> 
+      <div className="homeContainer">
         <Navbar/>
-        <div className="widgets">
-          <Widget type="all"/>
-          <Widget type="normal"/>
-          <Widget type="warning"/>
-        </div>
-        <div className="listContainer">
-          <div className="listTitle">告警列表</div>
-          <MaterialTable />
-        </div>
-        <div className="listContainer">
-          <div className="listTitle">機台一欄</div>
-          <MaterialTable />
-        </div>
-        <div className="charts">
-          <Chart title="Last 6 Months (Revenue)" aspect={3/1}/>
+        <div>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque voluptatibus dignissimos eligendi possimus commodi obcaecati quas, placeat iste assumenda vel earum veniam, molestias quam voluptas similique debitis voluptatum beatae enim! Incidunt eius libero officia nam a officiis delectus quos sit! Veritatis fuga molestias, officiis nisi laudantium, voluptatibus error hic nam iusto eaque molestiae est tempore nemo, quasi itaque ratione asperiores non corrupti quae! Atque, accusamus temporibus repudiandae magni eaque reiciendis inventore dignissimos nam autem voluptatem reprehenderit? Ipsum sunt animi saepe odio eaque quos facilis a illo, expedita commodi, iusto unde amet eius libero nesciunt repellat? Quisquam eius nam molestiae accusantium?
+          </p>
         </div>
       </div>
     </div>

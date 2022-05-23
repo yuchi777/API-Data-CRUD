@@ -1,12 +1,12 @@
 //使用axios
 import axios from 'axios';
-
+import "./auth";
 
 const axiosSwitch = (baseURL) => {
 
   //創建實例
   const instance = axios.create({
-    baseURL: baseURL || process.env.REACT_APP_API_DOMAIN || 'http://localhost:3003/',
+    baseURL: baseURL || 'http://localhost:3003/',
     timeout: 1000
   });
 

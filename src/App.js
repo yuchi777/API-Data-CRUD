@@ -1,17 +1,18 @@
-import Home from "./pages/home/Home";
+import Home from "./pages/home/home";
 import Login from "./pages/login/Login";
 import List from "./pages/list/List";
 import Single from "./pages/single/Single";
 import New from "./pages/new/New";
-import LogSearchReport from "./pages/logSearchReport/LogSearchReport";
-import CheckReport from "./pages/checkReport/CheckReport"
-import DayReport from "./pages/dayReport/DayReport"
-import WeekReport from "./pages/weekReport/WeekReport"
-import MonthReport from "./pages/monthReport/MonthReport"
+import Techlead from "./pages/techlead/Techlead";
+import Sales from "./pages/sales/Sales"
+import Talent from "./pages/talent/Talent"
+import Customer from "./pages/customer/Customer"
 import '../node_modules/bulma/bulma.sass';
 import "./style/dark.scss";
 
-import { userInputs,productInputs } from "./formSource";
+// formSource.js
+import { userInputs } from "./formSource";
+
 
 
 import {
@@ -26,8 +27,8 @@ function App() {
 
   return (
     <div>
-      <BrowserRouter>
-        <Routes>
+      <BrowserRouter >
+        <Routes >
           <Route path="/">
             <Route index element={<Home/>}/>
             <Route path="login" element={<Login/>}/>
@@ -38,26 +39,18 @@ function App() {
               <Route path="new" element={<New inputs={userInputs} title="Add New User"/>}/>
             </Route>
 
-            <Route path="products">
-              <Route index element={<List/>}/>
-              <Route path=":productId" element={<Single/>}/>
-              <Route path="new" element={<New inputs={productInputs} title="Add New Product"/>}/>
-            </Route>
           </Route>
-          <Route path="/logSearchReport">
-              <Route index element={<LogSearchReport/>}/>
+          <Route path="/techlead">
+              <Route index element={<Techlead/>}/>
           </Route>
-          <Route path="/checkReport">
-              <Route index element={<CheckReport/>}/>
+          <Route path="/sales">
+              <Route index element={<Sales/>}/>
           </Route>
-          <Route path="/dayReport">
-              <Route index element={<DayReport/>}/>
+          <Route path="/talent">
+              <Route index element={<Talent/>}/>
           </Route>
-          <Route path="/weekReport">
-              <Route index element={<WeekReport/>}/>
-          </Route>
-          <Route path="/monthReport">
-              <Route index element={<MonthReport/>}/>
+          <Route path="/customer">
+              <Route index element={<Customer/>}/>
           </Route>
         </Routes>
       </BrowserRouter>

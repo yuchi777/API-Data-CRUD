@@ -1,6 +1,10 @@
-//使用 React Hook Form 函式庫***************************************************
 import React from "react";
+
+//使用 React Hook Form 函式庫
 import { useForm } from "react-hook-form";
+
+//使用useNavigate 轉址
+import { useNavigate } from "react-router-dom";
 
 //使用axios
 import axios from "../../commons/axios";
@@ -8,14 +12,14 @@ import axios from "../../commons/axios";
 //使用toast
 import { toast } from 'react-toastify';
 
+
 import "./login.scss";
-import Logo from "../../img/bnk003-2.png";
+import "../../commons/auth";
+
+
+import Logo from "../../img/systex-logo.jpg";
 import PersonIcon from '@mui/icons-material/Person';
 import KeyIcon from '@mui/icons-material/Key';
-
-
-
-
 
 
 
@@ -23,7 +27,6 @@ import KeyIcon from '@mui/icons-material/Key';
 export default function Login(props) {
 
   //useFrom為函式返回需要用的值並解構附值
-  // const { register, handleSubmit, watch, formState: { errors } }
   const { register, handleSubmit, formState: { errors } } = useForm({
     defaultValues: {
       account: "",
@@ -34,6 +37,13 @@ export default function Login(props) {
   console.log(errors);
   // console.log(watch("account"));
 
+
+  //重新轉址
+  const navigate = useNavigate()
+  function handleHistory() {
+    navigate('/')
+  }
+
   const onSubmit = async data => {
 
     // 2.獲取表單數據
@@ -42,14 +52,20 @@ export default function Login(props) {
     //   password: this.passwordRef.current.value,
     // };
     
-    console.log(data);
+    // console.log(data);
 
     // 3.處理登入邏輯
     //axios串驗證
     try {
+      console.log('data:',data);
       //解構附值
       const { account, password } = data;
-      
+
+      //測試
+      let axiosPost = axios.post('/auth/login',{account, password});
+      console.log(axiosPost);
+
+      //axios post
       const response = await axios.post('/auth/login', { account, password });
       console.log('response:',response);
 
@@ -66,8 +82,10 @@ export default function Login(props) {
       toast.success('Login Success');
 
       // 4.跳轉到首頁
-      props.history.push("/");
+      // props.history.push("/");
+      handleHistory();
     } catch (error) {
+      console.log('error:',error);
       console.log(error.response.data);
       const message = error.response.data.message;
       toast.error(message);
@@ -89,19 +107,19 @@ export default function Login(props) {
               <figure className="image">
                 <img src={Logo} alt="logo"/>
               </figure>
-              <label className="label">SYSMO SYSTEM</label>
+              <label className="label">SIGNATURE</label>
             </div>
         <div className="field">
-          <label className="label">Account</label>
+          <label className="label">帳號:</label>
           <div className="control has-icons-left">
 
             <input
               className={`input ${errors.account && 'is-danger'}`}
               type="text"
-              placeholder="account"
+              placeholder="Account"
               name="account"
               {...register("account", { 
-                required: 'account is required', 
+                required: 'Account is required', 
                 pattern: {
                 //value: /^[a-za-z0-9_-]+@[a-za-z0-9_-]+(\.[a-za-z0-9_-]+)+$/, //account驗證正則表達式(email)
                 value: /^[a-zA-z]\w{3,15}$/, //au4
@@ -117,7 +135,7 @@ export default function Login(props) {
           </div>
         </div>
         <div className="field">
-          <label className="label">Password</label>
+          <label className="label">密碼:</label>
           <div className="control has-icons-left">
 
             <input
@@ -126,7 +144,7 @@ export default function Login(props) {
               placeholder="Password"
               name="password"
               {...register("password", { 
-                required: 'password is required', 
+                required: 'Password is required', 
                 minLength: { value: 6, message: "Min length is 6" } })}
             ></input>
               <span className="icon is-small is-left">
@@ -138,7 +156,7 @@ export default function Login(props) {
           <br />
           <div className="control">
             <button className="button is-fullwidth is-info">
-              Login
+              LOGIN
             </button>
           </div>
         </div>
