@@ -2,7 +2,9 @@ import React, {useMemo} from 'react';
 //使用router
 import {Link} from 'react-router-dom';
 
-// import Panel from '../../components/panel/Panel';
+import { useNavigate } from "react-router-dom";
+
+import Panel from '../../components/panel/Panel';
 import UserProfile from '../../components/userProfile/UserProfile'
 
 import "../../commons/auth";
@@ -11,12 +13,38 @@ import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import ListOutlinedIcon from "@mui/icons-material/ListOutlined";
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import SettingsIcon from '@mui/icons-material/Settings';
+import Button from '@mui/material/Button';
 
 const Navbar = (props) => {
 
+  //重新轉址
+  const navigate = useNavigate()
+  function handleHistory() {
+    navigate('/login')
+  }
+
+
+  
+
   const toProfile = () => {
 
-    console.log('toProfile')
+    console.log('toProfile');
+    Panel.open({
+      component: UserProfile,
+
+      //UserProfile的props
+      props:{
+          
+      },
+      callback: data => {
+
+          console.log('data',data);
+
+          if( data === 'logout'){
+              handleHistory();
+          }
+      }
+  })
 
   }
 
@@ -55,8 +83,9 @@ const Navbar = (props) => {
             {(user.name)
               ? (
                 <div className='navProfile' onClick={toProfile}>
-                  <AccountCircleIcon className="navProfileIcon"/>
-                  {user.name}
+                  <Button variant="contained" endIcon={<AccountCircleIcon className="navProfileIcon" />}>
+                    {user.name}
+                  </Button>
                 </div>
               )
               : (
