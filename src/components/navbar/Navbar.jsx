@@ -2,6 +2,9 @@ import React, {useMemo} from 'react';
 //使用router
 import {Link} from 'react-router-dom';
 
+// import Panel from '../../components/panel/Panel';
+import UserProfile from '../../components/userProfile/UserProfile'
+
 import "../../commons/auth";
 import "./navbar.scss";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
@@ -9,7 +12,7 @@ import ListOutlinedIcon from "@mui/icons-material/ListOutlined";
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import SettingsIcon from '@mui/icons-material/Settings';
 
-const Navbar = () => {
+const Navbar = (props) => {
 
   const toProfile = () => {
 
@@ -47,21 +50,19 @@ const Navbar = () => {
           <div className="item">
             <SettingsIcon className="icon"/>
           </div>
-          <div className="item">
-            <AccountCircleIcon className="icon"/>
-          </div>
 
           <div className="end">
             {(user.name)
               ? (
-                <span className='' onClick={toProfile}>
-                  <i className='fa fa-gear'></i>{user.name}
-                </span>
+                <div className='navProfile' onClick={toProfile}>
+                  <AccountCircleIcon className="navProfileIcon"/>
+                  {user.name}
+                </div>
               )
               : (
                 <React.Fragment>
-                  <Link to="/login">Login</Link>
-                  <Link to="/register">Register</Link>
+                  <Link className='navLink' to="/login">Login</Link>
+                  <Link className='navLink' to="/register">Register</Link>
                 </React.Fragment>
               )}
           </div>

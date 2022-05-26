@@ -5,64 +5,56 @@
         "name":"sysadmin",
         "account":"sysadmin",
         "password":"sysadmin1qaz@WSX",
-        "level":1,
-        "type":"sysadmin"
+        "type":1
         },
         {
         "id":2,
         "name":"user",
         "account":"user",
         "password":"user1qaz@WSX",
-        "level":0,
-        "type":"user"
+        "type":0
         },
         {
         "id":3,
         "name":"techlead",
         "account":"techlead",
         "password":"techlead1qaz@WSX",
-        "level":0,
-        "type":"techlead"
+        "type":0
         },
         {
         "id":4,
         "name":"sales",
         "account":"sales",
         "password":"sales1qaz@WSX",
-        "level":0,
-        "type":"sales"
+        "type":0
         },
         {
         "id":5,
         "name":"talent",
         "account":"talent",
         "password":"talent1qaz@WSX",
-        "level":0,
-        "type":"talent"
+        "type":0
         },
         {
         "id":6,
         "name":"director",
         "account":"director",
         "password":"director1qaz@WSX",
-        "level":0,
-        "type":"director"
+        "type":0
         },
         {
         "id":7,
         "name":"hr",
         "account":"hr",
         "password":"hr1qaz@WSX",
-        "level":0,
-        "type":"hr"
+        "type":0
         },
         {
         "id":8,
         "name":"customer",
         "account":"customer",
         "password":"customer1qaz@WSX",
-        "level":0,
-        "type":"customer"
+        "type":0
         }
         ]
 }

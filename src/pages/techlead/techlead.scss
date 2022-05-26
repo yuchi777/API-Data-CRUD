@@ -2,5 +2,19 @@
     display: flex;
     .techleadContainer{
         flex:6;
+
+
+
+
+        .techleadTable{
+            padding: 50px;
+            
+
+            h2{
+                font-weight: bold;
+                font-size: 2rem;
+                padding: 10px;
+            }
+        }
     }
 }

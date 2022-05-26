@@ -11,7 +11,7 @@ const axiosSwitch = (baseURL) => {
   });
 
 
-  //返回之前設置攔截
+  //返回之前設置攔截(加入jwToken)
   //axios攔截器 Add a request interceptor
   //加入token
   //config為axios create裡的設定

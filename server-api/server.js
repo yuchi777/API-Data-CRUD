@@ -56,6 +56,12 @@ const isExist = ( account ) => {
     // return account === 'admin@123.com' && password === 'admin'
 };
 
+
+
+
+
+
+
 const SECRET = 'test123145353jkjkjl343323434';
 const expiresIn = '1h';
 //驗證通過獲得Token 
@@ -63,6 +69,13 @@ const expiresIn = '1h';
 const createToken = payload => {
     return jwt.sign(payload, SECRET, { expiresIn });
 }
+
+
+
+
+
+
+
 
 
 //自定義串接請求 //login
@@ -75,7 +88,7 @@ server.post('/auth/login', (request, response) => {
             u => u.account === account && u.password === password
         );
         //解構附值 user => {name, type}
-        const { name, type } = user;
+        const { name, type} = user;
 
         //JWT //驗證通過=>獲得JWT token
         //const jwtToken = 'dfafhdfhdifda.afasfafadfa.adf233r32fe';
@@ -166,9 +179,19 @@ server.post('/auth/register', (req, res) => {
 // server.get('/auth/login',(req, res)=>{
 //     return res.status(200).json('Get request success!')
 // })
+/**
+request	headers	-->	Authorization
+Authorization:	Bearer	eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+.eyJuaWNrbmFtZSI6ImFkbWluIiwidHlwZSI6MSwiZW1haWwiOiJhZG1pbkAxNjMuY29tIiwiaWF0
+IjoxNTcyNzU3MjAzLCJleHAiOjE1NzI3NjA4MDN9
+.f4hfN1IjU4E23Lo44N-2VLzc1qoyNu1oZg2iQreZTfU
+*/
+//  控制符合字義
+//	server.use( /^(?!\/auth).*$/, (req,res,next)	=>	{
+//  控制多個資源
+//	server.use( ['/carts'], (req,res,next)	=>	{
 
-
-server.use('/carts', (req, res, next) => {
+server.use('/techlead', (req, res, next) => {
     if (
         req.headers.authorization === undefined ||
         req.headers.authorization.split(' ')[0] !== 'Bearer'
@@ -204,6 +227,13 @@ server.use('/carts', (req, res, next) => {
         res.status(status).json({ status, message });
     }
 });
+
+
+
+
+
+
+
 
 //Verify	the	token
 //驗證token
