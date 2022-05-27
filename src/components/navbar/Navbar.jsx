@@ -30,6 +30,7 @@ const Navbar = () => {
 
     console.log('toProfile');
 
+    //Panel裝載資料UserProfile,user,callback
     Panel.open({
       component: UserProfile,
 
