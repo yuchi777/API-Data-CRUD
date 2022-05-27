@@ -27,13 +27,17 @@ const Techlead = () => {
 
   useEffect(() => {
     
-    //控制資源
+    //取資源=>控制資源
     //依據${user.account}判別身分獲取資料
     const user = global.auth.getUser() || {}
     axios.get(`/${user.account}`).then((re)=>{
 
-      console.log('re',re.data);//返回資料
-      setRow(re.data);
+      if(user.account === 'techlead' ){
+        console.log('re',re.data);//返回資料
+        setRow(re.data);
+      }else{
+        setRow([]);
+      }
   
    }).catch((err)=>{
       console.log(err.response);

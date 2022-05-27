@@ -15,7 +15,7 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import SettingsIcon from '@mui/icons-material/Settings';
 import Button from '@mui/material/Button';
 
-const Navbar = (props) => {
+const Navbar = () => {
 
   //重新轉址
   const navigate = useNavigate()
@@ -29,12 +29,13 @@ const Navbar = (props) => {
   const toProfile = () => {
 
     console.log('toProfile');
+
     Panel.open({
       component: UserProfile,
 
       //UserProfile的props
       props:{
-          
+          user: user
       },
       callback: data => {
 

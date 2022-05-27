@@ -12,10 +12,11 @@ const UserProfile = (props) => {
 
     }
 
-    const user = useMemo(() => {
-        //解碼token獲得user資料 或回傳空{}
-        return global.auth.getUser() || {}
-      }, [])
+    // 用props傳值獲得資料(from Navbar)
+    // const user = useMemo(() => {
+    //     //解碼token獲得user資料 或回傳空{}
+    //     return global.auth.getUser() || {}
+    //   }, [])
 
 
   return (
@@ -27,21 +28,21 @@ const UserProfile = (props) => {
                 <div className="field">
                     <div className="control">
                         <label className="label label-flex">Name</label>
-                        <input className="input" type="text" defaultValue={user.name} />
+                        <input className="input" type="text" defaultValue={props.user.name} />
                     </div>
                 </div>
 
                 <div className="field">
                     <div className="control">
                         <label className="label label-flex">Account</label>
-                        <input className="input" type="text" defaultValue={user.account} />
+                        <input className="input" type="text" defaultValue={props.user.account} />
                     </div>
                 </div>
 
                 <div className="field">
                     <div className="control">
                         <label className="label label-flex">Type</label>
-                        <input className="input" type="text" defaultValue={user.type === 1 ? 'Manger' : 'General User'} />
+                        <input className="input" type="text" defaultValue={props.user.type === 1 ? 'Manger' : 'General User'} />
                     </div>
                 </div>
 
