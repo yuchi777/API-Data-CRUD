@@ -19,22 +19,22 @@
       .img-wrapper {
         position: relative;
 
-        // .out-stock-text {
-        //   position: absolute;
-        //   top: 0;
-        //   bottom: 0;
-        //   right: 0;
-        //   left: 0;
-        //   background: rgba(255, 255, 255, 0.85);
-        //   display: flex;
-        //   justify-content: center;
-        //   align-items: center;
-        //   color: rgb(199, 84, 18);
-        //   z-index: -1;
-        //   font-weight: 800;
-        //   font-size: 16px;
-        //   text-transform: uppercase;
-        // }
+        .out-stock-text {
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          right: 0;
+          left: 0;
+          background: rgba(255, 255, 255, 0.85);
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: rgb(199, 84, 18);
+          z-index: -1;
+          font-weight: 800;
+          font-size: 16px;
+          text-transform: uppercase;
+        }
         // img {
         //   max-width: 100%;
         //   height: auto;
@@ -72,31 +72,30 @@
 
     .p-footer {
       display: flex;
-      justify-content: space-between;
+      justify-content:start;
       align-items: center;
-      margin-top: 8px;
+      margin-top: 20px;
 
 
-      .price {
-        color: #333;
-        font-weight: 600;
-        // &::before {
-        //   content: '￥';
-        //   font-size: 12px;
-        // }
-      }
 
-      .add-cart {
+      .footer-btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: bold;
+        text-align: center;
+        margin-right:20px ;
         outline: none;
         border: none;
-        padding: 0;
+        padding: 20px;
         background-color: #eee;
-        width: 2rem;
-        height: 2rem;
+        width: 3.7rem;
+        height: 3.7rem;
         border-radius: 50%;
         color: rgb(143, 140, 140);
         cursor: pointer;
         transition: all 0.2s;
+
         &:hover {
           background-color: #333;
           color: #fff;
@@ -105,21 +104,21 @@
           background-color: rgb(10, 88, 133);
           color: #fff;
         }
-        i {
-          transform: translateX(-8%);
-        }
-        i:last-child {
-          display: none;
-        }
+        // span {
+        //   transform: translateX(-8%);
+        // }
+        // span:last-child {
+        //   display: none;
+        // }
         &:disabled {
           cursor: not-allowed;
           background-color: #f9f9f9;
           color: rgb(199, 84, 18);
         }
-        &:disabled > i:first-child {
+        &:disabled > span:first-child {
           display: none;
         }
-        &:disabled > i:last-child {
+        &:disabled > span:last-child {
           display: inline !important;
         }
       }

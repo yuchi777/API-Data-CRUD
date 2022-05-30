@@ -1,219 +1,252 @@
 {
-    "techlead": [
-      {
-        "id": 1,
-        "number": 1,
-        "name": "約翰",
-        "name-en": "John",
-        "sys-number": "100101",
-        "sys-email": "john@systex.com",
-        "level":1,
-        "birthday":"2022/5/20",
-        "gender":"male",
-        "role":"techlead",
-        "school":"systex school",
-        "department":"tech",
-        "phone":12345678,
-        "onboard":"2022/6/1",
-        "status":"on"
-      },
-      {
-        "id": 2,
-        "number": 2,
-        "name": "喬2",
-        "name-en": "Joe",
-        "sys-number": "100102",
-        "sys-email": "Joe@systex.com",
-        "level":1,
-        "birthday":"2022/5/22",
-        "gender":"female",
-        "role":"sales",
-        "school":"systex school2",
-        "department":"sales",
-        "phone":87654321,
-        "onboard":"2022/7/1",
-        "status":"off"
-      }
-      ,{
-        "id": 3,
-        "number": 3,
-        "name": "約翰3",
-        "name-en": "John3",
-        "sys-number": "100103",
-        "sys-email": "john3@systex.com",
-        "level":2,
-        "birthday":"2022/5/23",
-        "gender":"male",
-        "role":"director",
-        "school":"systex school3",
-        "department":"hr",
-        "phone":747643364,
-        "onboard":"2022/8/1",
-        "status":"on"
-      }
-      ,{
-        "id": 4,
-        "number": 4,
-        "name": "約翰4",
-        "name-en": "John4",
-        "sys-number": "100104",
-        "sys-email": "john4@systex.com",
-        "level":4,
-        "birthday":"2022/5/24",
-        "gender":"male",
-        "role":"director",
-        "school":"systex school4",
-        "department":"hr",
-        "phone":747643365,
-        "onboard":"2022/8/1",
-        "status":"off"
-      }
-      ,{
-        "id": 5,
-        "number": 5,
-        "name": "喬",
-        "name-en": "Joe",
-        "sys-number": "100105",
-        "sys-email": "Joe@systex.com",
-        "level":2,
-        "birthday":"2022/5/23",
-        "gender":"male",
-        "role":"sales",
-        "school":"systex school5",
-        "department":"sales",
-        "phone":747643364,
-        "onboard":"2022/8/1",
-        "status":"on"
-      }
-      ,{
-        "id": 6,
-        "number": 6,
-        "name": "安迪6",
-        "name-en": "Andy",
-        "sys-number": "100106",
-        "sys-email": "Andy6@systex.com",
-        "level":1,
-        "birthday":"2022/5/23",
-        "gender":"fmale",
-        "role":"hr",
-        "school":"systex school3",
-        "department":"hr",
-        "phone":747643364,
-        "onboard":"2022/8/1",
-        "status":"off"
-      }
-      ,{
-        "id": 7,
-        "number": 7,
-        "name": "安迪7",
-        "name-en": "Andy",
-        "sys-number": "100107",
-        "sys-email": "Andy7@systex.com",
-        "level":3,
-        "birthday":"2022/5/23",
-        "gender":"fmale",
-        "role":"director",
-        "school":"systex school7",
-        "department":"hr",
-        "phone":747643364,
-        "onboard":"2022/8/1",
-        "status":"on"
-      }
-      
-    ],
-    "sales": [
+  "techlead": [
+    {
+      "id": 1,
+      "number": 1,
+      "name": "約翰",
+      "name-en": "John",
+      "sys-number": "100101",
+      "sys-email": "john@systex.com",
+      "level": 1,
+      "birthday": "2022/5/20",
+      "gender": "male",
+      "role": "techlead",
+      "school": "systex school",
+      "department": "tech",
+      "phone": 12345678,
+      "onboard": "2022/6/1",
+      "status": "on"
+    },
+    {
+      "id": 2,
+      "number": 2,
+      "name": "喬2",
+      "name-en": "Joe",
+      "sys-number": "100102",
+      "sys-email": "Joe@systex.com",
+      "level": 1,
+      "birthday": "2022/5/22",
+      "gender": "female",
+      "role": "sales",
+      "school": "systex school2",
+      "department": "sales",
+      "phone": 87654321,
+      "onboard": "2022/7/1",
+      "status": "off"
+    },
+    {
+      "id": 3,
+      "number": 3,
+      "name": "約翰3",
+      "name-en": "John3",
+      "sys-number": "100103",
+      "sys-email": "john3@systex.com",
+      "level": 2,
+      "birthday": "2022/5/23",
+      "gender": "male",
+      "role": "director",
+      "school": "systex school3",
+      "department": "hr",
+      "phone": 747643364,
+      "onboard": "2022/8/1",
+      "status": "on"
+    },
+    {
+      "id": 4,
+      "number": 4,
+      "name": "約翰4",
+      "name-en": "John4",
+      "sys-number": "100104",
+      "sys-email": "john4@systex.com",
+      "level": 4,
+      "birthday": "2022/5/24",
+      "gender": "male",
+      "role": "director",
+      "school": "systex school4",
+      "department": "hr",
+      "phone": 747643365,
+      "onboard": "2022/8/1",
+      "status": "off"
+    },
+    {
+      "id": 5,
+      "number": 5,
+      "name": "喬",
+      "name-en": "Joe",
+      "sys-number": "100105",
+      "sys-email": "Joe@systex.com",
+      "level": 2,
+      "birthday": "2022/5/23",
+      "gender": "male",
+      "role": "sales",
+      "school": "systex school5",
+      "department": "sales",
+      "phone": 747643364,
+      "onboard": "2022/8/1",
+      "status": "on"
+    },
+    {
+      "id": 6,
+      "number": 6,
+      "name": "安迪6",
+      "name-en": "Andy",
+      "sys-number": "100106",
+      "sys-email": "Andy6@systex.com",
+      "level": 1,
+      "birthday": "2022/5/23",
+      "gender": "fmale",
+      "role": "hr",
+      "school": "systex school3",
+      "department": "hr",
+      "phone": 747643364,
+      "onboard": "2022/8/1",
+      "status": "off"
+    },
+    {
+      "id": 7,
+      "number": 7,
+      "name": "安迪7",
+      "name-en": "Andy",
+      "sys-number": "100107",
+      "sys-email": "Andy7@systex.com",
+      "level": 3,
+      "birthday": "2022/5/23",
+      "gender": "fmale",
+      "role": "director",
+      "school": "systex school7",
+      "department": "hr",
+      "phone": 747643364,
+      "onboard": "2022/8/1",
+      "status": "on"
+    }
+  ],
+  "sales": [
+    {
+      "customer": [
         {
-            "customer":[
-                {
-                    "id": 1,
-                    "name": "BU-1",
-                    "client": "AAA有限公司",
-                    "contact": "Jenny",
-                    "place": "台北市"
-                  },
-                {
-                    "id": 2,
-                    "name": "BU-2",
-                    "client": "BBB有限公司",
-                    "contact": "Andy",
-                    "place": "台中市"
-                  },
-                {
-                    "id": 3,
-                    "name": "BU-3",
-                    "client": "CCC有限公司",
-                    "contact": "Amy",
-                    "place": "台南市"
-                  }
-            
-            ],
-            "contract":[
-                {
-                    "id":1,
-                    "project":"project-1",
-                    "sys-name":"sys-1",
-                    "date-on":"2022/5/1",
-                    "date-off":"2022/6/1",
-                    "price":100
-                },
-                {
-                    "id":2,
-                    "project":"project-2",
-                    "sys-name":"sys-2",
-                    "date-on":"2022/5/2",
-                    "date-off":"2022/6/2",
-                    "price":2000
-                },
-                {
-                    "id":3,
-                    "project":"project-3",
-                    "sys-name":"sys-3",
-                    "date-on":"2022/5/3",
-                    "date-off":"2022/6/3",
-                    "price":3000
-                    
-
-                }
-            ]
-        }
-      
-    ],
-    "talent":[
-        {
-            "id":1,
-            "date":"2022/5/22",
-            "week":"MON",
-            "on-duty":"0900",
-            "off-duty":"1800",
-            "Attendance-hour":8,
-            "extra-hour":0,
-            "extra-hour-holiday":0,
-            "dayoff":0,
-            "msg":"other msg"
+          "id": 1,
+          "name": "BU-1",
+          "client": "AAA有限公司",
+          "contact": "Jenny",
+          "place": "台北市"
         },
         {
-            "id":2,
-            "date":"2022/6/22",
-            "week":"TUE",
-            "on-duty":"0800",
-            "off-duty":"1700",
-            "Attendance-hour":8,
-            "extra-hour":1,
-            "extra-hour-holiday":0,
-            "dayoff":2,
-            "msg":"other msg12345"
+          "id": 2,
+          "name": "BU-2",
+          "client": "BBB有限公司",
+          "contact": "Andy",
+          "place": "台中市"
         },
         {
-            "id":3,
-            "date":"2022/7/22",
-            "week":"WED",
-            "on-duty":"1000",
-            "off-duty":"11900",
-            "Attendance-hour":8,
-            "extra-hour":5,
-            "extra-hour-holiday":0,
-            "dayoff":7,
-            "msg":"other msg345"
+          "id": 3,
+          "name": "BU-3",
+          "client": "CCC有限公司",
+          "contact": "Amy",
+          "place": "台南市"
         }
-    ]
-  }
+      ],
+      "contract": [
+        {
+          "id": 1,
+          "project": "project-1",
+          "sys-name": "sys-1",
+          "date-on": "2022/5/1",
+          "date-off": "2022/6/1",
+          "price": 100
+        },
+        {
+          "id": 2,
+          "project": "project-2",
+          "sys-name": "sys-2",
+          "date-on": "2022/5/2",
+          "date-off": "2022/6/2",
+          "price": 2000
+        },
+        {
+          "id": 3,
+          "project": "project-3",
+          "sys-name": "sys-3",
+          "date-on": "2022/5/3",
+          "date-off": "2022/6/3",
+          "price": 3000
+        }
+      ]
+    }
+  ],
+  "talent": [
+    {
+      "id": 1,
+      "date": "2022/5/22",
+      "week": "MON",
+      "on-duty": "0900",
+      "off-duty": "1800",
+      "Attendance-hour": 8,
+      "extra-hour": 0,
+      "extra-hour-holiday": 0,
+      "dayoff": 0,
+      "msg": "other msg"
+    },
+    {
+      "id": 2,
+      "date": "2022/6/22",
+      "week": "TUE",
+      "on-duty": "0800",
+      "off-duty": "1700",
+      "Attendance-hour": 8,
+      "extra-hour": 1,
+      "extra-hour-holiday": 0,
+      "dayoff": 2,
+      "msg": "other msg12345"
+    },
+    {
+      "id": 3,
+      "date": "2022/7/22",
+      "week": "WED",
+      "on-duty": "1000",
+      "off-duty": "11900",
+      "Attendance-hour": 8,
+      "extra-hour": 5,
+      "extra-hour-holiday": 0,
+      "dayoff": 7,
+      "msg": "other msg345"
+    }
+  ],
+  "location": [
+    {
+      "id": 1,
+      "img": "sysImg",
+      "name": "精誠資訊",
+      "area": "台北市內湖區",
+      "place": "Systex辦公大樓",
+      "contact": "Amy",
+      "status": "available"
+    },
+    {
+      "id": 2,
+      "img": "sysImg",
+      "name": "精誠資訊",
+      "area": "台北市內湖區",
+      "place": "後棟大樓",
+      "contact": "Jhon",
+      "status": "unavailable"
+    },
+    {
+      "id": 3,
+      "img": "fubonImg",
+      "name": "富邦銀行",
+      "area": "台北市內湖區",
+      "place": "辦公大樓2F",
+      "contact": "Jean",
+      "status": "available"
+    },
+    {
+      "id": 4,
+      "img": "fubonImg",
+      "name": "富邦銀行",
+      "area": "台北市內湖區",
+      "place": "辦公大樓7F",
+      "contact": "Peter",
+      "status": "unavailable"
+    }
+  ]
+}

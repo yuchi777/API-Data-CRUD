@@ -10,8 +10,12 @@ import Customer from "./pages/customer/Customer"
 import '../node_modules/bulma/bulma.sass';
 import "./style/dark.scss";
 
+// 載入toastify套件
+// import {ToastContainer} from 'react-toastify';
+
 // formSource.js
 import { userInputs } from "./formSource";
+
 
 
 
@@ -27,6 +31,17 @@ function App() {
 
   return (
     <div>
+      {/* <ToastContainer
+        position="bottom-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      /> */}
       <BrowserRouter >
         <Routes >
           <Route path="/">

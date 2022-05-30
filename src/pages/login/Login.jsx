@@ -12,6 +12,8 @@ import axios from "../../commons/axios";
 //使用toast
 import { toast } from 'react-toastify';
 
+//使用router
+import {Link} from 'react-router-dom';
 
 import "./login.scss";
 import "../../commons/auth";
@@ -103,12 +105,14 @@ export default function Login(props) {
     <div className="login-wrapper">
 
       <form className="box login-box" onSubmit={handleSubmit(onSubmit)}>
-      <div className="field  img-container">
+
+        <div className="field  img-container">
               <figure className="image">
                 <img src={Logo} alt="logo"/>
               </figure>
               <label className="label">SIGNATURE</label>
-            </div>
+        </div>
+
         <div className="field">
           <label className="label">帳號:</label>
           <div className="control has-icons-left">
@@ -134,6 +138,7 @@ export default function Login(props) {
               <p className="helper has-text-danger">{errors.account.message}</p>)}
           </div>
         </div>
+
         <div className="field">
           <label className="label">密碼:</label>
           <div className="control has-icons-left">
@@ -158,6 +163,11 @@ export default function Login(props) {
             <button className="button is-fullwidth is-info">
               LOGIN
             </button>
+            <Link className='navLink' to="/register">
+              <button className="button is-fullwidth is-info">
+                REGISTER
+              </button>
+            </Link>
           </div>
         </div>
       </form>
