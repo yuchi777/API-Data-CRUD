@@ -37,13 +37,6 @@ class AddInventory extends Component {
         })
     }
 
-    showToast =	()	=>	{
-        toast('default');
-        toast.info('info');
-        toast.success('success');
-        toast.warning('warning');
-        toast.error('error');
-};
 
     render() {
         return (
@@ -100,13 +93,6 @@ class AddInventory extends Component {
                         <div className="control">
                             <button className="button" type='button' onClick={()=>{this.props.close()}}>Cancel</button>
                         </div>
-                        <button
-													className="button	is-primary"
-													type="button"
-													onClick={this.showToast}
-													>
-													Show
-										</button>
                     </div>
                 </form>
             </div>
