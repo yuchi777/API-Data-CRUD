@@ -5,6 +5,7 @@ import Card from '../cardItem/CardItem';
 import axios from '../../commons/axios';
 import Panel from '../panel/Panel';
 import AddInventory from '../addInventory/AddInventory';
+import AddCircleIcon from '@mui/icons-material/AddCircle';
 
 // 子組件掛載
 // import AddInventory from '../addinventory/Addinventory';
@@ -105,6 +106,7 @@ class Cards extends Component {
                 <Toolbox search={this.search} />
                 <div className='cards'>
                     <div className="columns is-multiline is-desktop">
+                        
                         {
                             this.state.cards.map((p)=>{
                                 return(
@@ -120,7 +122,10 @@ class Cards extends Component {
                         }
                         {
                             (global.auth.getUser() || {}).type === 1 && (
-                                <button className="button is-primary add-btn" onClick={this.toAdd}>Add(+)</button>
+                                <button className="button is-info add-btn" onClick={this.toAdd}>
+                                    新增站點
+                                    <AddCircleIcon className='add-btn-icon'/>
+                                </button>
                             )
                         }
                     </div>

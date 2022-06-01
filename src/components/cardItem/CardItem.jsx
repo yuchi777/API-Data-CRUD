@@ -56,51 +56,38 @@ export default class Card extends Component {
     return (
       <div className={_pClass[status]}>
 
-        <div className="p-head">
-            地點
-        </div>
-
-        <div className="p-content">
+        
         {this.renderMangerBtn()}
-
+        
+        <div className="p-content">
           <div className="img-wrapper">
-
-          <div className="out-stock-text">Unavailable</div>
+            <div className="out-stock-text">Unavailable</div>
             <figure className="image is4by3">
-              <img src={img} alt={name}/>
+              <img src={(img === 'sysImg')?sysImg:fubonImg} alt={name}/>
             </figure>
             <p className="name">{name}</p>
             <p className="p-tags">{area}</p>
             <p className="p-name">{place}</p>
             <p className="">聯絡: {contact}</p>
-
           </div>
-
         </div>
 
         <div className="p-footer">
-
           <button 
           className="footer-btn" 
           disabled={status === 'unavailable'} 
           // onClick={}
           >
-            <span>
-            SIGN
-            </span>
+            <span>SIGN</span>
           </button>
           <button 
           className="footer-btn" 
           disabled={status === 'unavailable'} 
           // onClick={}
           >
-            <span>
-            REPORT
-            </span>
+            <span>REPORT</span>
           </button>
-
         </div>
-
       </div>
     )
   }

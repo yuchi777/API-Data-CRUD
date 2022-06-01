@@ -11,7 +11,8 @@ import '../node_modules/bulma/bulma.sass';
 import "./style/dark.scss";
 
 // 載入toastify套件
-// import {ToastContainer} from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 // formSource.js
 import { userInputs } from "./formSource";
@@ -31,7 +32,7 @@ function App() {
 
   return (
     <div>
-      {/* <ToastContainer
+      <ToastContainer
         position="bottom-right"
         autoClose={5000}
         hideProgressBar={false}
@@ -41,7 +42,7 @@ function App() {
         pauseOnFocusLoss
         draggable
         pauseOnHover
-      /> */}
+      />
       <BrowserRouter >
         <Routes >
           <Route path="/">

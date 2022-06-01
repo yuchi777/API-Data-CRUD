@@ -13,18 +13,26 @@
       text-transform: uppercase;
     }
     .search-box {
+
+
       .search-input {
+        border-color: gray;
         width: 600px;
         outline: 0;
       }
-    }
-    .cart-box {
-      cursor: pointer;
-      display: inline-block;
-      color: #333;
-      font-size: 1.2rem;
-      .cart-num {
-        margin-left: 4px;
+
+      .button{
+        border-color: gray;
       }
+
     }
+    // .cart-box {
+    //   cursor: pointer;
+    //   display: inline-block;
+    //   color: #333;
+    //   font-size: 1.2rem;
+    //   .cart-num {
+    //     margin-left: 4px;
+    //   }
+    // }
   }

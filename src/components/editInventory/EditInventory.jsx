@@ -62,12 +62,12 @@ class EditInventory extends Component {
     render() {
         return (
             <div className="inventory">
-                <p className="title has-text-centered">Edit Inventory</p>
+                <p className="title has-text-centered">Edit</p>
                 <form onSubmit={this.submit}>
                     <div className="field">
                         <label className='label label-flex'>Img</label>
                         <div className="control">
-                            <textarea type="text" name='img' className="input"  value={this.state.img} onChange={this.handleChange}/>
+                            <input type="text" name='img' className="input"  value={this.state.img} onChange={this.handleChange}/>
                         </div>
                     </div>
                     <div className="field">

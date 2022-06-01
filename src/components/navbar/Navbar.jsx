@@ -9,7 +9,7 @@ import UserProfile from '../../components/userProfile/UserProfile'
 
 import "../../commons/auth";
 import "./navbar.scss";
-import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
+// import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import ListOutlinedIcon from "@mui/icons-material/ListOutlined";
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import SettingsIcon from '@mui/icons-material/Settings';
@@ -65,10 +65,10 @@ const Navbar = () => {
     <div className='navbar'>
       <div className="wrapper">
 
-        <div className="search">
+        {/* <div className="search">
           <input type="text" placeholder="search..."/>
           <SearchOutlinedIcon className="icon"/>
-        </div>
+        </div> */}
         <div className="items">
           <div className="item">
             <ListOutlinedIcon

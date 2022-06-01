@@ -37,10 +37,18 @@ class AddInventory extends Component {
         })
     }
 
+    showToast =	()	=>	{
+        toast('default');
+        toast.info('info');
+        toast.success('success');
+        toast.warning('warning');
+        toast.error('error');
+};
+
     render() {
         return (
             <div className="inventory">
-                <p className="title has-text-centered">Add Inventory</p>
+                <p className="title has-text-centered">Add</p>
 
                 <form onSubmit={this.submit}>
                     <div className="field">
@@ -92,6 +100,13 @@ class AddInventory extends Component {
                         <div className="control">
                             <button className="button" type='button' onClick={()=>{this.props.close()}}>Cancel</button>
                         </div>
+                        <button
+													className="button	is-primary"
+													type="button"
+													onClick={this.showToast}
+													>
+													Show
+										</button>
                     </div>
                 </form>
             </div>

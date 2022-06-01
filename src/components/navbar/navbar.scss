@@ -12,26 +12,26 @@
         padding: 20px;
         display: flex;
         align-items: center;
-        justify-content: space-between;
+        justify-content:flex-end;
 
-        .search{
-            display: flex;
-            align-items: center;
-            border: 0.5px solid lightgray;
-            padding: 3px;
+        // .search{
+        //     display: flex;
+        //     align-items: center;
+        //     border: 0.5px solid lightgray;
+        //     padding: 3px;
 
-            input{
-                border: none;
-                outline: none;
+        //     input{
+        //         border: none;
+        //         outline: none;
 
-                //轉換主題消除背景色
-                background: transparent;
+        //         //轉換主題消除背景色
+        //         background: transparent;
 
-                &::placeholder{
-                    font-size: 12px;
-                }
-            }
-        }
+        //         &::placeholder{
+        //             font-size: 12px;
+        //         }
+        //     }
+        // }
 
         .items{
             display: flex;
@@ -50,7 +50,6 @@
                     font-weight: bold;
                     display: flex;
                     align-items: center;
-                    padding: 20px;
                     
                     
 

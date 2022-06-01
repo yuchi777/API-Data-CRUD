@@ -1,7 +1,9 @@
 import React, {Component} from 'react'
 import "./toolbox.scss";
+import CancelIcon from '@mui/icons-material/Cancel';
+
 //使用toast
-import { toast } from 'react-toastify';
+// import { toast } from 'react-toastify';
 //search icon
 // import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 
@@ -51,7 +53,9 @@ export default class Toolbox extends Component {
               />
             </div>
             <div className="control">
-              <button className="button" onClick={this.clearSearchText}>X</button>
+              <button className="button" onClick={this.clearSearchText}>
+                <CancelIcon />
+              </button>
             </div>
           </div>
         </div>
