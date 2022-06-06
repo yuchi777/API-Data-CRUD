@@ -110,7 +110,7 @@ class Cards extends Component {
                         {
                             this.state.cards.map((p)=>{
                                 return(
-                                    <div className="column is-3">
+                                    <div className="column is-3" key={p.id}>
                                         <Card 
                                         card={p}
                                         update={this.update}

@@ -15,6 +15,10 @@ import { toast } from 'react-toastify';
 //使用router
 import {Link} from 'react-router-dom';
 
+//使用Panel
+// import Panel from '../../components/panel/Panel';
+
+
 import "./login.scss";
 import "../../commons/auth";
 
@@ -27,6 +31,8 @@ import KeyIcon from '@mui/icons-material/Key';
 
 //function component
 export default function Login(props) {
+
+
 
   //useFrom為函式返回需要用的值並解構附值
   const { register, handleSubmit, formState: { errors } } = useForm({
@@ -92,13 +98,14 @@ export default function Login(props) {
       const message = error.response.data.message;
       toast.error(message);
 
-    }
-
-
-
-
-    
+    }    
   }
+
+
+
+  
+
+
 
 
   return (
@@ -159,12 +166,12 @@ export default function Login(props) {
               <p className="helper has-text-danger">{errors.password.message}</p>)}
           </div>
           <br />
-          <div className="control">
-            <button className="button is-fullwidth is-info">
+          <div className="control btnBox">
+            <button type="submit" className="button is-info loginbtn">
               LOGIN
             </button>
             <Link className='navLink' to="/register">
-              <button className="button is-fullwidth is-info">
+              <button type="button" className="button is-info">
                 REGISTER
               </button>
             </Link>

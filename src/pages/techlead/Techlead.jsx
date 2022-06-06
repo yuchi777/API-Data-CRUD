@@ -168,6 +168,8 @@ const Techlead = () => {
         <Navbar/>
         <div className="techleadTable">
           <h2>人才管理</h2>
+          <hr />
+          <h3>人才資料</h3>
 
           <div style={{
             height: 400,

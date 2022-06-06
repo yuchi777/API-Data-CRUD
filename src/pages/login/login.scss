@@ -20,8 +20,17 @@
     
     }
 
+    .btnBox{
+        display: flex;
+        justify-content: center;
+        align-items: center;
 
-    .button{
-        margin-bottom: 10px;
+
+        .button{
+            flex: 1;
+        }
+        .loginbtn{
+            margin-right: 15px;
+        }
     }
 }

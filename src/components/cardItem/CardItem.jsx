@@ -15,13 +15,13 @@ export default class Card extends Component {
     Panel.open({
       component: EditInventory, // EditInventory 掛載=> CardItem 使用=> Panel.open()
       props:{
-        card: this.props.card,
-        deleteCard: this.props.delete
+        card: this.props.card, //父組件<Card card={p}/>
+        deleteCard: this.props.delete //父組件<Card delete={this.delete}/>
       },
       callback: data => {
-        console.log('cardItem toEdit Panel:',data);
+        console.log('cardItem toEdit>Panel:',data);
         if(data){
-          this.props.update(data) //用data.id更新
+          this.props.update(data) //用data.id更新 // 父組件<Card update={this.update}/>
         }
       }
     })
@@ -73,21 +73,14 @@ export default class Card extends Component {
         </div>
 
         <div className="p-footer">
-          <button 
-          className="footer-btn" 
-          disabled={status === 'unavailable'} 
-          // onClick={}
-          >
+          <button className="footer-btn" disabled={status === 'unavailable'} >
             <span>SIGN</span>
           </button>
-          <button 
-          className="footer-btn" 
-          disabled={status === 'unavailable'} 
-          // onClick={}
-          >
+          <button className="footer-btn" disabled={status === 'unavailable'} >
             <span>REPORT</span>
           </button>
         </div>
+
       </div>
     )
   }
