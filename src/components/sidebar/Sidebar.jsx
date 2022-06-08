@@ -1,13 +1,14 @@
 import "./sidebar.scss";
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import DescriptionIcon from '@mui/icons-material/Description';
-import PersonIcon from '@mui/icons-material/Person';
+// import PersonIcon from '@mui/icons-material/Person';
 import SettingsIcon from '@mui/icons-material/Settings';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 import ListItemButton from '@mui/material/ListItemButton';
 import {Link} from "react-router-dom";
 
 const Sidebar = () => {
+
   return (
     <div className='sidebar'>
       <div className="top">
@@ -21,7 +22,7 @@ const Sidebar = () => {
       </div>
       <div className="center">
         <ul>
-          <p className="title">Lists</p>
+          {/* <p className="title">ID</p>
           <Link to="/users">
             <ListItemButton>
               <li>
@@ -29,59 +30,101 @@ const Sidebar = () => {
                 <span>User</span>
               </li>
             </ListItemButton>
-          </Link>
+          </Link> */}
 
-          <p className="title">管理</p>
+          <p className="title">模組功能</p>
           <Link to="/">
             <ListItemButton>
-              <li>
-                <DashboardIcon className="icon"/>
-                <span>Dashboard</span>
-              </li>
-            </ListItemButton>
-          </Link>
-          <Link to="/techlead">
-            <ListItemButton>
-              <li>
-                <DescriptionIcon className="icon"/>
-                <span>人才管理</span>
-              </li>
-            </ListItemButton>
-          </Link>
-          <Link to="/sales">
-            <ListItemButton>
-              <li>
-                <DescriptionIcon className="icon"/>
-                <span>業務管理</span>
-              </li>
+                <li>
+                  <DashboardIcon className="icon"/>
+                  <span>首頁</span>
+                </li>
             </ListItemButton>
           </Link>
           <Link to="/talent">
-            <ListItemButton>
+          {
+            (global.auth.getUser() || {}).account === 'sysadmin' ||
+            (global.auth.getUser() || {}).account === 'sales' ||
+            (global.auth.getUser() || {}).account === 'techlead'
+            ? (
+              <ListItemButton>
+                <li>
+                  <DescriptionIcon className="icon"/>
+                  <span>人才管理</span>
+                </li>
+              </ListItemButton>
+            )
+            :''
+          }
+          </Link>
+          <Link to="/sales">
+          {
+            (global.auth.getUser() || {}).account === 'sysadmin'
+            ||
+            (global.auth.getUser() || {}).account === 'sales'
+            ||
+            (global.auth.getUser() || {}).account === 'techlead'
+            ||
+            (global.auth.getUser() || {}).account === 'director'
+            ||
+            (global.auth.getUser() || {}).account === 'hr'
+            
+            ? (
+              <ListItemButton>
+                <li>
+                  <DescriptionIcon className="icon"/>
+                  <span>業務管理</span>
+                </li>
+              </ListItemButton>
+            )
+            :''
+          }
+          </Link>
+          <Link to="/talentSign">
+          {
+            (global.auth.getUser() || {}).account === 'talent' ||
+            (global.auth.getUser() || {}).account === 'sysadmin'
+            ? (
+              <ListItemButton>
               <li>
                 <DescriptionIcon className="icon"/>
                 <span>人才打卡管理</span>
               </li>
             </ListItemButton>
+            )
+            :''
+          }
           </Link>
           <Link to="/customer">
-            <ListItemButton>
-              <li>
-                <DescriptionIcon className="icon"/>
-                <span>客戶簽核管理</span>
-              </li>
-            </ListItemButton>
+          {
+            (global.auth.getUser() || {}).account === 'sysadmin' ||
+            (global.auth.getUser() || {}).account === 'customer' ||
+            (global.auth.getUser() || {}).account === 'sales'
+            ? (
+              <ListItemButton>
+                <li>
+                  <DescriptionIcon className="icon"/>
+                  <span>客戶簽核管理</span>
+                </li>
+              </ListItemButton>
+            )
+            :''
+          }
           </Link>
 
           <p className="title">設定</p>
-
-          <ListItemButton>
-            <li>
-              <SettingsIcon className="icon"/>
-              <span>系統設定</span>
-            </li>
-          </ListItemButton>
-          
+          {
+            (global.auth.getUser() || {}).account === 'sysadmin'
+            ? (
+              <ListItemButton>
+                <li>
+                  <SettingsIcon className="icon"/>
+                  <span>系統管理</span>
+                </li>
+              </ListItemButton>
+            )
+            :''
+          }
           <ListItemButton>
             <li>
               <ExitToAppIcon className="icon"/>

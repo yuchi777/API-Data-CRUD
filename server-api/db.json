@@ -1,5 +1,5 @@
 {
-  "techlead": [
+  "talent": [
     {
       "id": 1,
       "number": 1,
@@ -118,6 +118,108 @@
       "phone": 747643364,
       "onboard": "2022/8/1",
       "status": "on"
+    },
+    {
+      "id": 8,
+      "number": 2,
+      "name": "喬2",
+      "name-en": "Joe",
+      "sys-number": "100102",
+      "sys-email": "Joe@systex.com",
+      "level": 1,
+      "birthday": "2022/5/22",
+      "gender": "female",
+      "role": "sales",
+      "school": "systex school2",
+      "department": "sales",
+      "phone": 87654321,
+      "onboard": "2022/7/1",
+      "status": "off"
+    },
+    {
+      "id": 9,
+      "number": 3,
+      "name": "約翰3",
+      "name-en": "John3",
+      "sys-number": "100103",
+      "sys-email": "john3@systex.com",
+      "level": 2,
+      "birthday": "2022/5/23",
+      "gender": "male",
+      "role": "director",
+      "school": "systex school3",
+      "department": "hr",
+      "phone": 747643364,
+      "onboard": "2022/8/1",
+      "status": "on"
+    },
+    {
+      "id": 10,
+      "number": 4,
+      "name": "約翰4",
+      "name-en": "John4",
+      "sys-number": "100104",
+      "sys-email": "john4@systex.com",
+      "level": 4,
+      "birthday": "2022/5/24",
+      "gender": "male",
+      "role": "director",
+      "school": "systex school4",
+      "department": "hr",
+      "phone": 747643365,
+      "onboard": "2022/8/1",
+      "status": "off"
+    },
+    {
+      "id": 11,
+      "number": 5,
+      "name": "喬",
+      "name-en": "Joe",
+      "sys-number": "100105",
+      "sys-email": "Joe@systex.com",
+      "level": 2,
+      "birthday": "2022/5/23",
+      "gender": "male",
+      "role": "sales",
+      "school": "systex school5",
+      "department": "sales",
+      "phone": 747643364,
+      "onboard": "2022/8/1",
+      "status": "on"
+    },
+    {
+      "id": 12,
+      "number": 6,
+      "name": "安迪6",
+      "name-en": "Andy",
+      "sys-number": "100106",
+      "sys-email": "Andy6@systex.com",
+      "level": 1,
+      "birthday": "2022/5/23",
+      "gender": "fmale",
+      "role": "hr",
+      "school": "systex school3",
+      "department": "hr",
+      "phone": 747643364,
+      "onboard": "2022/8/1",
+      "status": "off"
+    },
+    {
+      "id": 13,
+      "number": 7,
+      "name": "安迪7",
+      "name-en": "Andy",
+      "sys-number": "100107",
+      "sys-email": "Andy7@systex.com",
+      "level": 3,
+      "birthday": "2022/5/23",
+      "gender": "fmale",
+      "role": "director",
+      "school": "systex school7",
+      "department": "hr",
+      "phone": 747643364,
+      "onboard": "2022/8/1",
+      "status": "on"
     }
   ],
   "sales": [
@@ -140,6 +242,20 @@
         {
           "id": 3,
           "name": "BU-3",
+          "client": "CCC有限公司",
+          "contact": "Amy",
+          "place": "台南市"
+        },
+        {
+          "id": 4,
+          "name": "BU-4",
+          "client": "BBB有限公司",
+          "contact": "Andy",
+          "place": "台中市"
+        },
+        {
+          "id": 5,
+          "name": "BU-5",
           "client": "CCC有限公司",
           "contact": "Amy",
           "place": "台南市"
@@ -173,7 +289,7 @@
       ]
     }
   ],
-  "talent": [
+  "talentSign": [
     {
       "id": 1,
       "date": "2022/5/22",

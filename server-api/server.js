@@ -77,7 +77,6 @@ const createToken = payload => {
 
 
 
-
 //自定義串接請求 //login
 server.post('/auth/login', (request, response) => {
     const { account, password } = request.body;
@@ -92,6 +91,7 @@ server.post('/auth/login', (request, response) => {
 
         //JWT //驗證通過=>獲得JWT token
         //const jwtToken = 'dfafhdfhdifda.afasfafadfa.adf233r32fe';
+        //playload={name, type, account}
         const jwtToken = createToken({ name, type, account });
         return response.status(200).json(jwtToken);
     } else {
@@ -105,6 +105,14 @@ server.post('/auth/login', (request, response) => {
     // console.log('Login Success test');
     // return res.status(200).json('Login Success');
 });
+
+
+
+
+//logout
+// server.post('/auth/logout',(request, response) => {
+//     console.log('request.body:',request.body);
+// })
 
 
 
@@ -191,7 +199,7 @@ IjoxNTcyNzU3MjAzLCJleHAiOjE1NzI3NjA4MDN9
 //  控制多個資源
 //	server.use( ['/carts'], (req,res,next)	=>	{
 
-server.use('/techlead', (req, res, next) => {
+server.use('/talent' || '/sales', (req, res, next) => {
     if (
         req.headers.authorization === undefined ||
         req.headers.authorization.split(' ')[0] !== 'Bearer'
@@ -201,6 +209,7 @@ server.use('/techlead', (req, res, next) => {
         res.status(status).json({ status, message });
         return;
     }
+
     try {
         
         const verifyTokenResult = verifyToken(

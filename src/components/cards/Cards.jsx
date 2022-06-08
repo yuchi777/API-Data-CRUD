@@ -46,10 +46,9 @@ class Cards extends Component {
         Panel.open({
             component: AddInventory,
             callback:(data) => {
-                console.log('callback data:',data);
-                console.log('cards data',data);
+                console.log('Add:',data);
                 if(data){
-                    //新增資料
+                    //如果有資料,新增資料
                     this.add(data);
                 }
             }

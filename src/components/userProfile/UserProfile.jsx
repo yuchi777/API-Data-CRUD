@@ -1,4 +1,8 @@
 import "./userProfile.scss";
+//使用toast
+import { toast } from 'react-toastify';
+//使用axios
+// import axios from "../../commons/axios";
 // import {useMemo} from 'react';
 
 
@@ -9,6 +13,8 @@ const UserProfile = (props) => {
     const logout = () =>{
         global.auth.logout();
         props.close('logout');
+        // window.location.reload();
+        toast.success('Logout Success');
 
     }
 

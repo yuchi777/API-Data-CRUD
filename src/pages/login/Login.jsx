@@ -13,7 +13,7 @@ import axios from "../../commons/axios";
 import { toast } from 'react-toastify';
 
 //使用router
-import {Link} from 'react-router-dom';
+// import {Link} from 'react-router-dom';
 
 //使用Panel
 // import Panel from '../../components/panel/Panel';
@@ -41,14 +41,15 @@ export default function Login(props) {
       password: ""
     }
   });
-
   console.log(errors);
-  // console.log(watch("account"));
 
+  
 
   //重新轉址
   const navigate = useNavigate()
   function handleHistory() {
+    // const user = global.auth.getUser() || {}
+    // navigate(`/${user.account}`)
     navigate('/')
   }
 
@@ -88,10 +89,11 @@ export default function Login(props) {
       global.auth.setToken(jwToken);
 
       toast.success('Login Success');
-
+      
       // 4.跳轉到首頁
       // props.history.push("/");
       handleHistory();
+
     } catch (error) {
       console.log('error:',error);
       console.log(error.response.data);
@@ -133,7 +135,7 @@ export default function Login(props) {
                 required: 'Account is required', 
                 pattern: {
                 //value: /^[a-za-z0-9_-]+@[a-za-z0-9_-]+(\.[a-za-z0-9_-]+)+$/, //account驗證正則表達式(email)
-                value: /^[a-zA-z]\w{3,15}$/, //au4
+                value: /^[a-zA-z]\w{1,15}$/, //au4
                 message: 'invalid account' // JS only: <p>error message</p> TS only support string
               } })}
             ></input>
@@ -170,11 +172,6 @@ export default function Login(props) {
             <button type="submit" className="button is-info loginbtn">
               LOGIN
             </button>
-            <Link className='navLink' to="/register">
-              <button type="button" className="button is-info">
-                REGISTER
-              </button>
-            </Link>
           </div>
         </div>
       </form>
