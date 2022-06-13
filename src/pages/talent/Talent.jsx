@@ -1,6 +1,7 @@
 import "./talent.scss";
 import Panel from '../../components/panel/Panel';
 import EditInventory from "../../components/editInventory/EditInventory";
+import AddInventory from "../../components/addInventory/AddInventory";
 import Navbar from "../../components/navbar/Navbar";
 import Sidebar from "../../components/sidebar/Sidebar";
 import Button from '@mui/material/Button';
@@ -40,22 +41,6 @@ const Talent = () => {
     
 }, [])
 
-
-
-//搜尋
-const search = (text) => {
-  let _row = [...sourceRow];
-  _row = _row.filter((p)=>{
-      const matchArray = p.name.match(new RegExp(text,'gi'));
-      return matchArray !==null;
-  })
-
-  setRow(_row);
-}
-
-
-
-
 //修改資料
 const toEdit = (params) => {
   console.log('row:',row);
@@ -75,13 +60,58 @@ const toEdit = (params) => {
   })
 }
 
+
+
+//搜尋
+const search = (text) => {
+  let _row = [...sourceRow];
+  _row = _row.filter((p)=>{
+      const matchArray = p.name.match(new RegExp(text,'gi'));
+      return matchArray !==null;
+  })
+
+  setRow(_row);
+}
+
+
+//open Panel & 掛載子組件
+const toAdd = () => {
+  Panel.open({
+      component: AddInventory,
+      callback:(data) => {
+          console.log('Add:',data);
+          if(data){
+              //如果有資料,新增資料
+              add(data);
+          }
+      }
+  })
+}
+
+//新增資料
+const add = (e) => {
+  const _row = [...row];
+  _row.push(e);
+  const _srow = [...sourceRow];
+  _srow.push(e);
+
+  setRow(_row);
+  setSourcerow(_srow);
+}
+
+
 //更新資料,重新渲染
 const update = (card) => {
   const _row = [...row];
   const _index = _row.findIndex(p=>p.id === card.id);
   _row.splice(_index,1,card);
 
+  const _srow = [...sourceRow];
+  const _sIndex = _row.findIndex(p=>p.id === card.id);
+  _srow.splice(_sIndex,1,card);
+
   setRow(_row);
+  setSourcerow(_srow);
 }
 
 //刪除資料,使用filter過濾不要的id項目,返回不相同的id項目, 相同id則過濾刪除
@@ -243,7 +273,7 @@ const renderDetailsButton = (params) => {
         <Toolbox search={search}/>
         <div className="talentTable">
           <h2>人才管理 / 人才資料</h2>
-
+          <button className="add-btn button is-info" onClick={toAdd}>新增</button>
           <div style={{
             height: 500,
             width: '100%'

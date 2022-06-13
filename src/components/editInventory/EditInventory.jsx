@@ -23,6 +23,7 @@ class EditInventory extends Component {
         status:'available'
     }
 
+    //因為修改所以要取出值,解構附值
     componentDidMount(){
         const {id, number,name, nameEn, sysNumber, sysEmail, level, birthday, gender, role, school,department,phone, onboard,status} = this.props.card;
         this.setState({
@@ -46,11 +47,11 @@ class EditInventory extends Component {
 
     //資料綁定
     handleChange = (e) => {
-        const value = e.target.value;
-        const name = e.target.name;
+        const value = e.target.value; //輸入的值
+        const name = e.target.name; //input的name提供state對應 
 
         this.setState({
-            [name] : value
+            [name] : value //輸入的值替換state的值(改變狀態)
         })
     }
 

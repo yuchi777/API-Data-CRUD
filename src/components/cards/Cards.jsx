@@ -120,7 +120,8 @@ class Cards extends Component {
                             })
                         }
                         {
-                            (global.auth.getUser() || {}).type === 1 && (
+                            (global.auth.getUser() || {}).type === 0 &&
+                            (
                                 <button className="button is-info add-btn" onClick={this.toAdd}>
                                     新增站點
                                     <AddCircleIcon className='add-btn-icon'/>

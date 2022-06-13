@@ -8,11 +8,20 @@ import "./AddInventory.scss";
 class AddInventory extends Component {
 
     state = {
-        img:'',
+        id:'',
+        number:'',
         name:'',
-        area:'',
-        place:'',
-        contact:'',
+        nameEn:'',
+        sysNumber:'',
+        sysEmail:'',
+        level:'',
+        birthday:'',
+        gender:'',
+        role:'',
+        school:'',
+        department:'',
+        phone:'',
+        onboard:'',
         status:'available'
     }
 
@@ -30,7 +39,7 @@ class AddInventory extends Component {
     submit = (e) => {
         e.preventDefault();//阻止預設提交行為
         const card = {...this.state};
-        axios.post('location',card).then((res)=>{
+        axios.post('talent',card).then((res)=>{
             // console.log('Add data:',res.data);
             // Add => Cards => Panel.open()
             this.props.close(res.data);
@@ -47,8 +56,8 @@ class AddInventory extends Component {
                 <form onSubmit={this.submit}>
                     <div className="field">
                         <div className="control">
-                            <label className='label label-flex'>Img</label>
-                            <input type="text"  name='img' className="input" value={this.state.img} onChange={this.handleChange}/>
+                        <label className='label label-flex'>Number</label>
+                            <input type="text" name="number" className="input" value={this.state.number} onChange={this.handleChange}/>
                         </div>
                     </div>
                     <div className="field">
@@ -58,26 +67,74 @@ class AddInventory extends Component {
                         </div>
                     </div>
                     <div className="field">
+                        <label className='label label-flex'>NameEn</label>
                         <div className="control">
-                            <label className='label label-flex'>Area</label>
-                            <input type="text" name="area" className="input" value={this.state.area} onChange={this.handleChange}/>
+                            <input type="text" name="nameEn" className="input" value={this.state.nameEn} onChange={this.handleChange}/>
                         </div>
                     </div>
                     <div className="field">
+                        <label className='label label-flex'>SysNumber</label>
                         <div className="control">
-                            <label className='label label-flex'>Place</label>
-                            <input type="text" name="place" className="input" value={this.state.place} onChange={this.handleChange}/>
+                            <input type="text" name="sysNumber" className="input" value={this.state.sysNumber} onChange={this.handleChange}/>
                         </div>
                     </div>
                     <div className="field">
+                        <label className='label label-flex'>sysEmail</label>
                         <div className="control">
-                            <label className='label label-flex'>Contact</label>
-                            <input type="text" name="contact" className="input" value={this.state.contact} onChange={this.handleChange}/>
+                            <input type="text" name="sysEmail" className="input" value={this.state.sysEmail} onChange={this.handleChange}/>
                         </div>
                     </div>
                     <div className="field">
+                        <label className='label label-flex'>level</label>
                         <div className="control">
-                            <label className='label label-flex'>Status</label>
+                            <input type="text" name="level" className="input" value={this.state.level} onChange={this.handleChange}/>
+                        </div>
+                    </div>
+                    <div className="field">
+                        <label className='label label-flex'>birthday</label>
+                        <div className="control">
+                            <input type="text" name="birthday" className="input" value={this.state.birthday} onChange={this.handleChange}/>
+                        </div>
+                    </div>
+                    <div className="field">
+                        <label className='label label-flex'>gender</label>
+                        <div className="control">
+                            <input type="text" name="gender" className="input" value={this.state.gender} onChange={this.handleChange}/>
+                        </div>
+                    </div>
+                    <div className="field">
+                        <label className='label label-flex'>role</label>
+                        <div className="control">
+                            <input type="text" name="role" className="input" value={this.state.role} onChange={this.handleChange}/>
+                        </div>
+                    </div>
+                    <div className="field">
+                        <label className='label label-flex'>school</label>
+                        <div className="control">
+                            <input type="text" name="school" className="input" value={this.state.school} onChange={this.handleChange}/>
+                        </div>
+                    </div>
+                    <div className="field">
+                        <label className='label label-flex'>department</label>
+                        <div className="control">
+                            <input type="text" name="department" className="input" value={this.state.department} onChange={this.handleChange}/>
+                        </div>
+                    </div>
+                    <div className="field">
+                        <label className='label label-flex'>phone</label>
+                        <div className="control">
+                            <input type="text" name="phone" className="input" value={this.state.phone} onChange={this.handleChange}/>
+                        </div>
+                    </div>
+                    <div className="field">
+                        <label className='label label-flex'>onboard</label>
+                        <div className="control">
+                            <input type="text" name="onboard" className="input" value={this.state.onboard} onChange={this.handleChange}/>
+                        </div>
+                    </div>
+                    <div className="field">
+                        <label className='label label-flex'>Status</label>
+                        <div className="control">
                             <div className="select is-fullwidth">
                                 <select name="status" value={this.state.status} onChange={this.handleChange}>
                                     <option>available</option>
