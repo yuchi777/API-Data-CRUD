@@ -203,23 +203,6 @@
       "phone": 74764663364,
       "onboard": "2022/8/1",
       "status": "available"
-    },
-    {
-      "id": 13,
-      "number": 7,
-      "name": "喬7",
-      "nameEn": "Joe7",
-      "sysNumber": "100107",
-      "sysEmail": "Joe7@systex.com",
-      "level": 2,
-      "birthday": "2022/7/23",
-      "gender": "male",
-      "role": "sales",
-      "school": "systex school77",
-      "department": "sales",
-      "phone": 747643364,
-      "onboard": "2022/7/1",
-      "status": "available"
     }
   ],
   "sales": [

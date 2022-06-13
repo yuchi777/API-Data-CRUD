@@ -42,6 +42,19 @@ const Talent = () => {
 
 
 
+//搜尋
+const search = (text) => {
+  let _row = [...sourceRow];
+  _row = _row.filter((p)=>{
+      const matchArray = p.name.match(new RegExp(text,'gi'));
+      return matchArray !==null;
+  })
+
+  setRow(_row);
+}
+
+
+
 
 //修改資料
 const toEdit = (params) => {
@@ -50,7 +63,8 @@ const toEdit = (params) => {
   Panel.open({
     component: EditInventory, // EditInventory 掛載=> CardItem 使用=> Panel.open()
     props:{
-      card: params.row
+      card: params.row,
+      deleteCard: deleteData
     },
     callback: data => {
       console.log('talent toEdit:',data);
@@ -70,16 +84,15 @@ const update = (card) => {
   setRow(_row);
 }
 
-//搜尋
-const search = (text) => {
-  let _row = [...sourceRow];
-  _row = _row.filter((p)=>{
-      const matchArray = p.name.match(new RegExp(text,'gi'));
-      return matchArray !==null;
-  })
+//刪除資料,使用filter過濾不要的id項目,返回不相同的id項目, 相同id則過濾刪除
+const deleteData = (id) =>{
+  const _row = row.filter((p)=>p.id !== id);
+  const _srow = sourceRow.filter((p)=>p.id !== id);
 
   setRow(_row);
+  setSourcerow(_srow);
 }
+
 
 
 
