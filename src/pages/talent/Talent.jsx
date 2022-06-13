@@ -1,41 +1,21 @@
 import "./talent.scss";
+import Panel from '../../components/panel/Panel';
+import EditInventory from "../../components/editInventory/EditInventory";
 import Navbar from "../../components/navbar/Navbar";
 import Sidebar from "../../components/sidebar/Sidebar";
 import Button from '@mui/material/Button';
 import { useState,useEffect } from "react";
 import {DataGrid} from '@mui/x-data-grid';
 import axios from '../../commons/axios';
+import Toolbox from '../../components/toolbox/Toolbox';
 //使用useNavigate 轉址
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 
 const Talent = () => {
-
-  // async function dataAxios(){
-  //    const data = await axios.get('/sales').then((re)=>{
-  //       return re.data
-  //    })
-  //    return data;
-  //   }
-
-  //   dataAxios().then((data)=>{
-  //     console.log('data',data)//返回資料
-  //   })
-
-  
-  
-  // 重新轉址
-  const navigate = useNavigate()
-  
-  const check = global.auth.getUser() || {};
-  if(check.account === 'techlead' || 
-  check.account ==='sales' 
-  ){
-    // navigate('/talent')
-  }else{
-    navigate('/notFound')
-  }
   
   const [row, setRow] = useState([]);
+  const [sourceRow, setSourcerow] = useState([]);
+  
 
   useEffect(() => {
     //渲染 => 判斷身分(控制資源) => 取資源  
@@ -48,17 +28,58 @@ const Talent = () => {
         // console.log('ID:',user.account);
         // console.log('talent data:',re.data);
         setRow(re.data);
+        setSourcerow(re.data)
       }else{
         setRow([]);
+        setSourcerow([]);
       }
   
-   }).catch((err)=>{
-     console.log(err.response);
-   })
-
-   
+    }).catch((err)=>{
+      console.log(err.response);
+    })
+    
 }, [])
 
+
+
+
+//修改資料
+const toEdit = (params) => {
+  console.log('row:',row);
+  console.log('row:',typeof(row));
+  Panel.open({
+    component: EditInventory, // EditInventory 掛載=> CardItem 使用=> Panel.open()
+    props:{
+      card: params.row
+    },
+    callback: data => {
+      console.log('talent toEdit:',data);
+      if(data){
+        update(data) //用data.id更新 // 父組件<Card update={this.update}/>
+      }
+    }
+  })
+}
+
+//更新資料,重新渲染
+const update = (card) => {
+  const _row = [...row];
+  const _index = _row.findIndex(p=>p.id === card.id);
+  _row.splice(_index,1,card);
+
+  setRow(_row);
+}
+
+//搜尋
+const search = (text) => {
+  let _row = [...sourceRow];
+  _row = _row.filter((p)=>{
+      const matchArray = p.name.match(new RegExp(text,'gi'));
+      return matchArray !==null;
+  })
+
+  setRow(_row);
+}
 
 
 
@@ -69,8 +90,9 @@ const renderDetailsButton = (params) => {
               color="primary"
               size="small"
               style={{ marginLeft: 16 }}
-              onClick={() => {
-                  console.log(params.row)
+              onClick={()=>{
+                toEdit(params);
+                console.log(params.row)
               }}
           >
               More
@@ -82,68 +104,68 @@ const renderDetailsButton = (params) => {
     {
       field: 'id',
       headerName: 'ID',
-      width: 70
+      width: 50
     }, {
       field: 'number',
-      headerName: 'number',
+      headerName: '人才編號',
       width: 70
     }, {
       field: 'name',
-      headerName: 'name',
+      headerName: '姓名',
       width: 100
     }, {
-      field: 'name-en',
-      headerName: 'name-en',
+      field: 'nameEn',
+      headerName: '姓名(EN)',
       width: 90
     }, {
-      field: 'sys-number',
-      headerName: 'sys-number',
+      field: 'sysNumber',
+      headerName: '精誠工號',
       type: 'number',
       width: 90
     }, {
-      field: 'sys-email',
-      headerName: 'sys-email',
-      width: 200
+      field: 'sysEmail',
+      headerName: '精誠Email',
+      width: 150
     }, {
       field: 'level',
-      headerName: 'level',
+      headerName: '職等',
       width: 50
     }, {
       field: 'birthday',
-      headerName: 'birthday',
+      headerName: '生日',
       width: 100
     }, {
       field: 'gender',
-      headerName: 'gender',
+      headerName: '性別',
       width: 70
     }, {
       field: 'role',
-      headerName: 'role',
+      headerName: '角色',
       width: 100
     }, {
       field: 'school',
-      headerName: 'school',
+      headerName: '學校',
       width: 130
     }, {
       field: 'department',
-      headerName: 'department',
+      headerName: '科系',
       width: 100
     }, {
       field: 'phone',
-      headerName: 'phone',
+      headerName: '手機',
       sortable: false,
       width: 100
     }, {
       field: 'onboard',
-      headerName: 'onboard',
+      headerName: '報到日',
       width: 100
     }, {
       field: 'status',
-      headerName: 'status',
+      headerName: '媒合狀態',
       width: 70
     },{
       field: "action",
-      headerName: "Action",
+      headerName: "編輯",
       width: 90,
       renderCell: renderDetailsButton,
       disableClickEventBubbling: true
@@ -205,6 +227,7 @@ const renderDetailsButton = (params) => {
       <Sidebar/>
       <div className="talentContainer">
         <Navbar/>
+        <Toolbox search={search}/>
         <div className="talentTable">
           <h2>人才管理 / 人才資料</h2>
 

@@ -19,8 +19,8 @@ class Cards extends Component {
 
     //生命週期函數,第一次渲染之後執行此函數
     componentDidMount(){
-        axios.get('/location').then((re)=>{
-            console.log('location data:',re.data);
+        axios.get('/talent').then((re)=>{
+            // console.log('talent:',re.data);
             this.setState({
                 cards: re.data,
                 sourceCards: re.data

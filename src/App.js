@@ -19,16 +19,17 @@ import 'react-toastify/dist/ReactToastify.css';
 // formSource.js
 // import { userInputs } from "./formSource";
 
-
-
-
 import {
   BrowserRouter,
   Routes,
   Route,
 } from "react-router-dom";
 
+
+
 function App() {
+
+
 
   
 
@@ -47,22 +48,20 @@ function App() {
       />
       <BrowserRouter >
         <Routes >
-          <Route path="/" >
-            <Route index element={<Home/>}/>
-            <Route path="login" element={<Login/>}/>
-            <Route path="talent" element={<Talent/>}/>
-            <Route path="sales" element={<Sales/>}/>
-            <Route path="talentSign" element={<TalentSign/>}/>
-            <Route path="customer" element={<Customer/>} />
-            <Route path="/notFound" element={<NotFound />} />
-            <Route path="/*" element={<NotFound />} />
-
-            {/* <Route path="users">
-              <Route index element={<List/>}/>
-              <Route path=":userId" element={<Single/>}/>
-              <Route path="new" element={<New inputs={userInputs} title="Add New User"/>}/>
-            </Route> */}
-          </Route>
+          <Route path="/"  element={((global.auth.getUser())?<Home/>:<NotFound />)}/>
+          <Route path="/login" element={<Login/>}/>
+          <Route path="/talent" element={<Talent/>}/>
+          <Route path="/sales" element={<Sales/>}/>
+          <Route path="/talentSign" element={<TalentSign/>}/>
+          <Route path="/customer" element={<Customer/>} />
+          <Route path="/notFound" element={<NotFound />} />
+          <Route path="*" element={<NotFound />} />
+          {/* <Route path="users">
+            <Route index element={<List/>}/>
+            <Route path=":userId" element={<Single/>}/>
+            <Route path="new" element={<New inputs={userInputs} title="Add New User"/>}/>
+          </Route> */}
+        
         </Routes>
       </BrowserRouter>
     </div>

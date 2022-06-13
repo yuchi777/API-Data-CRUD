@@ -9,6 +9,8 @@ import {Link} from "react-router-dom";
 
 const Sidebar = () => {
 
+
+
   return (
     <div className='sidebar'>
       <div className="top">
@@ -43,9 +45,9 @@ const Sidebar = () => {
           </Link>
           <Link to="/talent">
           {
-            (global.auth.getUser() || {}).account === 'sysadmin' ||
-            (global.auth.getUser() || {}).account === 'sales' ||
-            (global.auth.getUser() || {}).account === 'techlead'
+            (global.auth.getUser()).account === 'sysadmin' ||
+            (global.auth.getUser()).account === 'sales' ||
+            (global.auth.getUser()).account === 'techlead'
             ? (
               <ListItemButton>
                 <li>
@@ -59,15 +61,15 @@ const Sidebar = () => {
           </Link>
           <Link to="/sales">
           {
-            (global.auth.getUser() || {}).account === 'sysadmin'
+            (global.auth.getUser()).account === 'sysadmin'
             ||
-            (global.auth.getUser() || {}).account === 'sales'
+            (global.auth.getUser()).account === 'sales'
             ||
-            (global.auth.getUser() || {}).account === 'techlead'
+            (global.auth.getUser()).account === 'techlead'
             ||
-            (global.auth.getUser() || {}).account === 'director'
+            (global.auth.getUser()).account === 'director'
             ||
-            (global.auth.getUser() || {}).account === 'hr'
+            (global.auth.getUser()).account === 'hr'
             
             ? (
               <ListItemButton>
@@ -82,8 +84,8 @@ const Sidebar = () => {
           </Link>
           <Link to="/talentSign">
           {
-            (global.auth.getUser() || {}).account === 'talent' ||
-            (global.auth.getUser() || {}).account === 'sysadmin'
+            (global.auth.getUser()).account === 'talent' ||
+            (global.auth.getUser()).account === 'sysadmin'
             ? (
               <ListItemButton>
               <li>
@@ -97,9 +99,9 @@ const Sidebar = () => {
           </Link>
           <Link to="/customer">
           {
-            (global.auth.getUser() || {}).account === 'sysadmin' ||
-            (global.auth.getUser() || {}).account === 'customer' ||
-            (global.auth.getUser() || {}).account === 'sales'
+            (global.auth.getUser()).account === 'sysadmin' ||
+            (global.auth.getUser()).account === 'customer' ||
+            (global.auth.getUser()).account === 'sales'
             ? (
               <ListItemButton>
                 <li>
@@ -114,7 +116,7 @@ const Sidebar = () => {
 
           <p className="title">設定</p>
           {
-            (global.auth.getUser() || {}).account === 'sysadmin'
+            (global.auth.getUser()).account === 'sysadmin'
             ? (
               <ListItemButton>
                 <li>

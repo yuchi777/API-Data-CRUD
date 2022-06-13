@@ -6,25 +6,26 @@ import {useState, useEffect} from "react";
 import {DataGrid} from '@mui/x-data-grid';
 import axios from '../../commons/axios';
 //使用useNavigate 轉址
-import {useNavigate} from "react-router-dom";
+// import {useNavigate} from "react-router-dom";
 
 const Sales = () => {
 
   // 重新轉址
-  const navigate = useNavigate()
+  // const navigate = useNavigate()
   
-  const check = global.auth.getUser() || {};
-  if(check.account === 'techlead' || 
-  check.account ==='sales' || 
-  check.account ==='director' || 
-  check.account ==='hr'  
-  ){
-    // navigate('/sales')
-  }else{
-    navigate('/notFound')
-  }
+  // const check = global.auth.getUser() || {};
+  // if(check.account === 'techlead' || 
+  // check.account ==='sales' || 
+  // check.account ==='director' || 
+  // check.account ==='hr'  
+  // ){
+  //   // navigate('/sales')
+  // }else{
+  //   navigate('/notFound')
+  // }
 
   const [row,setRow] = useState([]);
+  const [row2,setRow2] = useState([]);
 
   useEffect(() => {
 
@@ -38,6 +39,21 @@ const Sales = () => {
           setRow(re.data[0].customer);
         } else {
           setRow([]);
+        }
+
+      })
+      .catch((err) => {
+        // handleNavigate();
+        console.log(err.response);
+      })
+
+    axios.get(`/sales`).then((re) => {
+        console.log('sales data:',re.data[0].contract);
+        const user = global.auth.getUser() || {}
+        if (user.account === 'techlead' || user.account === 'sales' || user.account === 'hr' || user.account === 'director') {
+          setRow2(re.data[0].contract);
+        } else {
+          setRow2([]);
         }
 
       })
@@ -72,24 +88,58 @@ const Sales = () => {
       width: 70
     }, {
       field: 'name',
-      headerName: 'name',
+      headerName: '客戶名稱',
       width: 250
     }, {
       field: 'client',
-      headerName: 'client',
-      width: 350
+      headerName: '終端客戶名稱',
+      width: 250
     }, {
       field: 'contact',
-      headerName: 'contact',
-      width: 120
+      headerName: '客戶窗口',
+      width: 100
     }, {
       field: 'place',
-      headerName: 'place',
-      width: 120
+      headerName: '派駐地點',
+      width: 100
     }, {
       field: "action",
-      headerName: "Action",
-      width: 100,
+      headerName: "編輯",
+      width: 200,
+      renderCell: renderDetailsButton,
+      disableClickEventBubbling: true
+    }
+  ];
+
+  const columnsCustomer2 = [
+    {
+      field: 'id',
+      headerName: 'ID',
+      width: 70
+    }, {
+      field: 'project',
+      headerName: '專案名稱',
+      width: 150
+    }, {
+      field: 'sys-name',
+      headerName: '系統名稱',
+      width: 150
+    }, {
+      field: 'date-on',
+      headerName: '派駐起日',
+      width: 100
+    }, {
+      field: 'date-off',
+      headerName: '派駐迄日',
+      width: 100
+    }, {
+      field: 'price',
+      headerName: '報價',
+      width: 100
+    }, {
+      field: "action",
+      headerName: "編輯",
+      width: 200,
       renderCell: renderDetailsButton,
       disableClickEventBubbling: true
     }
@@ -101,8 +151,7 @@ const Sales = () => {
       <div className="salesContainer">
         <Navbar/>
         <div className="salesTable">
-          <h2>業務管理 / 人才外派(客戶)資料</h2>
-
+          <h2>業務管理 / 人才外派資料</h2>
           <div style={{
             height: 400,
             width: '100%'
@@ -111,7 +160,22 @@ const Sales = () => {
             rows={row} 
             columns={columnsCustomer} 
             pageSize={5} 
-            rowsPerPageOptions={[5]} // checkboxSelection
+            rowsPerPageOptions={[5]
+            } // checkboxSelection
+            />
+          </div>
+          <hr />
+          <h2>業務管理 / 客戶合約資料</h2>
+          <div style={{
+            height: 400,
+            width: '100%'
+          }}>
+            <DataGrid 
+            rows={row2} 
+            columns={columnsCustomer2} 
+            pageSize={5} 
+            rowsPerPageOptions={[5]
+            } // checkboxSelection
             />
           </div>
 

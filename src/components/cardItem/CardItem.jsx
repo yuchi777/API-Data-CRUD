@@ -5,13 +5,15 @@ import Panel from '../panel/Panel';
 import EditInventory from "../editInventory/EditInventory";
 
 // import axios from "../../commons/axios";
-import sysImg from "../../img/systex-logo.jpg"
-import fubonImg from "../../img/fubon-logo.png"
+// import sysImg from "../../img/systex-logo.jpg"
+// import fubonImg from "../../img/fubon-logo.png"
 
 export default class Card extends Component {
 
   //修改資料
   toEdit = () => {
+    console.log('this.props.card:',this.props.card);
+    console.log('this.props.card:',typeof(this.props.card));
     Panel.open({
       component: EditInventory, // EditInventory 掛載=> CardItem 使用=> Panel.open()
       props:{
@@ -47,7 +49,7 @@ export default class Card extends Component {
 
   render() {
 
-    const { img, name, area, place, contact, status } = this.props.card;
+    const { number, name, nameEn, sysNumber, sysEmail, level, birthday, gender, role, school, department, phone, onboard, status  } = this.props.card;
     const _pClass = {
       available: 'card',
       unavailable: 'card out-stock'
@@ -62,22 +64,31 @@ export default class Card extends Component {
         <div className="p-content">
           <div className="img-wrapper">
             <div className="out-stock-text">Unavailable</div>
-            <figure className="image is4by3">
-              <img src={(img === 'sysImg')?sysImg:fubonImg} alt={name}/>
-            </figure>
-            <p className="name">{name}</p>
-            <p className="p-tags">{area}</p>
-            <p className="p-name">{place}</p>
-            <p className="">聯絡: {contact}</p>
+            <h2>基本資料</h2>
+            <p className="p-tags">人才編號: {number}</p>
+            <p className="name">姓名: {name}</p>
+            <p className="name">姓名(EN): {nameEn}</p>
+            <p className="name">精誠工號: {sysNumber}</p>
+            <p className="name">精誠EMAIL: </p>
+            <p>{sysEmail}</p>
+            <p className="name">職等: {level}</p>
+            <p className="name">出生年: {birthday}</p>
+            <p className="name">性別: {gender}</p>
+            <p className="name">角色: {role}</p>
+            <p className="name">學校: {school}</p>
+            <p className="name">科系: {department}</p>
+            <p className="name">手機: {phone}</p>
+            <p className="p-tags">報到日: {onboard}</p>
+            <p className="p-name">媒合狀態: {status}</p>
           </div>
         </div>
 
         <div className="p-footer">
-          <button className="footer-btn" disabled={status === 'unavailable'} >
-            <span>SIGN</span>
+          <button className="footer-btn" disabled={status === 'unavailable'} onClick={this.toEdit}>
+            <span>打卡</span>
           </button>
           <button className="footer-btn" disabled={status === 'unavailable'} >
-            <span>REPORT</span>
+            <span>查詢</span>
           </button>
         </div>
 

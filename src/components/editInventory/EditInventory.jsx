@@ -7,23 +7,39 @@ class EditInventory extends Component {
 
     state = {
         id:'',
-        img:'',
+        number:'',
         name:'',
-        area:'',
-        place:'',
-        contact:'',
+        nameEn:'',
+        sysNumber:'',
+        sysEmail:'',
+        level:'',
+        birthday:'',
+        gender:'',
+        role:'',
+        school:'',
+        department:'',
+        phone:'',
+        onboard:'',
         status:'available'
     }
 
     componentDidMount(){
-        const {id, img, name, area, place, contact, status} = this.props.card;
+        const {id, number,name, nameEn, sysNumber, sysEmail, level, birthday, gender, role, school,department,phone, onboard,status} = this.props.card;
         this.setState({
             id:id,
-            img:img,
+            number:number,
             name:name,
-            area:area,
-            place:place,
-            contact:contact,
+            nameEn:nameEn,
+            sysNumber:sysNumber,
+            sysEmail:sysEmail,
+            level:level,
+            birthday:birthday,
+            gender:gender,
+            role:role,
+            school:school,
+            department:department,
+            phone:phone,
+            onboard:onboard,
             status:status
         })
     }
@@ -42,7 +58,7 @@ class EditInventory extends Component {
     submit = (e) => {
         e.preventDefault();
         const card = {...this.state};
-        axios.put(`location/${this.state.id}`,card).then((res)=>{
+        axios.put(`talent/${this.state.id}`,card).then((res)=>{
             console.log('EditInventory data:',res.data);
             this.props.close(res.data);
             toast.success('Edit Success');
@@ -51,7 +67,7 @@ class EditInventory extends Component {
 
     //Delete
     onDelete = () =>{
-        axios.delete(`location/${this.state.id}`).then(()=>{
+        axios.delete(`talent/${this.state.id}`).then(()=>{
             this.props.deleteCard(this.state.id)
             this.props.close();
             toast.success('Delete Success');
@@ -65,9 +81,9 @@ class EditInventory extends Component {
                 <p className="title has-text-centered">Edit</p>
                 <form onSubmit={this.submit}>
                     <div className="field">
-                        <label className='label label-flex'>Img</label>
+                        <label className='label label-flex'>Number</label>
                         <div className="control">
-                            <input type="text" name='img' className="input"  value={this.state.img} onChange={this.handleChange}/>
+                            <input type="text" name="number" className="input" value={this.state.number} onChange={this.handleChange}/>
                         </div>
                     </div>
                     <div className="field">
@@ -77,21 +93,69 @@ class EditInventory extends Component {
                         </div>
                     </div>
                     <div className="field">
-                        <label className='label label-flex'>Area</label>
+                        <label className='label label-flex'>NameEn</label>
                         <div className="control">
-                            <input type="text" name="area" className="input" value={this.state.area} onChange={this.handleChange}/>
+                            <input type="text" name="nameEn" className="input" value={this.state.nameEn} onChange={this.handleChange}/>
                         </div>
                     </div>
                     <div className="field">
-                        <label className='label label-flex'>Place</label>
+                        <label className='label label-flex'>SysNumber</label>
                         <div className="control">
-                            <input type="text" name="place" className="input" value={this.state.place} onChange={this.handleChange}/>
+                            <input type="text" name="sysNumber" className="input" value={this.state.sysNumber} onChange={this.handleChange}/>
                         </div>
                     </div>
                     <div className="field">
-                        <label className='label label-flex'>Contact</label>
+                        <label className='label label-flex'>sysEmail</label>
                         <div className="control">
-                            <input type="text" name="contact" className="input" value={this.state.contact} onChange={this.handleChange}/>
+                            <input type="text" name="sysEmail" className="input" value={this.state.sysEmail} onChange={this.handleChange}/>
+                        </div>
+                    </div>
+                    <div className="field">
+                        <label className='label label-flex'>level</label>
+                        <div className="control">
+                            <input type="text" name="level" className="input" value={this.state.level} onChange={this.handleChange}/>
+                        </div>
+                    </div>
+                    <div className="field">
+                        <label className='label label-flex'>birthday</label>
+                        <div className="control">
+                            <input type="text" name="birthday" className="input" value={this.state.birthday} onChange={this.handleChange}/>
+                        </div>
+                    </div>
+                    <div className="field">
+                        <label className='label label-flex'>gender</label>
+                        <div className="control">
+                            <input type="text" name="gender" className="input" value={this.state.gender} onChange={this.handleChange}/>
+                        </div>
+                    </div>
+                    <div className="field">
+                        <label className='label label-flex'>role</label>
+                        <div className="control">
+                            <input type="text" name="role" className="input" value={this.state.role} onChange={this.handleChange}/>
+                        </div>
+                    </div>
+                    <div className="field">
+                        <label className='label label-flex'>school</label>
+                        <div className="control">
+                            <input type="text" name="school" className="input" value={this.state.school} onChange={this.handleChange}/>
+                        </div>
+                    </div>
+                    <div className="field">
+                        <label className='label label-flex'>department</label>
+                        <div className="control">
+                            <input type="text" name="department" className="input" value={this.state.department} onChange={this.handleChange}/>
+                        </div>
+                    </div>
+                    <div className="field">
+                        <label className='label label-flex'>phone</label>
+                        <div className="control">
+                            <input type="text" name="phone" className="input" value={this.state.phone} onChange={this.handleChange}/>
+                        </div>
+                    </div>
+                    <div className="field">
+                        <label className='label label-flex'>onboard</label>
+                        <div className="control">
+                            <input type="text" name="onboard" className="input" value={this.state.onboard} onChange={this.handleChange}/>
                         </div>
                     </div>
                     <div className="field">

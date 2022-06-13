@@ -1,28 +1,21 @@
 import React from "react";
-
 //使用 React Hook Form 函式庫
 import { useForm } from "react-hook-form";
-
 //使用useNavigate 轉址
 import { useNavigate } from "react-router-dom";
-
 //使用axios
 import axios from "../../commons/axios";
-
 //使用toast
 import { toast } from 'react-toastify';
 
 //使用router
 // import {Link} from 'react-router-dom';
-
 //使用Panel
 // import Panel from '../../components/panel/Panel';
 
 
 import "./login.scss";
 import "../../commons/auth";
-
-
 import Logo from "../../img/systex-logo.jpg";
 import PersonIcon from '@mui/icons-material/Person';
 import KeyIcon from '@mui/icons-material/Key';
@@ -32,7 +25,7 @@ import KeyIcon from '@mui/icons-material/Key';
 //function component
 export default function Login(props) {
 
-
+  
 
   //useFrom為函式返回需要用的值並解構附值
   const { register, handleSubmit, formState: { errors } } = useForm({
@@ -43,14 +36,14 @@ export default function Login(props) {
   });
   console.log(errors);
 
-  
 
   //重新轉址
   const navigate = useNavigate()
-  function handleHistory() {
+  const handleHistory = () => {
     // const user = global.auth.getUser() || {}
     // navigate(`/${user.account}`)
     navigate('/')
+    
   }
 
   const onSubmit = async data => {
