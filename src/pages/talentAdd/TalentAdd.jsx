@@ -1,14 +1,14 @@
-import "./talent.scss";
-// import Panel from '../../components/panel/Panel';
+import "./talentAdd.scss";
+import Panel from '../../components/panel/Panel';
 // import EditInventory from "../../components/editInventory/EditInventory";
-// import AddInventory from "../../components/addInventory/AddInventory";
+import AddInventory from "../../components/addInventory/AddInventory";
 import Navbar from "../../components/navbar/Navbar";
 import Sidebar from "../../components/sidebar/Sidebar";
 // import IconButton from '@mui/material/IconButton';
 import { useState,useEffect } from "react";
 import {DataGrid} from '@mui/x-data-grid';
 import axios from '../../commons/axios';
-import Toolbox from '../../components/toolbox/Toolbox';
+// import Toolbox from '../../components/toolbox/Toolbox';
 //使用useNavigate 轉址
 // import EditIcon from '@mui/icons-material/Edit';
 // import { useNavigate } from "react-router-dom";
@@ -20,15 +20,10 @@ const Talent = () => {
   
 
   useEffect(() => {
-    //渲染 => 判斷身分(控制資源) => 取資源  
-    //依據${user.account} = techlead 判別身分獲取資料
-    // axios.get(`/${user.account}`)
-    
+
     axios.get(`/talent`).then((re)=>{
       const user = global.auth.getUser() || {}
       if(user.account === 'techlead' || user.account ==='sales' ){
-        // console.log('ID:',user.account);
-        // console.log('talent data:',re.data);
         setRow(re.data);
         setSourcerow(re.data)
       }else{
@@ -39,15 +34,14 @@ const Talent = () => {
     }).catch((err)=>{
       console.log(err.response);
     })
-    
+
 }, [])
+
 
 //修改資料
 // const toEdit = (params) => {
-//   console.log('row:',row);
-//   console.log('row:',typeof(row));
 //   Panel.open({
-//     component: EditInventory, // EditInventory 掛載=> CardItem 使用=> Panel.open()
+//     component: EditInventory, 
 //     props:{
 //       card: params.row,
 //       deleteCard: deleteData
@@ -55,7 +49,7 @@ const Talent = () => {
 //     callback: data => {
 //       console.log('talent toEdit:',data);
 //       if(data){
-//         update(data) //用data.id更新 // 父組件<Card update={this.update}/>
+//         update(data) 
 //       }
 //     }
 //   })
@@ -64,41 +58,39 @@ const Talent = () => {
 
 
 //搜尋
-const search = (text) => {
-  let _row = [...sourceRow];
-  _row = _row.filter((p)=>{
-      const matchArray = p.name.match(new RegExp(text,'gi'));
-      return matchArray !==null;
-  })
-
-  setRow(_row);
-}
+// const search = (text) => {
+//   let _row = [...sourceRow];
+//   _row = _row.filter((p)=>{
+//       const matchArray = p.name.match(new RegExp(text,'gi'));
+//       return matchArray !==null;
+//   })
+//   setRow(_row);
+// }
 
 
 //open Panel & 掛載子組件
-// const toAdd = () => {
-//   Panel.open({
-//       component: AddInventory,
-//       callback:(data) => {
-//           console.log('Add:',data);
-//           if(data){
-//               //如果有資料,新增資料
-//               add(data);
-//           }
-//       }
-//   })
-// }
+const toAdd = () => {
+  Panel.open({
+      component: AddInventory,
+      callback:(data) => {
+          console.log('Add:',data);
+          if(data){
+              add(data);
+          }
+      }
+  })
+}
 
 //新增資料
-// const add = (e) => {
-//   const _row = [...row];
-//   _row.push(e);
-//   const _srow = [...sourceRow];
-//   _srow.push(e);
+const add = (e) => {
+  const _row = [...row];
+  _row.push(e);
+  const _srow = [...sourceRow];
+  _srow.push(e);
 
-//   setRow(_row);
-//   setSourcerow(_srow);
-// }
+  setRow(_row);
+  setSourcerow(_srow);
+}
 
 
 //更新資料,重新渲染
@@ -126,17 +118,15 @@ const search = (text) => {
 
 
 
-//編輯欄位button
+
 // const renderDetailsButton = (params) => {
 //   return (
 //           <IconButton 
 //               variant="contained"
 //               color="primary"
 //               size="small"
-//               // style={{ marginLeft: 16 }}
 //               onClick={()=>{
 //                 toEdit(params);
-//                 console.log(params.row)
 //               }}
 //           >
 //           <EditIcon/>
@@ -217,65 +207,16 @@ const search = (text) => {
     }
   ];
 
-  
-  // const rows = [
-  //   {
-  //     id: 1,
-  //     lastName: 'Snow',
-  //     firstName: 'Jon',
-  //     age: 35
-  //   }, {
-  //     id: 2,
-  //     lastName: 'Lannister',
-  //     firstName: 'Cersei',
-  //     age: 42
-  //   }, {
-  //     id: 3,
-  //     lastName: 'Lannister',
-  //     firstName: 'Jaime',
-  //     age: 45
-  //   }, {
-  //     id: 4,
-  //     lastName: 'Stark',
-  //     firstName: 'Arya',
-  //     age: 16
-  //   }, {
-  //     id: 5,
-  //     lastName: 'Targaryen',
-  //     firstName: 'Daenerys',
-  //     age: null
-  //   }, {
-  //     id: 6,
-  //     lastName: 'Melisandre',
-  //     firstName: null,
-  //     age: 150
-  //   }, {
-  //     id: 7,
-  //     lastName: 'Clifford',
-  //     firstName: 'Ferrara',
-  //     age: 44
-  //   }, {
-  //     id: 8,
-  //     lastName: 'Frances',
-  //     firstName: 'Rossini',
-  //     age: 36
-  //   }, {
-  //     id: 9,
-  //     lastName: 'Roxie',
-  //     firstName: 'Harvey',
-  //     age: 65
-  //   }
-  // ];
 
   return (
     <div className="talent">
       <Sidebar/>
       <div className="talentContainer">
         <Navbar/>
-        <Toolbox search={search}/>
+        {/* <Toolbox search={search}/> */}
         <div className="talentTable">
           <h2>人才管理 / 人才資料</h2>
-          {/* <button className="add-btn button is-info" onClick={toAdd}>新增</button> */}
+          <button className="add-btn button is-info" onClick={toAdd}>新增</button>
           <div style={{
             height: 500,
             width: '100%'
@@ -285,7 +226,6 @@ const search = (text) => {
               columns={columns}
               pageSize={8}
               rowsPerPageOptions={[8]}
-              // checkboxSelection
               />
           </div>
 

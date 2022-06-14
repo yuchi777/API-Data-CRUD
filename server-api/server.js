@@ -221,7 +221,7 @@ server.use('/talent' || '/sales', (req, res, next) => {
         //object: The object to test // constructor: Function to test against
         if (verifyTokenResult instanceof Error) {
             const status = 401;
-            const message = 'Access	token	not	provided';
+            const message = 'Access	token not provided';
             res.status(status).json({ status, message });
 
             return;
@@ -232,7 +232,7 @@ server.use('/talent' || '/sales', (req, res, next) => {
         next();
     } catch (err) {
         const status = 401;
-        const message = 'Error	token	is	revoked';
+        const message = 'Error token is	revoked';
         res.status(status).json({ status, message });
     }
 });

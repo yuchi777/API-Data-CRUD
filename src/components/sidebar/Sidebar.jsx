@@ -34,7 +34,7 @@ const Sidebar = () => {
             </ListItemButton>
           </Link> */}
 
-          <p className="title">模組功能</p>
+          
           <Link to="/">
             <ListItemButton>
                 <li>
@@ -43,22 +43,53 @@ const Sidebar = () => {
                 </li>
             </ListItemButton>
           </Link>
-          <Link to="/talent">
+          
+          <p className="title">人才管理</p>
           {
             (global.auth.getUser()).account === 'sysadmin' ||
             (global.auth.getUser()).account === 'sales' ||
             (global.auth.getUser()).account === 'techlead'
             ? (
-              <ListItemButton>
-                <li>
-                  <DescriptionIcon className="icon"/>
-                  <span>人才管理</span>
-                </li>
-              </ListItemButton>
+              <div>
+                <Link to="/talent">
+                  <ListItemButton>
+                    <li>
+                      <DescriptionIcon className="icon"/>
+                      <span>人才資料-查詢</span>
+                    </li>
+                  </ListItemButton>
+                </Link>
+              </div>
             )
             :''
           }
-          </Link>
+          {
+            (global.auth.getUser()).account === 'sysadmin' ||
+            (global.auth.getUser()).account === 'techlead'
+            ? (
+              <div>
+                <Link to="/talent/talentAdd">
+                  <ListItemButton>
+                    <li>
+                      <DescriptionIcon className="icon"/>
+                      <span>人才資料-新增</span>
+                    </li>
+                  </ListItemButton>
+                </Link>
+                <Link to="/talent/talentEdit">
+                  <ListItemButton>
+                    <li>
+                      <DescriptionIcon className="icon"/>
+                      <span>人才資料-修改/刪除</span>
+                    </li>
+                  </ListItemButton>
+                </Link>
+              </div>
+            )
+            :''
+          }
+          
+          <p className="title">業務管理</p>
           <Link to="/sales">
           {
             (global.auth.getUser()).account === 'sysadmin'
@@ -75,13 +106,30 @@ const Sidebar = () => {
               <ListItemButton>
                 <li>
                   <DescriptionIcon className="icon"/>
-                  <span>業務管理</span>
+                  <span>人才外派資料</span>
                 </li>
               </ListItemButton>
             )
             :''
           }
           </Link>
+          <Link to="/sales/salesContract">
+          {
+            (global.auth.getUser()).account === 'sysadmin'
+            ||
+            (global.auth.getUser()).account === 'sales'
+            ? (
+              <ListItemButton>
+                <li>
+                  <DescriptionIcon className="icon"/>
+                  <span>客戶合約資料</span>
+                </li>
+              </ListItemButton>
+            )
+            :''
+          }
+          </Link>
+          <p className="title">人才打卡管理</p>
           <Link to="/talentSign">
           {
             (global.auth.getUser()).account === 'talent' ||
@@ -97,6 +145,7 @@ const Sidebar = () => {
             :''
           }
           </Link>
+          <p className="title">客戶簽核管理</p>
           <Link to="/customer">
           {
             (global.auth.getUser()).account === 'sysadmin' ||

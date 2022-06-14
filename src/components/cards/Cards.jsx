@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import "./cards.scss";
 import Toolbox from '../toolbox/Toolbox';
-import Card from '../cardItem/CardItem';
+import CardItem from '../cardItem/CardItem';
 import axios from '../../commons/axios';
 import Panel from '../panel/Panel';
 import AddInventory from '../addInventory/AddInventory';
@@ -110,7 +110,7 @@ class Cards extends Component {
                             this.state.cards.map((p)=>{
                                 return(
                                     <div className="column is-3" key={p.id}>
-                                        <Card 
+                                        <CardItem 
                                         card={p}
                                         update={this.update}
                                         delete={this.delete}
