@@ -90,7 +90,6 @@ const Sidebar = () => {
           }
           
           <p className="title">業務管理</p>
-          <Link to="/sales">
           {
             (global.auth.getUser()).account === 'sysadmin'
             ||
@@ -103,32 +102,70 @@ const Sidebar = () => {
             (global.auth.getUser()).account === 'hr'
             
             ? (
-              <ListItemButton>
-                <li>
-                  <DescriptionIcon className="icon"/>
-                  <span>人才外派資料</span>
-                </li>
-              </ListItemButton>
+              <Link to="/sales">
+                <ListItemButton>
+                  <li>
+                    <DescriptionIcon className="icon"/>
+                    <span>人才外派資料-查詢</span>
+                  </li>
+                </ListItemButton>
+              </Link>
             )
             :''
           }
-          </Link>
-          <Link to="/sales/salesContract">
+          {
+            (global.auth.getUser()).account === 'sysadmin'
+            ||
+            (global.auth.getUser()).account === 'sales'          
+            ? (
+              <div>
+              <Link to="/sales/salesAdd">
+                <ListItemButton>
+                  <li>
+                    <DescriptionIcon className="icon"/>
+                    <span>人才外派資料-新增</span>
+                  </li>
+                </ListItemButton>
+              </Link>
+              <Link to="/sales/salesEdit">
+                <ListItemButton>
+                  <li>
+                    <DescriptionIcon className="icon"/>
+                    <span>人才外派資料-修改/刪除</span>
+                  </li>
+                </ListItemButton>
+              </Link>
+              </div>
+            )
+            :''
+          }
           {
             (global.auth.getUser()).account === 'sysadmin'
             ||
             (global.auth.getUser()).account === 'sales'
             ? (
-              <ListItemButton>
-                <li>
-                  <DescriptionIcon className="icon"/>
-                  <span>客戶合約資料</span>
-                </li>
-              </ListItemButton>
+              <div>
+                <Link to="/sales/salesContract">
+                  <ListItemButton>
+                    <li>
+                      <DescriptionIcon className="icon"/>
+                      <span>客戶合約資料-查詢</span>
+                    </li>
+                  </ListItemButton>
+                </Link>
+                <Link to="/sales/salesContractEdit">
+                  <ListItemButton>
+                    <li>
+                      <DescriptionIcon className="icon"/>
+                      <span>客戶合約資料-修改/刪除</span>
+                    </li>
+                  </ListItemButton>
+                </Link>
+              </div>
             )
             :''
           }
-          </Link>
+
           <p className="title">人才打卡管理</p>
           <Link to="/talentSign">
           {

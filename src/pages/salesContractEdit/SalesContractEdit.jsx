@@ -1,13 +1,13 @@
-import "./salesContract.scss";
+import "./salesContractEdit.scss";
 import Navbar from "../../components/navbar/Navbar";
 import Sidebar from "../../components/sidebar/Sidebar";
 // import Button from '@mui/material/Button';
-// import IconButton from '@mui/material/IconButton';
+import IconButton from '@mui/material/IconButton';
 import {useState, useEffect} from "react";
 import {DataGrid} from '@mui/x-data-grid';
 import axios from '../../commons/axios';
-// import EditIcon from '@mui/icons-material/Edit';
-import Toolbox from '../../components/toolbox/Toolbox';
+import EditIcon from '@mui/icons-material/Edit';
+// import Toolbox from '../../components/toolbox/Toolbox';
 
 //使用useNavigate 轉址
 // import {useNavigate} from "react-router-dom";
@@ -69,22 +69,22 @@ const Sales = () => {
 
   }, [])
 
-//   const renderDetailsButton = (params) => {
-//   return (
-//           <IconButton 
-//               variant="contained"
-//               color="primary"
-//               size="small"
-//               // style={{ marginLeft: 16 }}
-//               onClick={()=>{
-//                 // toEdit(params);
-//                 console.log(params.row)
-//               }}
-//           >
-//           <EditIcon/>
-//           </IconButton>
-//   )
-// }
+  const renderDetailsButton = (params) => {
+  return (
+          <IconButton 
+              variant="contained"
+              color="primary"
+              size="small"
+              // style={{ marginLeft: 16 }}
+              onClick={()=>{
+                // toEdit(params);
+                console.log(params.row)
+              }}
+          >
+          <EditIcon/>
+          </IconButton>
+  )
+}
 
   // const columnsCustomer = [
   //   // {
@@ -118,13 +118,13 @@ const Sales = () => {
   // ];
 
   const columnsCustomer2 = [
-    // {
-    //   field: "action",
-    //   headerName: "編輯",
-    //   width: 60,
-    //   renderCell: renderDetailsButton,
-    //   disableClickEventBubbling: true
-    // },
+    {
+      field: "action",
+      headerName: "編輯",
+      width: 60,
+      renderCell: renderDetailsButton,
+      disableClickEventBubbling: true
+    },
     {
       field: 'id',
       headerName: 'ID',
@@ -157,7 +157,7 @@ const Sales = () => {
       <Sidebar/>
       <div className="salesContainer">
         <Navbar/>
-        <Toolbox/>
+        {/* <Toolbox/> */}
         <div className="salesTable">
           {/* <h2>業務管理 / 人才外派資料</h2> */}
           {/* <button className="add-btn button is-info" >新增</button> */}

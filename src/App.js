@@ -3,11 +3,14 @@ import Login from "./pages/login/Login";
 import Talent from "./pages/talent/Talent";
 import TalentAdd from "./pages/talentAdd/TalentAdd";
 import TalentEdit from "./pages/talentEdit/TalentEdit";
-import Sales from "./pages/sales/Sales"
-import SalesContract from "./pages/salesContract/SalesContract"
-import TalentSign from "./pages/talentSign/TalentSign"
-import Customer from "./pages/customer/Customer"
-import NotFound from "./pages/notFound/NotFound"
+import Sales from "./pages/sales/Sales";
+import SalesAdd from "./pages/salesAdd/SalesAdd";
+import SalesEdit from "./pages/salesEdit/SalesEdit";
+import SalesContract from "./pages/salesContract/SalesContract";
+import SalesContractEdit from "./pages/salesContractEdit/SalesContractEdit";
+import TalentSign from "./pages/talentSign/TalentSign";
+import Customer from "./pages/customer/Customer";
+import NotFound from "./pages/notFound/NotFound";
 import '../node_modules/bulma/bulma.sass';
 import "./style/dark.scss";
 
@@ -62,7 +65,10 @@ function App() {
           </Route>
           <Route path="sales">
             <Route index element={<Sales/>}/>
+            <Route path="salesAdd" element={<SalesAdd/>}/>
+            <Route path="salesEdit" element={<SalesEdit/>}/>
             <Route path="salesContract" element={<SalesContract/>}/>
+            <Route path="salesContractEdit" element={<SalesContractEdit/>}/>
           </Route>
           <Route path="talentSign" element={<TalentSign/>}/>
           <Route path="customer" element={<Customer/>} />
