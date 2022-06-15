@@ -3,25 +3,27 @@ import {toast} from 'react-toastify';
 import axios from '../../commons/axios';
 
 
-class EditInventorySales extends Component {
+class EditInventorySalesContract extends Component {
 
     state = {
         id:'',
-        name:'',
-        client:'',
-        contact:'',
-        place:''
+        project:'',
+        sysName:'',
+        dateOn:'',
+        dateOff:'',
+        price:''
     }
 
     //因為修改所以要取出值,解構附值
     componentDidMount(){
-        const {id, name, client, contact, place} = this.props.card;
+        const {id, project, sysName, dateOn, dateOff, price} = this.props.card;
         this.setState({
             id:id,
-            name:name,
-            client:client,
-            contact:contact,
-            place:place
+            project:project,
+            sysName:sysName,
+            dateOn:dateOn,
+            dateOff:dateOff,
+            price:price,
         })
     }
 
@@ -39,8 +41,8 @@ class EditInventorySales extends Component {
     submit = (e) => {
         e.preventDefault();
         const card = {...this.state};
-        axios.put(`customer/${this.state.id}`,card).then((res)=>{
-            console.log('EditInventorySales data:',res.data);
+        axios.put(`contract/${this.state.id}`,card).then((res)=>{
+            console.log('EditInventorySalesContract data:',res.data);
             this.props.close(res.data);
             toast.success('Edit Success');
         })
@@ -48,7 +50,7 @@ class EditInventorySales extends Component {
 
     //Delete
     onDelete = () =>{
-        axios.delete(`customer/${this.state.id}`).then(()=>{
+        axios.delete(`contract/${this.state.id}`).then(()=>{
             this.props.deleteCard(this.state.id)
             this.props.close();
             toast.success('Delete Success');
@@ -62,27 +64,33 @@ class EditInventorySales extends Component {
                 <p className="title has-text-centered">Edit</p>
                 <form onSubmit={this.submit}>
                     <div className="field">
-                        <label className='label label-flex'>Name</label>
+                        <label className='label label-flex'>Project</label>
                         <div className="control">
-                            <input type="text" name="name" className="input" value={this.state.name} onChange={this.handleChange}/>
+                            <input type="text" name="project" className="input" value={this.state.project} onChange={this.handleChange}/>
                         </div>
                     </div>
                     <div className="field">
-                        <label className='label label-flex'>Client</label>
+                        <label className='label label-flex'>SysName</label>
                         <div className="control">
-                            <input type="text" name="client" className="input" value={this.state.client} onChange={this.handleChange}/>
+                            <input type="text" name="sysName" className="input" value={this.state.sysName} onChange={this.handleChange}/>
                         </div>
                     </div>
                     <div className="field">
-                        <label className='label label-flex'>Contact</label>
+                        <label className='label label-flex'>DateOn</label>
                         <div className="control">
-                            <input type="text" name="contact" className="input" value={this.state.contact} onChange={this.handleChange}/>
+                            <input type="text" name="dateOn" className="input" value={this.state.dateOn} onChange={this.handleChange}/>
                         </div>
                     </div>
                     <div className="field">
-                        <label className='label label-flex'>Place</label>
+                        <label className='label label-flex'>DateOff</label>
                         <div className="control">
-                            <input type="text" name="place" className="input" value={this.state.place} onChange={this.handleChange}/>
+                            <input type="text" name="dateOff" className="input" value={this.state.dateOff} onChange={this.handleChange}/>
+                        </div>
+                    </div>
+                    <div className="field">
+                        <label className='label label-flex'>Price</label>
+                        <div className="control">
+                            <input type="text" name="price" className="input" value={this.state.price} onChange={this.handleChange}/>
                         </div>
                     </div>
                     <br />
@@ -103,4 +111,4 @@ class EditInventorySales extends Component {
     }
 }
 
-export default EditInventorySales;
+export default EditInventorySalesContract;

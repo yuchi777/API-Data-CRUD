@@ -272,6 +272,84 @@
       ]
     }
   ],
+  "customer": [
+    {
+      "id": 1,
+      "name": "BU-1",
+      "client": "AAA有限公司",
+      "contact": "Jenny",
+      "place": "地點A"
+    },
+    {
+      "id": 2,
+      "name": "BU-2",
+      "client": "ABCCDD有限公司",
+      "contact": "Andy",
+      "place": "地點A"
+    },
+    {
+      "id": 3,
+      "name": "BU-3",
+      "client": "CCC有限公司",
+      "contact": "Amy",
+      "place": "地點B"
+    },
+    {
+      "id": 4,
+      "name": "BU-4",
+      "client": "BBB有限公司",
+      "contact": "Andy",
+      "place": "地點B"
+    },
+    {
+      "id": 5,
+      "name": "BU-5",
+      "client": "CCC有限公司",
+      "contact": "Amy",
+      "place": "地點C"
+    },
+    {
+      "id": 6,
+      "name": "測試客戶",
+      "client": "測試終端客戶",
+      "contact": "測試聯絡人",
+      "place": "測試地點"
+    }
+  ],
+  "contract": [
+    {
+      "id": 1,
+      "project": "project-1",
+      "sysName": "sys-1",
+      "dateOn": "2022/5/1",
+      "dateOff": "2022/6/1",
+      "price": 100
+    },
+    {
+      "id": 2,
+      "project": "project-2",
+      "sysName": "sys-2",
+      "dateOn": "2022/5/2",
+      "dateOff": "2022/6/2",
+      "price": 2000
+    },
+    {
+      "id": 3,
+      "project": "project-3",
+      "sysName": "sys-3",
+      "dateOn": "2022/5/3",
+      "dateOff": "2022/6/3",
+      "price": 3000
+    },
+    {
+      "id": 4,
+      "project": "測試專案名稱123",
+      "sysName": "測試系統名稱123",
+      "dateOn": "2034/5/3",
+      "dateOff": "2035/6/3",
+      "price": 5555
+    }
+  ],
   "talentSign": [
     {
       "id": 1,

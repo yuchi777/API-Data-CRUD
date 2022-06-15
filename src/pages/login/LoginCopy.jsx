@@ -4,7 +4,8 @@ import { useForm } from "react-hook-form";
 //使用useNavigate 轉址
 import { useNavigate } from "react-router-dom";
 //使用axios
-import axios from "../../commons/axios";
+// import axios from "../../commons/axios";
+import axios from 'axios';
 //使用toast
 import { toast } from 'react-toastify';
 
@@ -30,7 +31,7 @@ export default function Login(props) {
   //useFrom為函式返回需要用的值並解構附值
   const { register, handleSubmit, formState: { errors } } = useForm({
     defaultValues: {
-      account: "",
+      username: "",
       password: ""
     }
   });
@@ -61,19 +62,19 @@ export default function Login(props) {
     try {
       console.log('data:',data);
       //解構附值
-      const { account, password } = data;
+      const { username, password } = data;
 
       //測試
       // let axiosPost = axios.post('/auth/login',{account, password});
       // console.log('axiosPost',axiosPost);
 
-      //測試'10.7.54.42:10000/ldap/'
-      // const response = await axios.post('10.7.54.42:10000/ldap/', { account, password });
-      // console.log('response:',response);
+      //測試'http://10.7.54.42/api/ldap/'
+      const response = await axios.post('http://10.7.54.42:10000/ldap/', { username, password });
+      console.log('response:',response);
 
       //axios post
-      const response = await axios.post('/auth/login', { account, password });
-      console.log('response:',response);
+      // const response = await axios.post('/auth/login', { account, password });
+      // console.log('response:',response);
 
       const jwToken = response.data;
       console.log('jwToken',jwToken);
@@ -124,24 +125,25 @@ export default function Login(props) {
           <div className="control has-icons-left">
 
             <input
-              className={`input ${errors.account && 'is-danger'}`}
+              className={`input ${errors.username && 'is-danger'}`}
               type="text"
-              placeholder="Account"
-              name="account"
-              {...register("account", { 
-                required: 'Account is required', 
+              placeholder="username"
+              name="username"
+              {...register("username", { 
+                required: 'username is required', 
                 pattern: {
                 //value: /^[a-za-z0-9_-]+@[a-za-z0-9_-]+(\.[a-za-z0-9_-]+)+$/, //account驗證正則表達式(email)
-                value: /^[a-zA-z]\w{1,15}$/, //au4
-                message: 'invalid account' // JS only: <p>error message</p> TS only support string
+                // value: /^[a-zA-z]\w{1,15}$/, 
+                value: /^[0-9]*$/, //only number
+                message: 'invalid username' // JS only: <p>error message</p> TS only support string
               } })}
             ></input>
             <span className="icon is-small is-left">
                     <PersonIcon />
             </span>
 
-            {errors.account && (
-              <p className="helper has-text-danger">{errors.account.message}</p>)}
+            {errors.username && (
+              <p className="helper has-text-danger">{errors.username.message}</p>)}
           </div>
         </div>
 

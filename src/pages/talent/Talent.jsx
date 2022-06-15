@@ -28,7 +28,7 @@ const Talent = () => {
       const user = global.auth.getUser() || {}
       if(user.account === 'techlead' || user.account ==='sales' ){
         // console.log('ID:',user.account);
-        // console.log('talent data:',re.data);
+        console.log('talent data:',re.data);
         setRow(re.data);
         setSourcerow(re.data)
       }else{
@@ -74,7 +74,7 @@ const search = (text) => {
   setRow(_row);
 }
 
-
+//新增資料
 //open Panel & 掛載子組件
 // const toAdd = () => {
 //   Panel.open({

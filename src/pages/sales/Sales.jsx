@@ -14,35 +14,25 @@ import Toolbox from '../../components/toolbox/Toolbox';
 
 const Sales = () => {
 
-  // 重新轉址
-  // const navigate = useNavigate()
-  
-  // const check = global.auth.getUser() || {};
-  // if(check.account === 'techlead' || 
-  // check.account ==='sales' || 
-  // check.account ==='director' || 
-  // check.account ==='hr'  
-  // ){
-  //   // navigate('/sales')
-  // }else{
-  //   navigate('/notFound')
-  // }
-
   const [row,setRow] = useState([]);
+  const [sourceRow, setSourcerow] = useState([]);
   // const [row2,setRow2] = useState([]);
+
 
   useEffect(() => {
 
 
-    axios.get(`/sales`).then((re) => {
-        console.log('sales data:',re.data[0].customer);
+    axios.get(`/customer`).then((re) => {
+        // console.log('customer data:',re.data[0].customer);
         const user = global.auth.getUser() || {}
         if (user.account === 'techlead' || user.account === 'sales' || user.account === 'hr' || user.account === 'director') {
-          console.log('ID:', user.account);
-          // console.log('talent data:',re.data);
-          setRow(re.data[0].customer);
+          // console.log('ID:', user.account);
+          console.log('customer data:',re.data);
+          setRow(re.data);
+          setSourcerow(re.data);
         } else {
           setRow([]);
+          setSourcerow([]);
         }
 
       })
@@ -68,6 +58,23 @@ const Sales = () => {
     //   })
 
   }, [])
+
+
+//搜尋
+const search = (text) => {
+  let _row = [...sourceRow];
+  _row = _row.filter((p)=>{
+      const matchArray = p.name.match(new RegExp(text,'gi'));
+      const matchArray2 = p.client.match(new RegExp(text,'gi'));
+      return matchArray !==null ||  matchArray2 !==null ;
+  })
+
+  setRow(_row);
+}
+
+
+
+
 
 //   const renderDetailsButton = (params) => {
 //   return (
@@ -156,7 +163,7 @@ const Sales = () => {
       <Sidebar/>
       <div className="salesContainer">
         <Navbar/>
-        <Toolbox/>
+        <Toolbox search={search}/>
         <div className="salesTable">
           <h2>業務管理 / 人才外派資料</h2>
           {/* <button className="add-btn button is-info" >新增</button> */}

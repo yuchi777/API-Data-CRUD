@@ -12,62 +12,47 @@ import Toolbox from '../../components/toolbox/Toolbox';
 //使用useNavigate 轉址
 // import {useNavigate} from "react-router-dom";
 
-const Sales = () => {
+const SalesContract = () => {
 
-  // 重新轉址
-  // const navigate = useNavigate()
-  
-  // const check = global.auth.getUser() || {};
-  // if(check.account === 'techlead' || 
-  // check.account ==='sales' || 
-  // check.account ==='director' || 
-  // check.account ==='hr'  
-  // ){
-  //   // navigate('/sales')
-  // }else{
-  //   navigate('/notFound')
-  // }
-
-  // const [row,setRow] = useState([]);
-  const [row2,setRow2] = useState([]);
+  const [row,setRow] = useState([]);
+  const [sourceRow, setSourcerow] = useState([]);
 
   useEffect(() => {
-
-
-    // axios.get(`/sales`).then((re) => {
-    //     console.log('sales data:',re.data[0].customer);
-    //     const user = global.auth.getUser() || {}
-    //     if (user.account === 'techlead' || user.account === 'sales' || user.account === 'hr' || user.account === 'director') {
-    //       console.log('ID:', user.account);
-    //       // console.log('talent data:',re.data);
-    //       setRow(re.data[0].customer);
-    //     } else {
-    //       setRow([]);
-    //     }
-
-    //   })
-    //   .catch((err) => {
-    //     // handleNavigate();
-    //     console.log(err.response);
-    //   })
-
     //Contract Data
-    axios.get(`/sales`).then((re) => {
-        console.log('sales data:',re.data[0].contract);
+    axios.get(`/contract`).then((re) => {
+        console.log('contract data:',re.data);
         const user = global.auth.getUser() || {}
         if (user.account === 'techlead' || user.account === 'sales' || user.account === 'hr' || user.account === 'director') {
-          setRow2(re.data[0].contract);
+          setRow(re.data);
+          setSourcerow(re.data)
         } else {
-          setRow2([]);
+          setRow([]);
+          setSourcerow([]);
         }
 
       })
       .catch((err) => {
-        // handleNavigate();
         console.log(err.response);
       })
 
   }, [])
+
+
+
+
+
+
+  //搜尋
+  const search = (text) => {
+    let _row = [...sourceRow];
+    _row = _row.filter((p)=>{
+        const matchArray = p.project.match(new RegExp(text,'gi'));
+        const matchArray2 = p.sysName.match(new RegExp(text,'gi'));
+        return matchArray !==null ||  matchArray2 !==null;
+    })
+
+    setRow(_row);
+  }
 
 //   const renderDetailsButton = (params) => {
 //   return (
@@ -86,36 +71,6 @@ const Sales = () => {
 //   )
 // }
 
-  // const columnsCustomer = [
-  //   // {
-  //   //   field: "action",
-  //   //   headerName: "編輯",
-  //   //   width: 60,
-  //   //   renderCell: renderDetailsButton,
-  //   //   disableClickEventBubbling: true
-  //   // },
-  //   {
-  //     field: 'id',
-  //     headerName: 'ID',
-  //     width: 60
-  //   }, {
-  //     field: 'name',
-  //     headerName: '客戶名稱',
-  //     width: 250
-  //   }, {
-  //     field: 'client',
-  //     headerName: '終端客戶名稱',
-  //     width: 250
-  //   }, {
-  //     field: 'contact',
-  //     headerName: '客戶窗口',
-  //     width: 170
-  //   }, {
-  //     field: 'place',
-  //     headerName: '派駐地點',
-  //     width: 170
-  //   }
-  // ];
 
   const columnsCustomer2 = [
     // {
@@ -132,23 +87,23 @@ const Sales = () => {
     }, {
       field: 'project',
       headerName: '專案名稱',
-      width: 150
+      width: 200
     }, {
-      field: 'sys-name',
+      field: 'sysName',
       headerName: '系統名稱',
+      width: 200
+    }, {
+      field: 'dateOn',
+      headerName: '派駐起日',
       width: 150
     }, {
-      field: 'date-on',
-      headerName: '派駐起日',
-      width: 100
-    }, {
-      field: 'date-off',
+      field: 'dateOff',
       headerName: '派駐迄日',
-      width: 100
+      width: 150
     }, {
       field: 'price',
       headerName: '報價',
-      width: 100
+      width: 150
     }
   ];
 
@@ -157,34 +112,19 @@ const Sales = () => {
       <Sidebar/>
       <div className="salesContainer">
         <Navbar/>
-        <Toolbox/>
+        <Toolbox search={search}/>
         <div className="salesTable">
-          {/* <h2>業務管理 / 人才外派資料</h2> */}
-          {/* <button className="add-btn button is-info" >新增</button> */}
-          {/* <div style={{
-            height: 400,
-            width: '100%'
-          }}>
-            <DataGrid 
-            rows={row} 
-            columns={columnsCustomer} 
-            pageSize={5} 
-            rowsPerPageOptions={[5]
-            } // checkboxSelection
-            />
-          </div>
-          <hr /> */}
           <h2>業務管理 / 客戶合約資料</h2>
           <div style={{
             height: 400,
             width: '100%'
           }}>
             <DataGrid 
-            rows={row2} 
+            rows={row} 
             columns={columnsCustomer2} 
             pageSize={5} 
             rowsPerPageOptions={[5]
-            } // checkboxSelection
+            } 
             />
           </div>
 
@@ -194,4 +134,4 @@ const Sales = () => {
   )
 }
 
-export default Sales
+export default SalesContract

@@ -1,9 +1,11 @@
+//增加站點清單 (Panel子組件)
 import React, { Component } from 'react';
-import {toast} from 'react-toastify';
 import axios from '../../commons/axios';
+import { toast } from 'react-toastify';
+import "./AddInventorySales.scss";
+//使用toast //index.js載入toastContainer&ReactToastify.css
 
-
-class EditInventorySales extends Component {
+class AddInventorySales extends Component {
 
     state = {
         id:'',
@@ -11,18 +13,6 @@ class EditInventorySales extends Component {
         client:'',
         contact:'',
         place:''
-    }
-
-    //因為修改所以要取出值,解構附值
-    componentDidMount(){
-        const {id, name, client, contact, place} = this.props.card;
-        this.setState({
-            id:id,
-            name:name,
-            client:client,
-            contact:contact,
-            place:place
-        })
     }
 
     //資料綁定
@@ -35,23 +25,14 @@ class EditInventorySales extends Component {
         })
     }
 
-    // Submit
+    //Submit
     submit = (e) => {
-        e.preventDefault();
+        e.preventDefault();//阻止預設提交行為
         const card = {...this.state};
-        axios.put(`customer/${this.state.id}`,card).then((res)=>{
-            console.log('EditInventorySales data:',res.data);
+        axios.post('customer',card).then((res)=>{
+            console.log('Add data:',res.data);
             this.props.close(res.data);
-            toast.success('Edit Success');
-        })
-    }
-
-    //Delete
-    onDelete = () =>{
-        axios.delete(`customer/${this.state.id}`).then(()=>{
-            this.props.deleteCard(this.state.id)
-            this.props.close();
-            toast.success('Delete Success');
+            toast.success('Add Success');
         })
     }
 
@@ -59,11 +40,12 @@ class EditInventorySales extends Component {
     render() {
         return (
             <div className="inventory">
-                <p className="title has-text-centered">Edit</p>
+                <p className="title has-text-centered">Add</p>
+
                 <form onSubmit={this.submit}>
                     <div className="field">
-                        <label className='label label-flex'>Name</label>
                         <div className="control">
+                            <label className='label label-flex'>Name</label>
                             <input type="text" name="name" className="input" value={this.state.name} onChange={this.handleChange}/>
                         </div>
                     </div>
@@ -91,9 +73,6 @@ class EditInventorySales extends Component {
                             <button className="button is-link ">Submit</button>
                         </div>
                         <div className="control">
-                            <button className="button is-danger " type="button" onClick={this.onDelete}>Delete</button>
-                        </div>
-                        <div className="control">
                             <button className="button" type='button' onClick={()=>{this.props.close()}}>Cancel</button>
                         </div>
                     </div>
@@ -103,4 +82,4 @@ class EditInventorySales extends Component {
     }
 }
 
-export default EditInventorySales;
+export default AddInventorySales;

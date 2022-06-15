@@ -1,4 +1,6 @@
 import "./salesAdd.scss";
+import Panel from '../../components/panel/Panel';
+import AddInventorySales from "../../components/addInventorySales/AddInventorySales";
 import Navbar from "../../components/navbar/Navbar";
 import Sidebar from "../../components/sidebar/Sidebar";
 // import Button from '@mui/material/Button';
@@ -14,35 +16,23 @@ import axios from '../../commons/axios';
 
 const Sales = () => {
 
-  // 重新轉址
-  // const navigate = useNavigate()
-  
-  // const check = global.auth.getUser() || {};
-  // if(check.account === 'techlead' || 
-  // check.account ==='sales' || 
-  // check.account ==='director' || 
-  // check.account ==='hr'  
-  // ){
-  //   // navigate('/sales')
-  // }else{
-  //   navigate('/notFound')
-  // }
-
   const [row,setRow] = useState([]);
+  const [sourceRow, setSourcerow] = useState([]);
   // const [row2,setRow2] = useState([]);
 
   useEffect(() => {
 
 
-    axios.get(`/sales`).then((re) => {
-        console.log('sales data:',re.data[0].customer);
+    axios.get(`/customer`).then((re) => {
         const user = global.auth.getUser() || {}
         if (user.account === 'techlead' || user.account === 'sales' || user.account === 'hr' || user.account === 'director') {
           console.log('ID:', user.account);
-          // console.log('talent data:',re.data);
-          setRow(re.data[0].customer);
+          // console.log('customer data:',re.data);
+          setRow(re.data);
+          setSourcerow(re.data);
         } else {
           setRow([]);
+          setSourcerow([]);
         }
 
       })
@@ -68,6 +58,35 @@ const Sales = () => {
     //   })
 
   }, [])
+
+
+
+
+  //新增資料
+//open Panel & 掛載子組件
+const toAdd = () => {
+  Panel.open({
+      component: AddInventorySales,
+      callback:(data) => {
+          console.log('Add:',data);
+          if(data){
+              add(data);
+          }
+      }
+  })
+}
+//新增資料
+const add = (e) => {
+  const _row = [...row];
+  _row.push(e);
+  const _srow = [...sourceRow];
+  _srow.push(e);
+
+  setRow(_row);
+  setSourcerow(_srow);
+}
+
+
 
 //   const renderDetailsButton = (params) => {
 //   return (
@@ -159,7 +178,7 @@ const Sales = () => {
         {/* <Toolbox/> */}
         <div className="salesTable">
           <h2>業務管理 / 人才外派資料</h2>
-          <button className="add-btn button is-info" >新增</button>
+          <button className="add-btn button is-info" onClick={toAdd} >新增</button>
           <div style={{
             height: 400,
             width: '100%'
