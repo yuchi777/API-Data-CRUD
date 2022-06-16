@@ -2,17 +2,18 @@
 import React, { Component } from 'react';
 import axios from '../../commons/axios';
 import { toast } from 'react-toastify';
-import "./AddInventorySales.scss";
+import "./AddInventorySalesContract.scss";
 //使用toast //index.js載入toastContainer&ReactToastify.css
 
 class AddInventorySales extends Component {
 
     state = {
         id:'',
-        name:'',
-        client:'',
-        contact:'',
-        place:''
+        project:'',
+        sysName:'',
+        dateOn:'',
+        dateOff:'',
+        price:''
     }
 
     //資料綁定
@@ -29,7 +30,7 @@ class AddInventorySales extends Component {
     submit = (e) => {
         e.preventDefault();//阻止預設提交行為
         const card = {...this.state};
-        axios.post('customer',card).then((res)=>{
+        axios.post('contract',card).then((res)=>{
             console.log('Add data:',res.data);
             this.props.close(res.data);
             toast.success('Add Success');
@@ -45,26 +46,32 @@ class AddInventorySales extends Component {
                 <form onSubmit={this.submit}>
                     <div className="field">
                         <div className="control">
-                            <label className='label label-flex'>客戶名稱</label>
-                            <input type="text" name="name" className="input" value={this.state.name} onChange={this.handleChange}/>
+                            <label className='label label-flex'>專案名稱</label>
+                            <input type="text" name="project" className="input" value={this.state.project} onChange={this.handleChange}/>
                         </div>
                     </div>
                     <div className="field">
-                        <label className='label label-flex'>終端客戶名稱</label>
+                        <label className='label label-flex'>系統名稱</label>
                         <div className="control">
-                            <input type="text" name="client" className="input" value={this.state.client} onChange={this.handleChange}/>
+                            <input type="text" name="sysName" className="input" value={this.state.sysName} onChange={this.handleChange}/>
                         </div>
                     </div>
                     <div className="field">
-                        <label className='label label-flex'>客戶窗口</label>
+                        <label className='label label-flex'>派駐起日</label>
                         <div className="control">
-                            <input type="text" name="contact" className="input" value={this.state.contact} onChange={this.handleChange}/>
+                            <input type="date" name="dateOn" className="input" value={this.state.dateOn} onChange={this.handleChange}/>
                         </div>
                     </div>
                     <div className="field">
-                        <label className='label label-flex'>派駐地點</label>
+                        <label className='label label-flex'>派駐迄日</label>
                         <div className="control">
-                            <input type="text" name="place" className="input" value={this.state.place} onChange={this.handleChange}/>
+                            <input type="date" name="dateOff" className="input" value={this.state.dateOff} onChange={this.handleChange}/>
+                        </div>
+                    </div>
+                    <div className="field">
+                        <label className='label label-flex'>報價</label>
+                        <div className="control">
+                            <input type="text" name="price" className="input" value={this.state.price} onChange={this.handleChange}/>
                         </div>
                     </div>
                     <br />

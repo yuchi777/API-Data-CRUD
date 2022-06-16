@@ -153,6 +153,14 @@ const Sidebar = () => {
                     </li>
                   </ListItemButton>
                 </Link>
+                <Link to="/sales/salesContractAdd">
+                  <ListItemButton>
+                    <li>
+                      <DescriptionIcon className="icon"/>
+                      <span>客戶合約資料-新增</span>
+                    </li>
+                  </ListItemButton>
+                </Link>
                 <Link to="/sales/salesContractEdit">
                   <ListItemButton>
                     <li>

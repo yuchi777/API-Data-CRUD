@@ -61,34 +61,34 @@ class EditInventorySalesContract extends Component {
     render() {
         return (
             <div className="inventory">
-                <p className="title has-text-centered">Edit</p>
+                <p className="title has-text-centered">編輯</p>
                 <form onSubmit={this.submit}>
                     <div className="field">
-                        <label className='label label-flex'>Project</label>
+                        <label className='label label-flex'>專案名稱</label>
                         <div className="control">
                             <input type="text" name="project" className="input" value={this.state.project} onChange={this.handleChange}/>
                         </div>
                     </div>
                     <div className="field">
-                        <label className='label label-flex'>SysName</label>
+                        <label className='label label-flex'>系統名稱</label>
                         <div className="control">
                             <input type="text" name="sysName" className="input" value={this.state.sysName} onChange={this.handleChange}/>
                         </div>
                     </div>
                     <div className="field">
-                        <label className='label label-flex'>DateOn</label>
+                        <label className='label label-flex'>派駐起日</label>
                         <div className="control">
-                            <input type="text" name="dateOn" className="input" value={this.state.dateOn} onChange={this.handleChange}/>
+                            <input type="date" name="dateOn" className="input" value={this.state.dateOn} onChange={this.handleChange}/>
                         </div>
                     </div>
                     <div className="field">
-                        <label className='label label-flex'>DateOff</label>
+                        <label className='label label-flex'>派駐迄日</label>
                         <div className="control">
-                            <input type="text" name="dateOff" className="input" value={this.state.dateOff} onChange={this.handleChange}/>
+                            <input type="date" name="dateOff" className="input" value={this.state.dateOff} onChange={this.handleChange}/>
                         </div>
                     </div>
                     <div className="field">
-                        <label className='label label-flex'>Price</label>
+                        <label className='label label-flex'>報價</label>
                         <div className="control">
                             <input type="text" name="price" className="input" value={this.state.price} onChange={this.handleChange}/>
                         </div>

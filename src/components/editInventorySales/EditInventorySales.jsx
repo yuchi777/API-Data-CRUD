@@ -59,28 +59,28 @@ class EditInventorySales extends Component {
     render() {
         return (
             <div className="inventory">
-                <p className="title has-text-centered">Edit</p>
+                <p className="title has-text-centered">編輯</p>
                 <form onSubmit={this.submit}>
                     <div className="field">
-                        <label className='label label-flex'>Name</label>
+                        <label className='label label-flex'>客戶名稱</label>
                         <div className="control">
                             <input type="text" name="name" className="input" value={this.state.name} onChange={this.handleChange}/>
                         </div>
                     </div>
                     <div className="field">
-                        <label className='label label-flex'>Client</label>
+                        <label className='label label-flex'>終端客戶名稱</label>
                         <div className="control">
                             <input type="text" name="client" className="input" value={this.state.client} onChange={this.handleChange}/>
                         </div>
                     </div>
                     <div className="field">
-                        <label className='label label-flex'>Contact</label>
+                        <label className='label label-flex'>客戶窗口</label>
                         <div className="control">
                             <input type="text" name="contact" className="input" value={this.state.contact} onChange={this.handleChange}/>
                         </div>
                     </div>
                     <div className="field">
-                        <label className='label label-flex'>Place</label>
+                        <label className='label label-flex'>派駐地點</label>
                         <div className="control">
                             <input type="text" name="place" className="input" value={this.state.place} onChange={this.handleChange}/>
                         </div>

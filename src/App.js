@@ -7,6 +7,7 @@ import Sales from "./pages/sales/Sales";
 import SalesAdd from "./pages/salesAdd/SalesAdd";
 import SalesEdit from "./pages/salesEdit/SalesEdit";
 import SalesContract from "./pages/salesContract/SalesContract";
+import SalesContractAdd from "./pages/salesContractAdd/SalesContractAdd";
 import SalesContractEdit from "./pages/salesContractEdit/SalesContractEdit";
 import TalentSign from "./pages/talentSign/TalentSign";
 import Customer from "./pages/customer/Customer";
@@ -68,6 +69,7 @@ function App() {
             <Route path="salesAdd" element={<SalesAdd/>}/>
             <Route path="salesEdit" element={<SalesEdit/>}/>
             <Route path="salesContract" element={<SalesContract/>}/>
+            <Route path="salesContractAdd" element={<SalesContractAdd/>}/>
             <Route path="salesContractEdit" element={<SalesContractEdit/>}/>
           </Route>
           <Route path="talentSign" element={<TalentSign/>}/>

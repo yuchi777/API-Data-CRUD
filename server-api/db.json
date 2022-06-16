@@ -59,13 +59,13 @@
       "sysNumber": "100104",
       "sysEmail": "john4@systex.com",
       "level": 4,
-      "birthday": "2022/5/24",
-      "gender": "male",
+      "birthday": "2022-05-12",
+      "gender": "女性",
       "role": "director",
       "school": "systex school4",
       "department": "hr",
       "phone": 747643365,
-      "onboard": "2022/8/1",
+      "onboard": "2022-08-02",
       "status": "unavailable"
     },
     {
@@ -314,6 +314,13 @@
       "client": "測試終端客戶",
       "contact": "測試聯絡人",
       "place": "測試地點"
+    },
+    {
+      "id": 7,
+      "name": "測試客戶",
+      "client": "測試終端客戶",
+      "contact": "測試聯絡人",
+      "place": "測試地點"
     }
   ],
   "contract": [
@@ -321,33 +328,25 @@
       "id": 1,
       "project": "project-1",
       "sysName": "sys-1",
-      "dateOn": "2022/5/1",
-      "dateOff": "2022/6/1",
+      "dateOn": "2022-05-01",
+      "dateOff": "2022-06-01",
       "price": 100
     },
     {
       "id": 2,
       "project": "project-2",
       "sysName": "sys-2",
-      "dateOn": "2022/5/2",
-      "dateOff": "2022/6/2",
+      "dateOn": "2022-05-02",
+      "dateOff": "2022-06-02",
       "price": 2000
     },
     {
       "id": 3,
       "project": "project-3",
       "sysName": "sys-3",
-      "dateOn": "2022/5/3",
-      "dateOff": "2022/6/3",
+      "dateOn": "2022-06-07",
+      "dateOff": "2022-06-17",
       "price": 3000
-    },
-    {
-      "id": 4,
-      "project": "測試專案名稱123",
-      "sysName": "測試系統名稱123",
-      "dateOn": "2034/5/3",
-      "dateOff": "2035/6/3",
-      "price": 5555
     }
   ],
   "talentSign": [

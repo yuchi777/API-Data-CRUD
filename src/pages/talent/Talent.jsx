@@ -155,7 +155,7 @@ const search = (text) => {
     {
       field: 'id',
       headerName: 'ID',
-      width: 60
+      width: 50
     }, {
       field: 'number',
       headerName: '人才編號',
@@ -184,7 +184,7 @@ const search = (text) => {
     }, {
       field: 'birthday',
       headerName: '生日',
-      width: 100
+      width: 120
     }, {
       field: 'gender',
       headerName: '性別',
@@ -200,7 +200,7 @@ const search = (text) => {
     }, {
       field: 'department',
       headerName: '科系',
-      width: 100
+      width: 80
     }, {
       field: 'phone',
       headerName: '手機',
@@ -209,11 +209,11 @@ const search = (text) => {
     }, {
       field: 'onboard',
       headerName: '報到日',
-      width: 100
+      width: 120
     }, {
       field: 'status',
       headerName: '媒合狀態',
-      width: 70
+      width: 100
     }
   ];
 

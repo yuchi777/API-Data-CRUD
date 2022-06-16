@@ -79,88 +79,93 @@ class EditInventory extends Component {
     render() {
         return (
             <div className="inventory">
-                <p className="title has-text-centered">Edit</p>
+                <p className="title has-text-centered">編輯</p>
                 <form onSubmit={this.submit}>
                     <div className="field">
-                        <label className='label label-flex'>Number</label>
+                        <label className='label label-flex'>人才編號</label>
                         <div className="control">
                             <input type="text" name="number" className="input" value={this.state.number} onChange={this.handleChange}/>
                         </div>
                     </div>
                     <div className="field">
-                        <label className='label label-flex'>Name</label>
+                        <label className='label label-flex'>姓名</label>
                         <div className="control">
                             <input type="text" name="name" className="input" value={this.state.name} onChange={this.handleChange}/>
                         </div>
                     </div>
                     <div className="field">
-                        <label className='label label-flex'>NameEn</label>
+                        <label className='label label-flex'>姓名(EN)</label>
                         <div className="control">
                             <input type="text" name="nameEn" className="input" value={this.state.nameEn} onChange={this.handleChange}/>
                         </div>
                     </div>
                     <div className="field">
-                        <label className='label label-flex'>SysNumber</label>
+                        <label className='label label-flex'>精誠工號</label>
                         <div className="control">
                             <input type="text" name="sysNumber" className="input" value={this.state.sysNumber} onChange={this.handleChange}/>
                         </div>
                     </div>
                     <div className="field">
-                        <label className='label label-flex'>sysEmail</label>
+                        <label className='label label-flex'>精誠Email</label>
                         <div className="control">
                             <input type="text" name="sysEmail" className="input" value={this.state.sysEmail} onChange={this.handleChange}/>
                         </div>
                     </div>
                     <div className="field">
-                        <label className='label label-flex'>level</label>
+                        <label className='label label-flex'>職等</label>
                         <div className="control">
                             <input type="text" name="level" className="input" value={this.state.level} onChange={this.handleChange}/>
                         </div>
                     </div>
                     <div className="field">
-                        <label className='label label-flex'>birthday</label>
+                        <label className='label label-flex'>生日</label>
                         <div className="control">
-                            <input type="text" name="birthday" className="input" value={this.state.birthday} onChange={this.handleChange}/>
+                            <input type="date" name="birthday" className="input" value={this.state.birthday} onChange={this.handleChange}/>
                         </div>
                     </div>
                     <div className="field">
-                        <label className='label label-flex'>gender</label>
+                        <label className='label label-flex'>性別</label>
                         <div className="control">
-                            <input type="text" name="gender" className="input" value={this.state.gender} onChange={this.handleChange}/>
+                            <div className="select is-fullwidth">
+                                <select name="gender" value={this.state.gender} onChange={this.handleChange}>
+                                    <option>男性</option>
+                                    <option>女性</option>
+                                </select>
+                            </div>
                         </div>
                     </div>
                     <div className="field">
-                        <label className='label label-flex'>role</label>
+                        <label className='label label-flex'>角色</label>
                         <div className="control">
                             <input type="text" name="role" className="input" value={this.state.role} onChange={this.handleChange}/>
                         </div>
                     </div>
                     <div className="field">
-                        <label className='label label-flex'>school</label>
+                        <label className='label label-flex'>學校</label>
                         <div className="control">
                             <input type="text" name="school" className="input" value={this.state.school} onChange={this.handleChange}/>
                         </div>
                     </div>
                     <div className="field">
-                        <label className='label label-flex'>department</label>
+                        <label className='label label-flex'>科系</label>
                         <div className="control">
                             <input type="text" name="department" className="input" value={this.state.department} onChange={this.handleChange}/>
                         </div>
                     </div>
                     <div className="field">
-                        <label className='label label-flex'>phone</label>
+                        <label className='label label-flex'>手機</label>
                         <div className="control">
                             <input type="text" name="phone" className="input" value={this.state.phone} onChange={this.handleChange}/>
                         </div>
                     </div>
                     <div className="field">
-                        <label className='label label-flex'>onboard</label>
+                        <label className='label label-flex'>報到日</label>
                         <div className="control">
-                            <input type="text" name="onboard" className="input" value={this.state.onboard} onChange={this.handleChange}/>
+                            <input type="date" name="onboard" className="input" value={this.state.onboard} onChange={this.handleChange}/>
                         </div>
                     </div>
                     <div className="field">
-                        <label className='label label-flex'>Status</label>
+                        <label className='label label-flex'>媒合狀態</label>
                         <div className="control">
                             <div className="select is-fullwidth">
                                 <select name="status" value={this.state.status} onChange={this.handleChange}>
