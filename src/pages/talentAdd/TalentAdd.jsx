@@ -4,14 +4,20 @@ import Panel from '../../components/panel/Panel';
 import AddInventory from "../../components/addInventory/AddInventory";
 import Navbar from "../../components/navbar/Navbar";
 import Sidebar from "../../components/sidebar/Sidebar";
-// import IconButton from '@mui/material/IconButton';
 import { useState,useEffect } from "react";
 import {DataGrid} from '@mui/x-data-grid';
+import Box from '@mui/material/Box';
+import clsx from 'clsx';
 import axios from '../../commons/axios';
 // import Toolbox from '../../components/toolbox/Toolbox';
 //使用useNavigate 轉址
+import IconButton from '@mui/material/IconButton';
 // import EditIcon from '@mui/icons-material/Edit';
+// import CampaignIcon from '@mui/icons-material/Campaign';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import DangerousIcon from '@mui/icons-material/Dangerous';
 // import { useNavigate } from "react-router-dom";
+// import {Link} from "react-router-dom";
 
 const Talent = () => {
   
@@ -143,6 +149,57 @@ const add = (e) => {
     //   disableClickEventBubbling: true
     // },
     {
+      field: 'status',
+      headerName: '媒合狀態',
+      width: 90,
+      cellClassName:(params)=>{
+        if (params.value == null) {
+          return '';
+        }
+
+        return clsx('super-app', {
+          negative: params.value === 'unavailable',
+          positive: params.value === 'available',
+        });
+      },
+      renderCell: (params)=>{
+        if (params.value === 'unavailable') {
+          return (
+            <IconButton 
+              sx={{ color: 'white' }}
+              variant="contained"
+              // color="primary"
+              size="small"
+              // style={{ marginLeft: 16 }}
+              // onClick={()=>{
+              //   console.log(params.row)
+              // }}
+          >
+            <DangerousIcon/>
+          </IconButton>
+          );
+        }
+
+        return (
+          //媒合狀態成功提供連結至人才外派資料建立
+          <div>
+            <IconButton 
+                sx={{ color: 'white' }}
+                variant="contained"
+                // color="primary"
+                size="small"
+                // style={{ marginLeft: 16 }}
+                onClick={()=>{
+                  console.log(params.row)
+                }}
+            >
+              <CheckCircleIcon/>
+            </IconButton>
+            </div>
+        )
+      }
+    },
+    {
       field: 'id',
       headerName: 'ID',
       width: 50
@@ -200,10 +257,6 @@ const add = (e) => {
       field: 'onboard',
       headerName: '報到日',
       width: 120
-    }, {
-      field: 'status',
-      headerName: '媒合狀態',
-      width: 100
     }
   ];
 
@@ -221,12 +274,29 @@ const add = (e) => {
             height: 500,
             width: '100%'
           }}>
-            <DataGrid
-              rows={row}
-              columns={columns}
-              pageSize={8}
-              rowsPerPageOptions={[8]}
-              />
+            <Box
+            sx={{
+              height: 500,
+              '& .super-app.negative': {
+                backgroundColor: '#d47483',
+                color: 'white',
+                fontWeight: '600',
+              },
+              '& .super-app.positive': {
+                backgroundColor: '#1976d2',
+                // backgroundColor: 'rgba(157, 255, 118, 0.49)',
+                color: 'white',
+                fontWeight: '600',
+              }
+            }}
+            >
+              <DataGrid
+                rows={row}
+                columns={columns}
+                pageSize={8}
+                rowsPerPageOptions={[8]}
+                />
+            </Box>
           </div>
 
         </div>

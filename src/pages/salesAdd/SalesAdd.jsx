@@ -178,7 +178,7 @@ const add = (e) => {
         {/* <Toolbox/> */}
         <div className="salesTable">
           <h2>業務管理 / 人才外派資料</h2>
-          <button className="add-btn button is-info" onClick={toAdd} >新增</button>
+          <button className="add-btn button is-info" onClick={toAdd} >新增客戶</button>
           <div style={{
             height: 400,
             width: '100%'

@@ -134,7 +134,7 @@ const deleteData = (id) =>{
     }, {
       field: 'price',
       headerName: '報價',
-      width: 150
+      width: 120
     }
   ];
 

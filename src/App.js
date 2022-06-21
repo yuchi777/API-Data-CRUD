@@ -14,7 +14,6 @@ import Customer from "./pages/customer/Customer";
 import NotFound from "./pages/notFound/NotFound";
 import '../node_modules/bulma/bulma.sass';
 import "./style/dark.scss";
-
 // formSource.js
 // import { userInputs } from "./formSource";
 // import List from "./pages/list/List";
@@ -37,7 +36,6 @@ import {
 
 
 function App() {
-
 
 
   
