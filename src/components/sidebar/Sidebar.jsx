@@ -72,7 +72,7 @@ const Sidebar = () => {
                   <ListItemButton>
                     <li>
                       <DescriptionIcon className="icon"/>
-                      <span>人才資料-新增</span>
+                      <span>人才資料-建立</span>
                     </li>
                   </ListItemButton>
                 </Link>
@@ -106,7 +106,7 @@ const Sidebar = () => {
                 <ListItemButton>
                   <li>
                     <DescriptionIcon className="icon"/>
-                    <span>人才外派資料-查詢</span>
+                    <span>人才外派資料-建立</span>
                   </li>
                 </ListItemButton>
               </Link>
@@ -119,19 +119,19 @@ const Sidebar = () => {
             (global.auth.getUser()).account === 'sales'          
             ? (
               <div>
-              <Link to="/sales/salesAdd">
+              <Link to="/sales/SearchNow">
                 <ListItemButton>
                   <li>
                     <DescriptionIcon className="icon"/>
-                    <span>人才外派資料-新增</span>
+                    <span>人才外派資料-現況查詢</span>
                   </li>
                 </ListItemButton>
               </Link>
-              <Link to="/sales/salesEdit">
+              <Link to="/sales/SearchHistory">
                 <ListItemButton>
                   <li>
                     <DescriptionIcon className="icon"/>
-                    <span>人才外派資料-修改/刪除</span>
+                    <span>人才外派資料-歷史查詢</span>
                   </li>
                 </ListItemButton>
               </Link>

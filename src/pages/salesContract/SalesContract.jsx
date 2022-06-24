@@ -368,7 +368,7 @@ const columnsCustomer = [
         <Navbar/>
         <div className="salesTable">
           <Toolbox search={search}/>
-          <h2>業務管理 / 客戶合約資料</h2>
+          <h2>業務管理 / 客戶合約資料 / 查詢</h2>
           <h2>客戶資料</h2>
           {/* <button className="add-btn button is-info" >新增</button> */}
           <div style={{

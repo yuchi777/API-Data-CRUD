@@ -282,7 +282,7 @@ const renderDetailsButton = (params) => {
         <Navbar/>
         {/* <Toolbox search={search}/> */}
         <div className="talentTable">
-          <h2>人才管理 / 人才資料</h2>
+          <h2>人才管理 / 人才資料 / 修改&刪除</h2>
           {/* <button className="add-btn button is-info" onClick={toAdd}>新增</button> */}
           <div style={{
             height: 500,

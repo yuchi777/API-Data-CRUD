@@ -339,9 +339,9 @@ const search = (text) => {
       <Sidebar/>
       <div className="talentContainer">
         <Navbar/>
-        <Toolbox search={search}/>
         <div className="talentTable">
-          <h2>人才管理 / 人才資料</h2>
+        <Toolbox search={search}/>
+          <h2>人才管理 / 人才資料 / 查詢</h2>
           {/* <button className="add-btn button is-info" onClick={toAdd}>新增</button> */}
           <div style={{
             height: 500,

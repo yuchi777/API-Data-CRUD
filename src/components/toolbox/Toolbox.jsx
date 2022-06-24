@@ -38,7 +38,9 @@ export default class Toolbox extends Component {
   render() {
     return (
       <div className="tool-box">
-        <div className="logo-text">查詢</div>
+        <div className="logo-text">
+          {/* 查詢 */}
+        </div>
 
         <div className="search-box">
           <div className="field	has-addons">

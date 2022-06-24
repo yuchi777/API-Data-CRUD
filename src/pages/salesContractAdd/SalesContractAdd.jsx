@@ -1,6 +1,7 @@
 import "./salesContractAdd.scss";
 import Panel from '../../components/panel/Panel';
 import AddInventorySalesContract from "../../components/addInventorySalesContract/AddInventorySalesContract";
+import AddInventorySales from "../../components/addInventorySales/AddInventorySales";
 import Navbar from "../../components/navbar/Navbar";
 import Sidebar from "../../components/sidebar/Sidebar";
 // import Button from '@mui/material/Button';
@@ -17,7 +18,9 @@ import axios from '../../commons/axios';
 const SalesContract = () => {
 
   const [row,setRow] = useState([]);
+  const [row2,setRow2] = useState([]);
   const [sourceRow, setSourcerow] = useState([]);
+  const [sourceRow2, setSourcerow2] = useState([]);
 
   useEffect(() => {
     //Contract Data
@@ -36,6 +39,29 @@ const SalesContract = () => {
       .catch((err) => {
         console.log(err.response);
       })
+
+
+      //Customer Data
+    axios.get(`/customer`).then((re) => {
+      // console.log('customer data:',re.data[0].customer);
+      const user = global.auth.getUser() || {}
+      if (user.account === 'techlead' || user.account === 'sales' || user.account === 'hr' || user.account === 'director') {
+        // console.log('ID:', user.account);
+        // console.log('customer data:',re.data);
+        setRow2(re.data);
+        setSourcerow2(re.data);
+        
+      } else {
+        setRow2([]);
+        setSourcerow2([]);
+      }
+
+    })
+    .catch((err) => {
+      // handleNavigate();
+      console.log(err.response);
+    })
+
 
   }, [])
 
@@ -70,6 +96,18 @@ const toAdd = () => {
   })
 }
 
+const toAdd2 = () => {
+  Panel.open({
+      component: AddInventorySales,
+      callback:(data) => {
+          console.log('Add2:',data);
+          if(data){
+              add2(data);
+          }
+      }
+  })
+}
+
 //新增資料
 const add = (e) => {
   const _row = [...row];
@@ -79,6 +117,16 @@ const add = (e) => {
 
   setRow(_row);
   setSourcerow(_srow);
+}
+
+const add2 = (e) => {
+  const _row = [...row2];
+  _row.push(e);
+  const _srow = [...sourceRow2];
+  _srow.push(e);
+
+  setRow2(_row);
+  setSourcerow2(_srow);
 }
 
 //   const renderDetailsButton = (params) => {
@@ -98,6 +146,38 @@ const add = (e) => {
 //   )
 // }
 
+
+  
+const columnsCustomer = [
+  // {
+  //   field: "action",
+  //   headerName: "編輯",
+  //   width: 60,
+  //   renderCell: renderDetailsButton,
+  //   disableClickEventBubbling: true
+  // },
+  {
+    field: 'id',
+    headerName: 'ID',
+    width: 60
+  }, {
+    field: 'name',
+    headerName: '客戶名稱',
+    width: 250
+  }, {
+    field: 'client',
+    headerName: '終端客戶名稱',
+    width: 250
+  }, {
+    field: 'contact',
+    headerName: '客戶窗口',
+    width: 170
+  }, {
+    field: 'place',
+    headerName: '派駐地點',
+    width: 170
+  }
+];
 
   const columnsCustomer2 = [
     // {
@@ -141,7 +221,22 @@ const add = (e) => {
         <Navbar/>
         {/* <Toolbox search={search}/> */}
         <div className="salesTable">
-          <h2>業務管理 / 客戶合約資料</h2>
+          <h2>業務管理 / 客戶資料</h2>
+          <button className="add-btn button is-info" onClick={toAdd2} >新增</button>
+          <div style={{
+            height: 400,
+            width: '100%'
+          }}>
+            <DataGrid 
+            rows={row2} 
+            columns={columnsCustomer} 
+            pageSize={5} 
+            rowsPerPageOptions={[5]
+            } 
+            />
+          </div>
+          <br />
+          <h2>業務管理 / 合約資料</h2>
           <button className="add-btn button is-info" onClick={toAdd} >新增</button>
           <div style={{
             height: 400,

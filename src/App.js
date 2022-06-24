@@ -4,8 +4,8 @@ import Talent from "./pages/talent/Talent";
 import TalentAdd from "./pages/talentAdd/TalentAdd";
 import TalentEdit from "./pages/talentEdit/TalentEdit";
 import Sales from "./pages/sales/Sales";
-import SalesAdd from "./pages/salesAdd/SalesAdd";
-import SalesEdit from "./pages/salesEdit/SalesEdit";
+import SalesSearchNow from "./pages/salesSearchNow/SalesSearchNow";
+import SalesSearchHistory from "./pages/salesSearchHistory/SalesSearchHistory";
 import SalesContract from "./pages/salesContract/SalesContract";
 import SalesContractAdd from "./pages/salesContractAdd/SalesContractAdd";
 import SalesContractEdit from "./pages/salesContractEdit/SalesContractEdit";
@@ -64,8 +64,8 @@ function App() {
           </Route>
           <Route path="sales">
             <Route index element={<Sales/>}/>
-            <Route path="salesAdd" element={<SalesAdd/>}/>
-            <Route path="salesEdit" element={<SalesEdit/>}/>
+            <Route path="SearchNow" element={<SalesSearchNow/>}/>
+            <Route path="SearchHistory" element={<SalesSearchHistory/>}/>
             <Route path="salesContract" element={<SalesContract/>}/>
             <Route path="salesContractAdd" element={<SalesContractAdd/>}/>
             <Route path="salesContractEdit" element={<SalesContractEdit/>}/>

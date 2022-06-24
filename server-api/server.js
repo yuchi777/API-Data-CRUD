@@ -63,7 +63,7 @@ const isExist = ( account ) => {
 
 
 const SECRET = 'test123145353jkjkjl343323434';
-const expiresIn = '1h';
+const expiresIn = '2h';
 //驗證通過獲得Token 
 //使用jsonwebtoken套件 jwt.sign(payload, secretOrPrivateKey, [options, callback])
 const createToken = payload => {
