@@ -14,9 +14,7 @@ const TalentSign = () => {
         <Sidebar/>
         <div className="talentSignContainer">
             <Navbar/>
-            <div>
-              <SignItem/>
-            </div>
+            <SignItem/>
         </div>
     </div>
   )

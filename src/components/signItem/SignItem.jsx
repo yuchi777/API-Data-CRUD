@@ -134,7 +134,7 @@ const SignItem = () => {
 
   return (
     <div>
-      <form className="box" onSubmit={onSubmit}>
+      <form className="box-sign" onSubmit={onSubmit}>
 
 
         <div className="field is-horizontal">
