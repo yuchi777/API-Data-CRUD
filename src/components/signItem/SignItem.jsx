@@ -1,5 +1,6 @@
 import "./signItem.scss";
 import React,{useState} from 'react';
+import * as geolib from 'geolib';
 //使用 React Hook Form 函式庫
 // import { useForm } from "react-hook-form";
 //使用useNavigate 轉址
@@ -23,6 +24,7 @@ const SignItem = () => {
   const [ot_weekenddays, SetOt_weekenddays] = useState(0);
   const [leave_hours, SetLeave_hours] = useState(0);
   const [notes, SetNotes] = useState('');
+  // const [position, SetPosition] = useState('');
   
 
   const weekNamesZh = [
@@ -37,7 +39,6 @@ const SignItem = () => {
   let date = timeYear+'/'+timeMon+'/'+timeDate;
   //星期
   let week = weekNamesZh[time.getDay()-1];
-  
   
   let timeHours = time.getHours();
   let timeMinutes = time.getMinutes().toString().padStart(2,'0');
@@ -121,6 +122,7 @@ const SignItem = () => {
     SetNotes(e.target.value);
   }
 
+  //數字時鐘
   let timeClock = new Date().toLocaleString();
   const[clock,setClock] = useState(timeClock);
 
@@ -130,6 +132,55 @@ const SignItem = () => {
   }
 
   setInterval(IntervalTime,100)
+
+
+  //GPS測距
+  // const successHandler = (position)=>{
+  //   //使用者目前經緯度
+  //   const { longitude, latitude } = position.coords;
+  //   // console.log('目前經度latitude:',latitude);
+  //   // console.log('目前緯度longitude:',longitude);
+  //   //目標位址經緯度
+  //   // console.log('港墘捷運站- 經度latitude: 25.08018 ,緯度longitude: 121.57569,');
+  // }
+
+  // const errorHandler = (err) => {
+  //   //錯誤訊息
+  //   alert("暫時無法取得您的所在位置，請稍後再試");
+  // }
+
+  //Button Click function
+  const getPosition=()=> {
+    //目前經緯度或錯誤訊息
+    // navigator.geolocation.getCurrentPosition(successHandler, errorHandler);
+
+
+    navigator.geolocation.getCurrentPosition((position) => {
+
+        //目前經緯度
+        const { longitude, latitude } = position.coords;
+
+        console.log(
+          'You are ',
+          //使用Geolib計算兩點間距離
+          geolib.getDistance(
+            {
+              latitude,
+              longitude
+            }, {
+            //港墘捷運站
+            latitude: 25.08018,
+            longitude: 121.57569,
+            }),
+            'meters away from 港墘捷運站'
+        );
+      },
+      () => {
+        alert('Position could not be determined.');
+      }
+    );
+  }
+ 
 
 
   return (
@@ -152,6 +203,7 @@ const SignItem = () => {
             </div>
           </div>
         </div>
+
         <div className="field is-horizontal">
           <div className="field-label  has-addons">
             <label className="title">
@@ -166,6 +218,54 @@ const SignItem = () => {
                 >
                   {clock}
                 </label> */}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="field is-horizontal">
+          <div className="field-label is-normal">
+            <label className="label">選擇地點</label>
+          </div>
+        <div className="field-body">
+          <div className="field">
+            <div className="control">
+              <div className="select">
+                <select 
+                style={{minWidth:'150px'}} 
+                value={ot_weekdays}
+                onChange={handleChange_ot_weekdays} 
+                >
+                  <option value="systex"> SYSTEX</option>
+                  <option value="fubon"> 富邦銀行</option>
+                  <option value="mrt"> 港墘捷運站</option>
+                </select>
+              </div>
+              
+              {/* <input 
+              readOnly={true}
+              type="text" 
+              className="input"
+              defaultValue="..."
+              /> */}
+            </div>
+            </div>
+          </div>
+        </div>
+        
+        <div className="field is-horizontal">
+          <div className="field-label  has-addons">
+            <button 
+                  type="button"
+                  className="button is-info" 
+                  onClick={getPosition}>
+                  位置確認
+                </button>
+          </div>
+          <div className="field-body">
+            <div className="field">
+              <div className="control">
+                You are  533 meters away from 港墘捷運站
               </div>
             </div>
           </div>
