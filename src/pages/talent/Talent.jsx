@@ -13,7 +13,8 @@ import Toolbox from '../../components/toolbox/Toolbox';
 //使用useNavigate 轉址
 import IconButton from '@mui/material/IconButton';
 // import EditIcon from '@mui/icons-material/Edit';
-import LinkIcon from '@mui/icons-material/Link';
+// import LinkIcon from '@mui/icons-material/Link';
+import DriveFileMoveIcon from '@mui/icons-material/DriveFileMove';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import DangerousIcon from '@mui/icons-material/Dangerous';
 // import { useNavigate } from "react-router-dom";
@@ -161,7 +162,7 @@ const search = (text) => {
     {
       field: 'status',
       headerName: '媒合狀態',
-      width: 200,
+      width: 100,
       cellClassName:(params)=>{
         if (params.value == null) {
           return '';
@@ -205,20 +206,28 @@ const search = (text) => {
             >
               <CheckCircleIcon/>
             </IconButton>
-            <Link to="/sales">
-                <IconButton
-                sx={{ color: 'white' }}
-                variant="contained"
-                // color="primary"
-                size="small"
-                // style={{ marginLeft: 16 }}
-                onClick={()=>{
+            {
+                (global.auth.getUser()).account === 'sales'
+                ? (
+                  <Link to="/sales">
+                  <IconButton
+                  sx={{ color: 'white' }}
+                  variant="contained"
+                  // color="primary"
+                  size="small"
+                  // style={{ marginLeft: 16 }}
+                  onClick={()=>{
                   console.log(params.row)
-                }}
-                >
-                  <LinkIcon/>建立外派資料
-                </IconButton>
-            </Link>
+                  }}
+                  >
+                    <DriveFileMoveIcon/>
+                    {/* 建立外派資料 */}
+                  </IconButton>
+                  </Link>
+                )
+                :''
+            }
+            
             </div>
         )
       }

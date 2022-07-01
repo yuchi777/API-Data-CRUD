@@ -95,8 +95,6 @@ const Sidebar = () => {
             ||
             (global.auth.getUser()).account === 'sales'
             ||
-            (global.auth.getUser()).account === 'techlead'
-            ||
             (global.auth.getUser()).account === 'director'
             ||
             (global.auth.getUser()).account === 'hr'
