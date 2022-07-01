@@ -221,7 +221,7 @@ const columnsCustomer = [
         <Navbar/>
         {/* <Toolbox search={search}/> */}
         <div className="salesTable">
-          <h2>業務管理 / 客戶資料</h2>
+          <h2>業務管理 / 客戶資料 / 新增</h2>
           <button className="add-btn button is-info" onClick={toAdd2} >新增</button>
           <div style={{
             height: 400,
@@ -236,7 +236,7 @@ const columnsCustomer = [
             />
           </div>
           <br />
-          <h2>業務管理 / 合約資料</h2>
+          <h2>業務管理 / 合約資料 / 新增</h2>
           <button className="add-btn button is-info" onClick={toAdd} >新增</button>
           <div style={{
             height: 400,

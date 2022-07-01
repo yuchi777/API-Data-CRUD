@@ -54,6 +54,7 @@ const getUser = () =>{
     //判斷是否登入
     if(isLogin()){
         //使用jwt-decode獲得user資料
+        //要改成獲得角色資料****************************************
         const user = jwt_decode(jwToken);
         return user;
     }else{

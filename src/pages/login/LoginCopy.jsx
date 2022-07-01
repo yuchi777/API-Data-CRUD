@@ -69,7 +69,8 @@ export default function Login(props) {
       // console.log('axiosPost',axiosPost);
 
       //測試'http://10.7.54.42/api/ldap/'
-      const response = await axios.post('http://10.7.54.42:10000/ldap/', { username, password });
+      //http://10.7.54.42/api/ldap/
+      const response = await axios.post('http://10.7.54.42/api/ldap/', { username, password });
       console.log('response:',response);
 
       //axios post

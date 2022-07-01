@@ -1,7 +1,7 @@
 import "./talentSign.scss";
 import Navbar from "../../components/navbar/Navbar";
 import Sidebar from "../../components/sidebar/Sidebar";
-import Cards from "../../components/cards/Cards";
+import SignItem from "../../components/signItem/SignItem";
 
 
 const TalentSign = () => {
@@ -15,7 +15,7 @@ const TalentSign = () => {
         <div className="talentSignContainer">
             <Navbar/>
             <div>
-              <Cards/>
+              <SignItem/>
             </div>
         </div>
     </div>

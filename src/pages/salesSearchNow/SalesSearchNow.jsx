@@ -166,9 +166,9 @@ const renderContractButton = (params) => {
                   let dt2Date = dt2.getDate();
                   let mixtoday = dt2Year+'/'+dt2Mon+'/'+dt2Date;
                   let today = new Date(mixtoday);
-                  console.log('dt1',dt1);
-                  console.log('dt2',dt2);
-                  console.log('today',today);
+                  // console.log('dt1',dt1);
+                  // console.log('dt2',dt2);
+                  // console.log('today',today);
                   
                   return dt1>=today //小於是歷史//大於是現況
                 })

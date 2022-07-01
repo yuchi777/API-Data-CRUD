@@ -1,3 +1,5 @@
+import "./login.scss";
+import "../../commons/auth";
 import React from "react";
 //使用 React Hook Form 函式庫
 import { useForm } from "react-hook-form";
@@ -14,16 +16,15 @@ import { toast } from 'react-toastify';
 // import Panel from '../../components/panel/Panel';
 
 
-import "./login.scss";
-import "../../commons/auth";
-import Logo from "../../img/systex-logo.jpg";
+//icon & img
+import Logo from "../../img/systex-logoPNG.png";
 import PersonIcon from '@mui/icons-material/Person';
 import KeyIcon from '@mui/icons-material/Key';
 
 
 
 //function component
-export default function Login(props) {
+export default function Login() {
 
   
 

@@ -7,7 +7,8 @@ import Navbar from "../../components/navbar/Navbar";
 import Sidebar from "../../components/sidebar/Sidebar";
 // import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
-import AddBoxIcon from '@mui/icons-material/AddBox';
+// import AddBoxIcon from '@mui/icons-material/AddBox';
+import SaveAltIcon from '@mui/icons-material/SaveAlt';
 import {useState, useEffect} from "react";
 import {DataGrid} from '@mui/x-data-grid';
 import Box from '@mui/material/Box';
@@ -249,7 +250,7 @@ const search = (text) => {
                 // setSourcerow3(params.row.contract)
               }}
           >
-          <AddBoxIcon/>
+            <SaveAltIcon/>
           </IconButton>
   )
 }
@@ -393,7 +394,7 @@ const columnsCustomer = [
           <br />
           <br />
           {/* <Toolbox search={search3}/> */}
-          <h2>載入合約資料(+)</h2>
+          <h2>合約資料</h2>
           <div style={{
             height: 400,
             width: '100%'

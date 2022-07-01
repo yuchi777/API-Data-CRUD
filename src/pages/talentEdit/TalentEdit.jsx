@@ -13,7 +13,7 @@ import axios from '../../commons/axios';
 //使用useNavigate 轉址
 import IconButton from '@mui/material/IconButton';
 import EditIcon from '@mui/icons-material/Edit';
-import MarkEmailReadIcon from '@mui/icons-material/MarkEmailRead';
+// import MarkEmailReadIcon from '@mui/icons-material/MarkEmailRead';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import DangerousIcon from '@mui/icons-material/Dangerous';
 // import { useNavigate } from "react-router-dom";
@@ -156,7 +156,7 @@ const renderDetailsButton = (params) => {
     {
       field: 'status',
       headerName: '媒合狀態',
-      width: 100,
+      width: 90,
       cellClassName:(params)=>{
         if (params.value == null) {
           return '';
@@ -200,12 +200,12 @@ const renderDetailsButton = (params) => {
             >
               <CheckCircleIcon/>
             </IconButton>
-            <IconButton
+            {/* <IconButton
               sx={{ color: 'white' }}
               variant="contained"
               size="small">
               <MarkEmailReadIcon/>
-            </IconButton>
+            </IconButton> */}
           </div>
           
         )

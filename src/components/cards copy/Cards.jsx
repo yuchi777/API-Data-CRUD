@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import "./cards.scss";
 import Toolbox from '../toolbox/Toolbox';
-import CardItem from '../cardItem/CardItem';
+import CardItem from '../signItemSub/CardItem';
 import axios from '../../commons/axios';
 import Panel from '../panel/Panel';
 import AddInventory from '../addInventory/AddInventory';

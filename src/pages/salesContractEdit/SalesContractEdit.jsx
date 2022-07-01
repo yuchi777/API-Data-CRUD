@@ -251,7 +251,7 @@ const columnsCustomer = [
         <Navbar/>
         {/* <Toolbox/> */}
         <div className="salesTable">
-          <h2>業務管理 / 客戶資料</h2>
+          <h2>業務管理 / 客戶資料 / 修改&刪除</h2>
           <div style={{
             height: 400,
             width: '100%'
@@ -265,7 +265,7 @@ const columnsCustomer = [
             />
           </div>
           <br />
-          <h2>業務管理 / 合約資料</h2>
+          <h2>業務管理 / 合約資料 / 修改&刪除</h2>
           <div style={{
             height: 400,
             width: '100%'

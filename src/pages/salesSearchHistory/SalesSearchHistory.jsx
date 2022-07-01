@@ -166,9 +166,9 @@ const renderContractButton = (params) => {
                   let dt2Date = dt2.getDate();
                   let mixtoday = dt2Year+'/'+dt2Mon+'/'+dt2Date;
                   let today = new Date(mixtoday);
-                  console.log('dt1',dt1);
-                  console.log('dt2',dt2);
-                  console.log('today',today);
+                  // console.log('dt1',dt1);
+                  // console.log('dt2',dt2);
+                  // console.log('today',today);
                   
                   return dt1<today //小於是歷史//大於是現況
                 })
@@ -367,7 +367,7 @@ const renderContractButton = (params) => {
         <Navbar/>
         <div className="salesTable">
           <Toolbox search={search}/>
-          <h2>業務管理 / 人才外派資料 / 歷史查詢</h2>
+          {/* <h2>業務管理 / 人才外派資料 / 歷史查詢</h2> */}
           {/* <button className="add-btn button is-info" >新增</button> */}
           <div style={{
             height: 650,

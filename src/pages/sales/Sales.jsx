@@ -13,6 +13,7 @@ import IconButton from '@mui/material/IconButton';
 import AddBoxIcon from '@mui/icons-material/AddBox';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import DangerousIcon from '@mui/icons-material/Dangerous';
+// import CircularProgress from '@mui/material/CircularProgress';
 // import EditIcon from '@mui/icons-material/Edit';
 // import SaveAltIcon from '@mui/icons-material/SaveAlt';
 import Toolbox from '../../components/toolbox/Toolbox';
@@ -22,36 +23,46 @@ import Toolbox from '../../components/toolbox/Toolbox';
 
 const Sales = () => {
 
+
+  // const [loading, setLoading] = useState(false);
+
   const [row,setRow] = useState([]);
   // const [rowBtn,setRowBtn] = useState([]);
   const [sourceRow, setSourcerow] = useState([]);
   // const [sourceRow3, setSourcerow3] = useState([]);
   // const [row2,setRow2] = useState([]);
 
+  
+    useEffect(() => {
 
-  useEffect(() => {
+      // setTimeout(() => {
+      //   setLoading(true)
+      // }, 500);
+      
+      axios.get(`/talent`).then((re) => {
+      // console.log('talent data:',re.data[0].talent);
+      const user = global.auth.getUser() || {}
+      if (user.account === 'techlead' || user.account === 'sales' || user.account === 'hr' || user.account === 'director') {
+        // console.log('ID:', user.account);
+        // console.log('talent data:',re.data);
+        setRow(re.data);
+        setSourcerow(re.data);
+        // setLoading(false)
+      } else {
+        setRow([]);
+        setSourcerow([]);
+        // setLoading(false)
+      }
 
-
-    axios.get(`/talent`).then((re) => {
-        // console.log('talent data:',re.data[0].talent);
-        const user = global.auth.getUser() || {}
-        if (user.account === 'techlead' || user.account === 'sales' || user.account === 'hr' || user.account === 'director') {
-          // console.log('ID:', user.account);
-          // console.log('talent data:',re.data);
-          setRow(re.data);
-          setSourcerow(re.data);
-        } else {
-          setRow([]);
-          setSourcerow([]);
-        }
-
-      })
-      .catch((err) => {
-        // handleNavigate();
-        console.log(err.response);
-      })
-
-   
+    })
+    .catch((err) => {
+      // handleNavigate();
+      console.log(err.response);
+    })
+    // .finally(() => {
+    //   setLoading(false)
+    //   }
+    // );
   }, [])
 
 
@@ -319,6 +330,7 @@ const search = (text) => {
             height: 650,
             width: '90%'
           }}>
+            {/* {!loading ? <CircularProgress />  : } */}
             <Box
             sx={{
               height: 650,
@@ -343,7 +355,6 @@ const search = (text) => {
                 } // checkboxSelection
                 />
             </Box>
-            
           </div>
           <br />
           <br />
