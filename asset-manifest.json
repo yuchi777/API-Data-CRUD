@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/API-Data-CRUD/static/css/main.9be058fc.css",
+    "main.js": "/API-Data-CRUD/static/js/main.647a8f61.js",
+    "static/media/megaBank.png": "/API-Data-CRUD/static/media/megaBank.76ab7300e684d9f5b810.png",
+    "index.html": "/API-Data-CRUD/index.html",
+    "main.9be058fc.css.map": "/API-Data-CRUD/static/css/main.9be058fc.css.map",
+    "main.647a8f61.js.map": "/API-Data-CRUD/static/js/main.647a8f61.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9be058fc.css",
+    "static/js/main.647a8f61.js"
+  ]
+}
