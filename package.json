@@ -1,5 +1,6 @@
 {
   "name": "dashboard-sysmo",
+  "homepage": "https://yuchi777.github.io/API-Data-CRUD",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -19,6 +20,7 @@
     "axios": "^0.27.2",
     "bulma": "^0.9.3",
     "geolib": "^3.3.3",
+    "gh-pages": "^4.0.0",
     "jwt-decode": "^3.1.2",
     "material-ui-search-bar": "^1.0.0",
     "react": "^18.1.0",
@@ -34,6 +36,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
