@@ -13,25 +13,25 @@ export default class Toolbox extends Component {
     searchText:''
   };
 
-  //綁定資料 //input onChange
+  //input onChange
   handleChange = (e)=>{
     const value = e.target.value;
     this.setState({
         searchText:value
     });
 
-    //從父組件獲取函數並帶入input獲取輸入的值value
+    
     this.props.search(value)
 
   }
 
-  //清除資料 //button onClick
+  //清除資料 
   clearSearchText = ()=>{
       this.setState({
           searchText:''
       });
 
-      //從父組件獲取函數帶入空值
+    
       this.props.search('')
   }
 

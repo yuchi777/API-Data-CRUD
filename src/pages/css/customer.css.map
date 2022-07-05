@@ -1,9 +1,0 @@
-{
-    "version": 3,
-    "mappings": "AAAA,AAAA,SAAS,CAAA;EACL,OAAO,EAAE,IAAI;CAIhB;;AALD,AAEI,SAFK,CAEL,kBAAkB,CAAA;EACd,IAAI,EAAC,CAAC;CACT",
-    "sources": [
-        "../customer/customer.scss"
-    ],
-    "names": [],
-    "file": "customer.css"
-}

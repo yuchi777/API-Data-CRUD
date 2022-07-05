@@ -1,19 +1,8 @@
-import Home from "./pages/home/home";
+// import Home from "./pages/home/home";
 import Login from "./pages/login/Login";
-import Talent from "./pages/talent/Talent";
-import TalentAdd from "./pages/talentAdd/TalentAdd";
-import TalentEdit from "./pages/talentEdit/TalentEdit";
-import Sales from "./pages/sales/Sales";
-import SalesSearchNow from "./pages/salesSearchNow/SalesSearchNow";
-import SalesSearchHistory from "./pages/salesSearchHistory/SalesSearchHistory";
-import SalesContract from "./pages/salesContract/SalesContract";
-import SalesContractAdd from "./pages/salesContractAdd/SalesContractAdd";
-import SalesContractEdit from "./pages/salesContractEdit/SalesContractEdit";
-import TalentSign from "./pages/talentSign/TalentSign";
-import Customer from "./pages/customer/Customer";
+import ValueData from "./pages/valueData/ValueData";
 import NotFound from "./pages/notFound/NotFound";
 import '../node_modules/bulma/bulma.sass';
-import "./style/dark.scss";
 // formSource.js
 // import { userInputs } from "./formSource";
 // import List from "./pages/list/List";
@@ -55,31 +44,13 @@ function App() {
       />
       <BrowserRouter >
         <Routes >
-          <Route path="/"  element={<Home/>}/>
+          {/* <Route path="/"  element={<Home/>}/> */}
           <Route path="login" element={<Login/>}/>
-          <Route path="talent">
-            <Route index element={<Talent/>}/>
-            <Route path="talentAdd" element={<TalentAdd/>}/>
-            <Route path="talentEdit" element={<TalentEdit/>}/>
+          <Route path="valueData">
+            <Route index element={<ValueData/>}/>
           </Route>
-          <Route path="sales">
-            <Route index element={<Sales/>}/>
-            <Route path="SearchNow" element={<SalesSearchNow/>}/>
-            <Route path="SearchHistory" element={<SalesSearchHistory/>}/>
-            <Route path="salesContract" element={<SalesContract/>}/>
-            <Route path="salesContractAdd" element={<SalesContractAdd/>}/>
-            <Route path="salesContractEdit" element={<SalesContractEdit/>}/>
-          </Route>
-          <Route path="talentSign" element={<TalentSign/>}/>
-          <Route path="customer" element={<Customer/>} />
           <Route path="notFound" element={<NotFound />} />
           <Route path="*" element={<NotFound />} />
-          {/* <Route path="/"  element={((global.auth.getUser())?<Home/>:<NotFound />)}/> */}
-          {/* <Route path="users">
-            <Route index element={<List/>}/>
-            <Route path=":userId" element={<Single/>}/>
-            <Route path="new" element={<New inputs={userInputs} title="Add New User"/>}/>
-          </Route> */}
         
         </Routes>
       </BrowserRouter>

@@ -1,9 +1,0 @@
-{
-    "version": 3,
-    "mappings": "AAAA,AAAA,MAAM,AAAA,CACF,OAAO,CAAE,IAAI,CAIhB,AALD,AAEI,MAFE,CAEF,eAAe,AAAA,CACX,IAAI,CAAC,CAAC,CACT",
-    "sources": [
-        "../sales/sales.scss"
-    ],
-    "names": [],
-    "file": "sales.min.css"
-}

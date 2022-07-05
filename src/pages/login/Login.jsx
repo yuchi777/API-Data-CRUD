@@ -1,26 +1,19 @@
 import "./login.scss";
-import "../../commons/auth";
 import React from "react";
-//使用 React Hook Form 函式庫
 import { useForm } from "react-hook-form";
-//使用useNavigate 轉址
 import { useNavigate } from "react-router-dom";
-//使用axios
-import axios from "../../commons/axios";
-//使用toast
+// import axios from "../../commons/axios";
 import { toast } from 'react-toastify';
 
 //使用router
 // import {Link} from 'react-router-dom';
-//使用Panel
-// import Panel from '../../components/panel/Panel';
 
 
-//icon & img
-import Logo from "../../img/systex-logoPNG.png";
+//icon
 import PersonIcon from '@mui/icons-material/Person';
 import KeyIcon from '@mui/icons-material/Key';
-
+//logo
+import Logo from "../../img/megaBank.png";
 
 
 //function component
@@ -43,61 +36,24 @@ export default function Login() {
   const handleHistory = () => {
     // const user = global.auth.getUser() || {}
     // navigate(`/${user.account}`)
-    navigate('/')
+    navigate('/valueData')
     
   }
 
   const onSubmit = async data => {
 
-    // 2.獲取表單數據
-    // const formData = {
-    //   eamil: this.accountRef.current.value,
-    //   password: this.passwordRef.current.value,
-    // };
+
     
-    // console.log(data);
-
-    // 3.處理登入邏輯
-    //axios串驗證
     try {
-      console.log('data:',data);
-      //解構附值
-      const { account, password } = data;
-
-      //測試
-      // let axiosPost = axios.post('/auth/login',{account, password});
-      // console.log('axiosPost',axiosPost);
-
-      //測試'10.7.54.42:10000/ldap/'
-      // const response = await axios.post('10.7.54.42:10000/ldap/', { account, password });
-      // console.log('response:',response);
-
-      //axios post
-      const response = await axios.post('/auth/login', { account, password });
-      console.log('response:',response);
-
-      const jwToken = response.data;
-      console.log('jwToken',jwToken);
-
-      //web storage 物件 
-      //localStorage:可以跨瀏覽器分頁做使用、使用者關掉分頁或瀏覽器再打開資料仍不會消失，且資料無期效限制，資料將永久被保留。(5MB容量)
-      //localStorage存入資料：setItem(key,value)//取出資料:getItem(key)//移除資料:removeItem(key)
-      //sessionStorage：生命週期較短，當使用者關掉瀏覽器或分頁時，sessionStorage 中的資料將被清空。
-      //localStorage.setItem('store_token_id',jwToken) =>global.suth.setToken(jwToken)
-      global.auth.setToken(jwToken);
-
-      toast.success('Login Success');
       
-      // 4.跳轉到首頁
-      // props.history.push("/");
-      handleHistory();
+      toast.success('Login Success');
+      setTimeout(() => {
+        //跳轉首頁
+        handleHistory();
+      }, 2000);
 
     } catch (error) {
-      console.log('error:',error);
-      console.log(error.response.data);
-      const message = error.response.data.message;
-      toast.error(message);
-
+      toast.error(error);
     }    
   }
 
@@ -117,7 +73,7 @@ export default function Login() {
               <figure className="image">
                 <img src={Logo} alt="logo"/>
               </figure>
-              <label className="label">SIGNATURE</label>
+              <label className="label">LOGIN</label>
         </div>
 
         <div className="field">
@@ -132,9 +88,8 @@ export default function Login() {
               {...register("account", { 
                 required: 'Account is required', 
                 pattern: {
-                //value: /^[a-za-z0-9_-]+@[a-za-z0-9_-]+(\.[a-za-z0-9_-]+)+$/, //account驗證正則表達式(email)
-                value: /^[a-zA-z]\w{1,15}$/, //au4
-                message: 'invalid account' // JS only: <p>error message</p> TS only support string
+                value: /^[a-zA-z]\w{1,15}$/, 
+                message: 'invalid account' 
               } })}
             ></input>
             <span className="icon is-small is-left">
@@ -167,8 +122,8 @@ export default function Login() {
           </div>
           <br />
           <div className="control btnBox">
-            <button type="submit" className="button is-info loginbtn">
-              LOGIN
+            <button type="submit" className="button is-dark loginbtn">
+              Submit
             </button>
           </div>
         </div>

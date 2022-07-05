@@ -16,7 +16,7 @@ class Panel extends Component {
         this.setState({
             active:false
         })
-
+        console.log('close data',data);
         this.state.callback(data);
     }
 
@@ -73,11 +73,11 @@ class Panel extends Component {
 }
 
 
-//創建div容器放置<Panel/>
+
 const _div = document.createElement('div');
 document.body.appendChild(_div);
 
-//使用render()把<Panel/>放到新建div裡 => render()後則變為一個實例返回全部
+
 const _panel = render(<Panel/>, _div)
 console.log(_panel);
 

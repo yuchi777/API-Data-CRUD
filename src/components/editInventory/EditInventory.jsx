@@ -1,57 +1,44 @@
+import "./editInventory.scss";
 import React, { Component } from 'react';
-import {toast} from 'react-toastify';
 import axios from '../../commons/axios';
-
+import {toast} from 'react-toastify';
 
 class EditInventory extends Component {
 
     state = {
-        id:'',
-        number:'',
-        name:'',
-        nameEn:'',
-        sysNumber:'',
-        sysEmail:'',
-        level:'',
-        birthday:'',
-        gender:'',
-        role:'',
-        school:'',
-        department:'',
-        phone:'',
-        onboard:'',
-        status:'available'
+        COLNAME:'',
+        COLLEN:'',
+        COLCNAME:'',
+        COLNO:'',
+        COLSCALE:'',
+        COLTYPE:'',
+        MODIFY_NO:'',
+        TBNAME:'',
     }
 
-    //因為修改所以要取出值,解構附值
+    
     componentDidMount(){
-        const {id, number,name, nameEn, sysNumber, sysEmail, level, birthday, gender, role, school,department,phone, onboard,status} = this.props.card;
+        const {COLNAME,COLLEN,COLCNAME,COLNO,COLSCALE,COLTYPE, MODIFY_NO,TBNAME} = this.props.card;
+
         this.setState({
-            id:id,
-            number:number,
-            name:name,
-            nameEn:nameEn,
-            sysNumber:sysNumber,
-            sysEmail:sysEmail,
-            level:level,
-            birthday:birthday,
-            gender:gender,
-            role:role,
-            school:school,
-            department:department,
-            phone:phone,
-            onboard:onboard,
-            status:status
+            COLNAME:COLNAME,
+            COLLEN:COLLEN,
+            COLCNAME:COLCNAME,
+            COLNO:COLNO,
+            COLSCALE:COLSCALE,
+            COLTYPE:COLTYPE,
+            MODIFY_NO:MODIFY_NO,
+            TBNAME:TBNAME
         })
     }
 
     //資料綁定
     handleChange = (e) => {
-        const value = e.target.value; //輸入的值
-        const name = e.target.name; //input的name提供state對應 
+        const value = e.target.value; 
+        const name = e.target.name; 
 
         this.setState({
-            [name] : value //輸入的值替換state的值(改變狀態)
+            [name] : value 
         })
     }
 
@@ -59,20 +46,29 @@ class EditInventory extends Component {
     submit = (e) => {
         e.preventDefault();
         const card = {...this.state};
-        axios.put(`talent/${this.state.id}`,card).then((res)=>{
-            console.log('EditInventory data:',res.data);
+        axios.put(`values?colno=${this.state.COLNO}&tbname=${this.state.TBNAME}`,card).then((res)=>{
+            console.log('submit edit res.data:',res.data);
+            console.log('submit edit res:',res);
             this.props.close(res.data);
             toast.success('Edit Success');
         })
+        setTimeout(() => {
+            window.location.reload()
+        }, 500);
     }
 
     //Delete
     onDelete = () =>{
-        axios.delete(`talent/${this.state.id}`).then(()=>{
-            this.props.deleteCard(this.state.id)
+        axios.delete(`values?colno=${this.state.COLNO}&tbname=${this.state.TBNAME}`).then(()=>{
+            let COLNO = this.state.COLNO ;
+            let TBNAME = this.state.TBNAME;
+            this.props.deleteCard(COLNO,TBNAME);
             this.props.close();
             toast.success('Delete Success');
         })
+        // setTimeout(() => {
+        //     window.location.reload()
+        // }, 500);
     }
 
 
@@ -81,100 +77,64 @@ class EditInventory extends Component {
             <div className="inventory">
                 <p className="title has-text-centered">編輯</p>
                 <form onSubmit={this.submit}>
-                    <div className="field">
-                        <label className='label label-flex'>人才編號</label>
+
+                <div className="field">
+                        <label className='label label-flex'>TBNAME</label>
                         <div className="control">
-                            <input type="text" name="number" className="input" value={this.state.number} onChange={this.handleChange}/>
+                            <input type="text" name="TBNAME" className="input" value={this.state.TBNAME} onChange={this.handleChange}/>
                         </div>
                     </div>
+
                     <div className="field">
-                        <label className='label label-flex'>姓名</label>
+                        <label className='label label-flex'>COLNO</label>
                         <div className="control">
-                            <input type="text" name="name" className="input" value={this.state.name} onChange={this.handleChange}/>
+                            <input type="number" name="COLNO" className="input" value={this.state.COLNO} onChange={this.handleChange}/>
                         </div>
                     </div>
+
                     <div className="field">
-                        <label className='label label-flex'>姓名(EN)</label>
                         <div className="control">
-                            <input type="text" name="nameEn" className="input" value={this.state.nameEn} onChange={this.handleChange}/>
+                            <label className='label label-flex'>COLNAME</label>
+                            <input type="text" name="COLNAME" className="input" value={this.state.COLNAME} onChange={this.handleChange}/>
                         </div>
                     </div>
+
                     <div className="field">
-                        <label className='label label-flex'>精誠工號</label>
+                        <label className='label label-flex'>COLCNAME</label>
                         <div className="control">
-                            <input type="text" name="sysNumber" className="input" value={this.state.sysNumber} onChange={this.handleChange}/>
+                            <input type="text" name="COLCNAME" className="input" value={this.state.COLCNAME} onChange={this.handleChange}/>
                         </div>
                     </div>
+
                     <div className="field">
-                        <label className='label label-flex'>精誠Email</label>
+                        <label className='label label-flex'>COLTYPE</label>
                         <div className="control">
-                            <input type="text" name="sysEmail" className="input" value={this.state.sysEmail} onChange={this.handleChange}/>
+                            <input type="text" name="COLTYPE" className="input" value={this.state.COLTYPE} onChange={this.handleChange}/>
                         </div>
                     </div>
+
                     <div className="field">
-                        <label className='label label-flex'>職等</label>
+                        <label className='label label-flex'>COLLEN</label>
                         <div className="control">
-                            <input type="text" name="level" className="input" value={this.state.level} onChange={this.handleChange}/>
+                            <input type="number" name="COLLEN" className="input" value={this.state.COLLEN} onChange={this.handleChange}/>
                         </div>
                     </div>
+                    
+                    
                     <div className="field">
-                        <label className='label label-flex'>生日</label>
+                        <label className='label label-flex'>COLSCALE</label>
                         <div className="control">
-                            <input type="date" name="birthday" className="input" value={this.state.birthday} onChange={this.handleChange}/>
+                            <input type="number" name="COLSCALE" className="input" value={this.state.COLSCALE} onChange={this.handleChange}/>
                         </div>
                     </div>
+                    
                     <div className="field">
-                        <label className='label label-flex'>性別</label>
+                        <label className='label label-flex'>MODIFY_NO</label>
                         <div className="control">
-                            <div className="select is-fullwidth">
-                                <select name="gender" value={this.state.gender} onChange={this.handleChange}>
-                                    <option>男性</option>
-                                    <option>女性</option>
-                                </select>
-                            </div>
+                            <input type="text" name="MODIFY_NO" className="input" value={this.state.MODIFY_NO} onChange={this.handleChange}/>
                         </div>
                     </div>
-                    <div className="field">
-                        <label className='label label-flex'>角色</label>
-                        <div className="control">
-                            <input type="text" name="role" className="input" value={this.state.role} onChange={this.handleChange}/>
-                        </div>
-                    </div>
-                    <div className="field">
-                        <label className='label label-flex'>學校</label>
-                        <div className="control">
-                            <input type="text" name="school" className="input" value={this.state.school} onChange={this.handleChange}/>
-                        </div>
-                    </div>
-                    <div className="field">
-                        <label className='label label-flex'>科系</label>
-                        <div className="control">
-                            <input type="text" name="department" className="input" value={this.state.department} onChange={this.handleChange}/>
-                        </div>
-                    </div>
-                    <div className="field">
-                        <label className='label label-flex'>手機</label>
-                        <div className="control">
-                            <input type="text" name="phone" className="input" value={this.state.phone} onChange={this.handleChange}/>
-                        </div>
-                    </div>
-                    <div className="field">
-                        <label className='label label-flex'>報到日</label>
-                        <div className="control">
-                            <input type="date" name="onboard" className="input" value={this.state.onboard} onChange={this.handleChange}/>
-                        </div>
-                    </div>
-                    <div className="field">
-                        <label className='label label-flex'>媒合狀態</label>
-                        <div className="control">
-                            <div className="select is-fullwidth">
-                                <select name="status" value={this.state.status} onChange={this.handleChange}>
-                                    <option>available</option>
-                                    <option>unavailable</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
+                    
                     <br />
                     <div className="field is-grouped is-grouped-centered">
                         <div className="control">

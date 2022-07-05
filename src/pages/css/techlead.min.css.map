@@ -1,9 +1,0 @@
-{
-    "version": 3,
-    "mappings": "AAAA,AAAA,SAAS,AAAA,CACL,OAAO,CAAE,IAAI,CAIhB,AALD,AAEI,SAFK,CAEL,kBAAkB,AAAA,CACd,IAAI,CAAC,CAAC,CACT",
-    "sources": [
-        "../techlead/techlead.scss"
-    ],
-    "names": [],
-    "file": "techlead.min.css"
-}
